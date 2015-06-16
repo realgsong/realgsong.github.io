@@ -4,6 +4,7 @@ title:  "변화"
 date:   2015-06-16 14:00:00
 categories: Life
 image: /assets/article_images/2014-11-30-mediator_features/night-track.JPG
+comments: true
 ---
 
 Wordpress.com 을 쓰다가 jekyll 을 이용해서 깃헙페이지 기반으로 블로그를 옮기기로 했다. 네트웍이 없는 상황에서 글을 쓰기 편하다는 장점이 있었고, 워드프레스닷컴이 제공하는 분석툴이 별로라는 점이 두번째다.
