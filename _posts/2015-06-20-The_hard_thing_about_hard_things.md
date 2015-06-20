@@ -3,6 +3,7 @@ layout: post
 title:  "하드씽(The Hard Thing About Hard Things)"
 date:   2015-06-20 14:00:00
 categories: book
+image: /assets/article_images/library.jpg
 ---
 
 <div class="ttbReview"><table><tbody><tr><td><a href="http://www.aladin.co.kr/shop/wproduct.aspx?ISBN=1157231322&amp;ttbkey=ttbgsong791557002&amp;COPYPaper=1" target="_blank"><img src="http://image.aladin.co.kr/product/4959/16/cover/1157231322_1.jpg" alt="" border="0"/></a></td><td align="left"  style="vertical-align:top;"><a href="http://www.aladin.co.kr/shop/wproduct.aspx?ISBN=1157231322&amp;ttbkey=ttbgsong791557002&amp;COPYPaper=1" target="_blank" class="aladdin_title">하드씽</a> - <img src="http://image.aladin.co.kr/img/common/star_s10.gif" border="0" alt="10점" /><br/>벤 호로위츠 지음, 안진환 옮김/36.5</td></tr></tbody></table></div>
