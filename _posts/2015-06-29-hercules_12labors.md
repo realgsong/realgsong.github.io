@@ -3,7 +3,7 @@ layout: post
 title:  "헤라클레스의 속죄 의식"
 date:   2015-06-29 18:00:00
 categories: Life
-tags: featured
+tags: 
 image: /assets/article_images/hercules.jpg
 ---
 
