@@ -5,6 +5,7 @@ date:   2015-06-29 18:00:00
 categories: Life
 tags: 
 image: /assets/article_images/hercules.jpg
+comments: true
 ---
 
 그리스 로마 신화에서 아직 신의 이야기가 서사를 지배하고 있는 시절 등장하는 신인 헤라클레스의 모험에 대한 이야기다. 

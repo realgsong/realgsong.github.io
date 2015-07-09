@@ -5,6 +5,7 @@ date:   2015-07-09 16:00:00
 categories: Life
 tags: 
 image: /assets/article_images/library.jpg
+comments: true
 ---
 글을 쓰려고 할 때 데 턱하고 막히는 느낌이 들 때가 많다. 말하고 싶은 것들이 많다고 생각했는데, 막상 풀어내려니 실마리가 보이지 않을 때 말이다.  지금 읽고 있는 책에 이와 관련된 부분이 있어 발췌해봤다.
 
