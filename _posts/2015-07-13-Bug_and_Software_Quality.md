@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "버그와 소프트웨어 품질"
-date:   2015-07-11 18:00:00
+date:   2015-07-13 15:00:00
 categories: Dev
 tags: 
 image: /assets/article_images/computer.jpg
