@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "난감한 버그와 소프트웨어 방법론"
-date:   2015-07-25 18:00:00
+date:   2015-07-28 19:00:00
 categories: Dev
 tags: 
 image: /assets/article_images/computer.jpg
