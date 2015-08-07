@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "스티브 잡스 - 만약 오늘이 나의 마지막 날이라면"
-date:   2015-07-29 18:00:00
+date:   2015-08-07 19:30:00
 categories: Life
 tags: 
 image: /assets/article_images/life.jpg
