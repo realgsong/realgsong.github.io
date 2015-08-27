@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "대항해시대 - 해상 팽창과 근대 세계의 형성"
-date:   2015-08-27 14:34:25
+date:   2015-08-26 20:34:25
 categories: Book
 tags: 
 image: /assets/article_images/library.jpg
