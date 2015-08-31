@@ -59,17 +59,11 @@
     <!-- end of google plus meta -->
 
     <!-- search engine meta -->
-    {% if page.desc %}
-    <meta name="description" content="{{ page.desc }}" />
-    {% else %}
     <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-    {% endif %}
 
     {% if page.robots %}
     <meta name="robots" content="{{ page.robots }}">
     {% endif %}
-
-  <meta name="description" content="{{ site.description }}" />
 
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
