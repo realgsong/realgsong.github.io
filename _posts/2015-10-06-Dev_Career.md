@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "CTO 와 VP.Engineering"
-date:   2015-10-06 18:00:00
+date:   2015-10-06 14:00:00
 categories: Dev
 tags: 
 image: /assets/article_images/computer.jpg
