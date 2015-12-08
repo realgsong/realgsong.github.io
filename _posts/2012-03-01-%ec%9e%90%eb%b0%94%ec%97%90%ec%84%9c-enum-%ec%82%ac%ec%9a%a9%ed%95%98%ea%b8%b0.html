@@ -1,0 +1,122 @@
+---
+layout: post
+title: 자바에서 enum 사용하기
+date: 2012-03-01 23:00:24.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- convert
+- enum
+- int
+- 할당
+- 정수
+- Java
+meta:
+  _publicize_pending: '1'
+  _social_notify: '1'
+  _edit_last: '16961716'
+  _graphene_slider_img: global
+  _graphene_post_date_display: global
+  _graphene_show_addthis: global
+  _graphene_slider_imgurl: ''
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _social_aggregation_log: a:20:{i:1330612313;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330614958;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330617848;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330622279;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330630273;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330645467;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330674334;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330717544;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330804838;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330977641;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331692248;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331694123;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331696843;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331701245;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331709340;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331723841;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331753425;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331796647;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331883045;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1332055858;O:8:"stdClass":1:{s:6:"manual";s:0:"";}}
+  _social_broadcasted_ids: a:1:{s:7:"twitter";a:1:{i:63617283;a:1:{i:175219584213848066;a:3:{s:7:"message";s:2548:"eyJpbl9yZXBseV90b19zdGF0dXNfaWQiOm51bGwsImZhdm9yaXRlZCI6ZmFsc2UsImluX3JlcGx5X3RvX3VzZXJfaWRfc3RyIjpudWxsLCJpbl9yZXBseV90b19zY3JlZW5fbmFtZSI6bnVsbCwiaW5fcmVwbHlfdG9fdXNlcl9pZCI6bnVsbCwidHJ1bmNhdGVkIjpmYWxzZSwicG9zc2libHlfc2Vuc2l0aXZlIjpmYWxzZSwiY29udHJpYnV0b3JzIjpudWxsLCJ1c2VyIjp7ImlzX3RyYW5zbGF0b3IiOmZhbHNlLCJpZCI6IjYzNjE3MjgzIiwiZmF2b3VyaXRlc19jb3VudCI6MjIxLCJwcm9maWxlX3VzZV9iYWNrZ3JvdW5kX2ltYWdlIjp0cnVlLCJ2ZXJpZmllZCI6ZmFsc2UsImxhbmciOiJrbyIsInByb2ZpbGVfdGV4dF9jb2xvciI6IjMzMzMzMyIsIm5vdGlmaWNhdGlvbnMiOmZhbHNlLCJ1cmwiOiJodHRwOlwvXC9nc29uZy5wZS5rciIsInRpbWVfem9uZSI6IlNlb3VsIiwiY3JlYXRlZF9hdCI6IkZyaSBBdWcgMDcgMDI6Mzk6MzkgKzAwMDAgMjAwOSIsInV0Y19vZmZzZXQiOjMyNDAwLCJwcm9maWxlX3NpZGViYXJfYm9yZGVyX2NvbG9yIjoiQzBERUVEIiwiaWRfc3RyIjoiNjM2MTcyODMiLCJwcm9maWxlX2JhY2tncm91bmRfaW1hZ2VfdXJsX2h0dHBzIjoiaHR0cHM6XC9cL3NpMC50d2ltZy5jb21cL2ltYWdlc1wvdGhlbWVzXC90aGVtZTFcL2JnLnBuZyIsIm5hbWUiOiJLaSBTdW5nIEJhZSIsInByb2ZpbGVfaW1hZ2VfdXJsIjoiaHR0cDpcL1wvYTAudHdpbWcuY29tXC9wcm9maWxlX2ltYWdlc1wvMTExNDM2NTM5N1wvNDE2MzNfNjc2NDkxNTI5XzEyMjlfbl9ub3JtYWwuanBnIiwiZGVmYXVsdF9wcm9maWxlIjp0cnVlLCJwcm9maWxlX2JhY2tncm91bmRfdGlsZSI6ZmFsc2UsImZvbGxvd2Vyc19jb3VudCI6OTcsInByb3RlY3RlZCI6ZmFsc2UsImxvY2F0aW9uIjoiXHVhY2JkXHVhZTMwXHViM2M0LCBcdWMxMzFcdWIwYThcdWMyZGMiLCJwcm9maWxlX3NpZGViYXJfZmlsbF9jb2xvciI6IkRERUVGNiIsImNvbnRyaWJ1dG9yc19lbmFibGVkIjpmYWxzZSwiZm9sbG93aW5nIjpmYWxzZSwiZm9sbG93X3JlcXVlc3Rfc2VudCI6ZmFsc2UsInN0YXR1c2VzX2NvdW50Ijo0ODcsImxpc3RlZF9jb3VudCI6MywiZGVzY3JpcHRpb24iOiJJIGRvbid0IHR3ZWV0Iiwic2hvd19hbGxfaW5saW5lX21lZGlhIjp0cnVlLCJwcm9maWxlX2JhY2tncm91bmRfY29sb3IiOiJDMERFRUQiLCJmcmllbmRzX2NvdW50IjoyMTYsInByb2ZpbGVfYmFja2dyb3VuZF9pbWFnZV91cmwiOiJodHRwOlwvXC9hMC50d2ltZy5jb21cL2ltYWdlc1wvdGhlbWVzXC90aGVtZTFcL2JnLnBuZyIsInByb2ZpbGVfbGlua19jb2xvciI6IjAwODRCNCIsInNjcmVlbl9uYW1lIjoicmVhbGdzb25nIiwicHJvZmlsZV9pbWFnZV91cmxfaHR0cHMiOiJodHRwczpcL1wvc2kwLnR3aW1nLmNvbVwvcHJvZmlsZV9pbWFnZXNcLzExMTQzNjUzOTdcLzQxNjMzXzY3NjQ5MTUyOV8xMjI5X25fbm9ybWFsLmpwZyIsImdlb19lbmFibGVkIjp0cnVlLCJkZWZhdWx0X3Byb2ZpbGVfaW1hZ2UiOmZhbHNlfSwicmV0d2VldGVkIjpmYWxzZSwiaWRfc3RyIjoiMTc1MjE5NTg0MjEzODQ4MDY2IiwiY29vcmRpbmF0ZXMiOm51bGwsImNyZWF0ZWRfYXQiOiJUaHUgTWFyIDAxIDE0OjAyOjU4ICswMDAwIDIwMTIiLCJwbGFjZSI6bnVsbCwicmV0d2VldF9jb3VudCI6MCwic291cmNlIjoiPGEgaHJlZj1cImh0dHBzOlwvXC9zb3ByZXN0by5tYWlsY2hpbXAuY29tXCIgcmVsPVwibm9mb2xsb3dcIj5Tb2NpYWwgUHJveHkgYnkgTWFpbGNoaW1wPFwvYT4iLCJpZCI6IjE3NTIxOTU4NDIxMzg0ODA2NiIsImluX3JlcGx5X3RvX3N0YXR1c19pZF9zdHIiOm51bGwsImdlbyI6bnVsbCwidGV4dCI6Ilx1Yzc5MFx1YmMxNFx1YzVkMFx1YzExYyBlbnVtIFx1YzBhY1x1YzZhOVx1ZDU1OFx1YWUzMCBodHRwOlwvXC90LmNvXC9wcTlVaExFcSJ9";s:4:"urls";a:2:{i:0;s:33:"http://www.gsong.pe.kr/wp/?p=5546";i:1;s:23:"http://wp.me/p1vsu3-1rs";}s:7:"account";O:8:"stdClass":1:{s:4:"user";O:8:"stdClass":38:{s:24:"profile_background_color";s:6:"C0DEED";s:9:"protected";s:0:"";s:17:"profile_image_url";s:79:"http://a2.twimg.com/profile_images/1114365397/41633_676491529_1229_n_normal.jpg";s:23:"profile_background_tile";s:0:"";s:23:"profile_image_url_https";s:81:"https://si0.twimg.com/profile_images/1114365397/41633_676491529_1229_n_normal.jpg";s:4:"name";s:11:"Ki
+    Sung Bae";s:21:"show_all_inline_media";s:1:"1";s:20:"contributors_enabled";s:0:"";s:16:"favourites_count";s:1:"8";s:26:"profile_sidebar_fill_color";s:6:"DDEEF6";s:12:"listed_count";s:1:"3";s:4:"lang";s:2:"en";s:10:"utc_offset";s:5:"32400";s:10:"created_at";s:30:"Fri
+    Aug 07 02:39:39 +0000 2009";s:11:"description";s:13:"I don't tweet";s:9:"time_zone";s:5:"Seoul";s:28:"profile_sidebar_border_color";s:6:"C0DEED";s:15:"followers_count";s:2:"67";s:8:"verified";s:0:"";s:14:"statuses_count";s:3:"250";s:11:"geo_enabled";s:1:"1";s:28:"profile_use_background_image";s:1:"1";s:21:"default_profile_image";s:0:"";s:13:"notifications";s:0:"";s:18:"profile_text_color";s:6:"333333";s:9:"following";s:0:"";s:28:"profile_background_image_url";s:47:"http://a0.twimg.com/images/themes/theme1/bg.png";s:8:"location";s:20:"경기도,
+    성남시";s:6:"id_str";s:8:"63617283";s:13:"is_translator";s:0:"";s:15:"default_profile";s:1:"1";s:34:"profile_background_image_url_https";s:49:"https://si0.twimg.com/images/themes/theme1/bg.png";s:18:"profile_link_color";s:6:"0084B4";s:2:"id";s:8:"63617283";s:19:"follow_request_sent";s:0:"";s:13:"friends_count";s:3:"136";s:3:"url";s:22:"http://www.gsong.pe.kr";s:11:"screen_name";s:9:"realgsong";}}}}}}
+  original_post_id: '5546'
+  _wp_old_slug: '5546'
+  _oembed_5b7c024c703c4b8b843b5cb9bab125ea: '{{unknown}}'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>자바의 예전 버전에서는 enum 을 하려면</p>
+<pre class="brush: java; gutter: true">// int Enum Pattern - has severe problems!
+public static final int SEASON_WINTER = 0;
+public static final int SEASON_SPRING = 1;
+public static final int SEASON_SUMMER = 2;
+public static final int SEASON_FALL   = 3;</pre>
+<p>이렇게 스태틱 상수를 정의해서 쓰곤 했는데, 이제는 enum type 이 생겼더라. 게다가 여기서 한 발 더 나아가 C 나 C++ 의 enum 과 달리 클래스 처럼 메소드를 추가하고, 생성자 등을 정의할 수도 있다. 예를 들어 아래와 같은 식이다.</p>
+<pre class="brush: java; gutter: true">public enum Planet {
+    MERCURY (3.303e+23, 2.4397e6),
+    VENUS   (4.869e+24, 6.0518e6),
+    EARTH   (5.976e+24, 6.37814e6),
+    MARS    (6.421e+23, 3.3972e6),
+    JUPITER (1.9e+27,   7.1492e7),
+    SATURN  (5.688e+26, 6.0268e7),
+    URANUS  (8.686e+25, 2.5559e7),
+    NEPTUNE (1.024e+26, 2.4746e7),
+    PLUTO   (1.27e+22,  1.137e6);
+
+    private final double mass;   // in kilograms
+    private final double radius; // in meters
+    Planet(double mass, double radius) {
+        this.mass = mass;
+        this.radius = radius;
+    }
+    public double mass()   { return mass; }
+    public double radius() { return radius; }
+
+    // universal gravitational constant  (m3 kg-1 s-2)
+    public static final double G = 6.67300E-11;
+
+    public double surfaceGravity() {
+        return G * mass / (radius * radius);
+    }
+    public double surfaceWeight(double otherMass) {
+        return otherMass * surfaceGravity();
+    }
+}</pre>
+<p>자바에서 enum 은 C++ 보다 type-safe 하다. 그렇다보니 조금 불편한 감도 있는데 예를 들어 아래와 같은 C++ 코드를 java 로 만드려면 조금 귀찮아 진다.</p>
+<pre class="brush: cpp; gutter: true">#include &quot;stdio.h&quot;
+
+enum ALPHA{A=0,B,C};
+
+int main()
+{
+    ALPHA val;
+    val=(ALPHA)2;
+    printf(&quot;%dn&quot;, val);
+}</pre>
+<p>enum 으로 된 타입에 강제로 캐스팅을 해서 정수 값을 할당 했다. C++ 에서는 enum 의 값이 1씩 증가되기때문에 2 라고 할당하면 ALPHA.C 와 같은 값을 가진다. 이걸 자바로 구현하려면 enum 구현이 아래처럼 되어야 한다.</p>
+<pre class="brush: java; gutter: true">class Test
+{
+    enum ALPHA {
+        A(0),
+        B(1),
+        C(2);
+
+        private final int value;
+        ALPHA(int val) {
+            value = val;
+        }
+        public static ALPHA lookup(int val) {
+            for(ALPHA alphabet : ALPHA.values()) {
+                if (alphabet.value() == val) {
+                    return alphabet;
+                }
+            }
+            return null;
+        }
+
+        public int value() {
+            return value;
+        }
+    }
+
+    public static void main (String [] args) {
+        ALPHA val;
+        val = ALPHA.lookup(2);
+        System.out.println(val);
+    }
+}</pre>
+<p>물론 이외에도 여러가지 방법이 있을 수 있다. 타입체크를 엄격하게 가져가다보니 조금 번거로워지는 감이 있긴 한데, 그래도 이쪽이 훨씬 버그가 적게 발생할 것 같다는 생각이 든다.</p>
+<p>출처 : <a href="http://docs.oracle.com/javase/1.5.0/docs/guide/language/enums.html">http://docs.oracle.com/javase/1.5.0/docs/guide/language/enums.html</a><a href="http://www.velocityreviews.com/forums/t371282-p2-how-do-i-convert-an-int-to-an-enum.html">How do I convert an int to an enum? - Page 2</a></p>

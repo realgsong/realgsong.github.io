@@ -1,0 +1,25 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.24
+date: 2008-01-24 02:28:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습 문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2669'
+  _wp_old_slug: '2669'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>[CODE]<br />(define (fast-prime? n times)<br />&nbsp; (cond ((= times 0) #t)<br />&nbsp; &nbsp; &nbsp; &nbsp; ((fermat-test n) (fast-prime? n (- times 1)))<br />&nbsp; &nbsp; &nbsp; &nbsp; (else #f)))<br />(define (fermat-test n)<br />&nbsp; (define (try-it a)<br />&nbsp; &nbsp; (= (expmod a n n) a))<br />&nbsp; (try-it (+ 1 (random (- n 1)))))<br />(define (expmod base exp m)<br />&nbsp; (cond ((= exp 0) 1)<br />&nbsp; &nbsp; &nbsp; &nbsp; ((even? exp)<br />&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (remainder (square (expmod base (/ exp 2) m))<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m))<br />&nbsp; &nbsp; &nbsp; &nbsp; (else<br />&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (remainder (* base (expmod base (- exp 1) m))<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m))))<br />(define (search-for-primes rangestart)<br />&nbsp; (define (SFP-iter start-time n)<br />&nbsp; &nbsp; (newline)<br />&nbsp; &nbsp; (display n)<br />&nbsp; &nbsp; (if (fast-prime? n 50) (report-prime (- (runtime) start-time))<br />&nbsp; &nbsp; &nbsp; &nbsp; (SFP-iter start-time (+ n 2))))<br />&nbsp; (if (even? rangestart) (SFP-iter (runtime) (+ rangestart 1))<br />&nbsp; &nbsp; &nbsp; (SFP-iter (runtime) rangestart)))<br />[/CODE]</p>
+<p>자 이제 테스트만 해보면 되는데, 굵게 표시한 부분의 random() 프로시져가 int 범위 안에서만 값을 리턴하다 보니 결과가 제대로 안나온다. 쳇.<br />아마 추측컨데, log(n) 의 수행시간을 가지므로 0 의 개수에 비례해서 수행시간이 커질 것이다.</p>

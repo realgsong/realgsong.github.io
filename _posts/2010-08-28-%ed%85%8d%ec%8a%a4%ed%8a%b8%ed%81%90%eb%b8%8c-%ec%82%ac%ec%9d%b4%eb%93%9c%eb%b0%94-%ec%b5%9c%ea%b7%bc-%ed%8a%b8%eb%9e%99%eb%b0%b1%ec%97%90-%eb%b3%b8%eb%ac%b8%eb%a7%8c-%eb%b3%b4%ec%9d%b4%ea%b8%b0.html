@@ -1,0 +1,31 @@
+---
+layout: post
+title: 텍스트큐브 사이드바 최근 트랙백에 본문만 보이기
+date: 2010-08-28 03:33:53.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 텍스트큐브
+- 트랙백
+meta:
+  _publicize_pending: '1'
+  original_post_id: '3132'
+  _wp_old_slug: '3132'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>SNS 와 함께 블로그의 트랙백이 많이 사용되고 있는데, 텍스트큐브의 최근 트랙백은 제목만 보여주기 때문에 아래와 같이 쓸 데 없는 정보들의 반복이 되기 싶다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2010/08/1286796786.png"><img style="background-image:none;margin:0;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/1186791014.png" width="244" height="230" /></a></p>
+<p>‘gsong의 생각’ 이라는 것은 미투데이에서 임의로 걸어둔 트랙백 제목이다. 저것 보다는 트랙백 내용의 일부를 보여주는 것이 좋지 않을까 싶어서 <a href="http://forum.tattersite.com/ko/viewtopic.php?id=9991">물어보니</a>, 안타깝게도 스킨의 치환자로는 해결할 수 없고 텍스트큐브의 소스를 조금 수정해주어야 한다.</p>
+<p>텍스트큐브 설치 디렉토리에 가서 tc/library/view/view.php 를 열어 subject property 를 excerpt 로 바꿔주면 된다.</p>
+<blockquote><p>1096c1096      <br />&lt;               dress('rcttb_rep_desc', htmlspecialchars(UTF8::lessenAsEm($trackback[<strong>'subject'</strong>], $skinSetting['recentTrackbackLength'])), $view);       <br />---       <br />&gt;               dress('rcttb_rep_desc', htmlspecialchars(UTF8::lessenAsEm($trackback[<strong>'excerpt'</strong>], $skinSetting['recentTrackbackLength'])), $view);       </p>
+</blockquote>
+<p>그럼 사이드바의 최근 트랙백이 내용위주로 보여진다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2010/08/1289051724.png"><img style="background-image:none;border-bottom:0;border-left:0;padding-left:0;padding-right:0;display:inline;border-top:0;border-right:0;padding-top:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/1358496080.png" width="227" height="234" /></a></p>

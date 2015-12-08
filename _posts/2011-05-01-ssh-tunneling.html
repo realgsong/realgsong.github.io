@@ -1,0 +1,68 @@
+---
+layout: post
+title: SSH tunneling
+date: 2011-05-01 15:30:01.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- putty
+- ssh
+- tunneling
+meta:
+  _publicize_pending: '1'
+  original_post_id: '3836'
+  _wp_old_slug: '3836'
+  _oembed_aaf246eaa5bc9b953c0ab21ef6fafeb7: '{{unknown}}'
+  _oembed_8230da34801fd28056091fcbe816380e: '{{unknown}}'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>아래는 회사 네트워크를 구성할 때 흔히 사용되는 모양이다. 회사의 컴퓨터는 라우터 밑에 내부 네트워크를 구성하고 있다. 이때 집에서 회사 내의 특정 컴퓨터를 접속해서 사용하려면 어떻게 하면 될까?</p>
+<p>쉽게 VPN을 구성하는 것이 가장 좋은데, 비용이 들고 번거롭기도 하니까, 딱 필요한 몇 가지 서비스들만 사용하려면 SSH tunneling 도 좋은 방법이 된다. 예를 들어 사내 웹서버를 접근하고 싶다거나 자신의 작업용 linux 박스를 접근하고자 하는 경우가 좋은 예다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2011/05/image.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/image_thumb.png" width="644" height="259" /></a></p>
+<p>SSH tunneling 을 하는 방법은 먼저 위와 같이 접근이 되어 있을 때, tunneling 이 가능한 (즉, 내부 네트워크에도 접근이 가능하고 외부에서도 접근이 되는) SSH 서버가 하나 있어야 한다.</p>
+<p>Dynamic DNS 등 여러 방법을 통해 이를 구성 할 수 있다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2011/05/image1.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/image_thumb1.png" width="644" height="259" /></a></p>
+<p>이제 DDNS 서버에 SSH server 를 설치한 다음, 이를 통해 tunneling 을 구성하면 된다. 예를 들기 위해서 Home 서버의 OS 는 Windows 7, Target 은 리눅스 라고 하자.</p>
+<h1>Home machine setting</h1>
+<p>먼저 Home 에 putty 를 설치한다. (<a title="http://www.chiark.greenend.org.uk/~sgtatham/putty/" href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">http://www.chiark.greenend.org.uk/~sgtatham/putty/</a>)</p>
+<p>그 다음 putty 에 tunneling 을 위한 세션을 설정해야 한다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2011/05/image2.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/image_thumb2.png" width="432" height="216" /></a></p>
+<p>Dynamic DNS 등을 설정한 서버의 URL 이나 IP address 를 쓰고, 왼쪽 분류 창에서 접속-SSH 로 이동한다. ‘셸이나 명령어를 실행을 하지&nbsp; 않음’ 과 ‘압축 허용’ 을 체크 해두면 편하다. (꼭 필요한 것은 아니다.)</p>
+<p><a href="http://realgsong.files.wordpress.com/2011/05/image3.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/image_thumb3.png" width="413" height="290" /></a></p>
+<p>그다음 접속-SSH-터널링 으로 이동한다.</p>
+<p>원포트(source port) 에 원하는 포트 번호를 쓰고 (여기서는 3000 번을 사용했다.) 옵션에서 동적(dynamic), 자동(Auto) 를 선택하고 추가 버튼을 눌러준다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2011/05/image4.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/image_thumb4.png" width="445" height="304" /></a></p>
+<p>그 다음 위 세션을 적절한 이름으로 저장하자. 이제 해당 연결을 열어 접속하면, SSH tunneling 을 완료 된 것이다.</p>
+<h1>회사 리눅스 박스로 SSH 연결하기</h1>
+<p><a href="http://realgsong.files.wordpress.com/2011/05/image5.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/image_thumb5.png" width="644" height="383" /></a></p>
+<p>위와 같이 SSH 머신으로 연결이 된 상태에서 이제 회사 내부 네트웍으로 SSH 연결을 해보자.</p>
+<p>putty 를 실행한다. 원하는 target 머신의 회사 내부 네트워크 주소를 입력하고,</p>
+<p><a href="http://realgsong.files.wordpress.com/2011/05/image6.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/image_thumb6.png" width="446" height="209" /></a></p>
+<p>Proxy 설정을 해준다. 왼쪽 분류 창에서 접속-프락시 로 이동하자. 터널링 설정에 사용했던 포트 번호와 127.0.0.1 주소를 써준다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2011/05/image7.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/image_thumb7.png" width="244" height="157" /></a></p>
+<p>그 다음 접속하면 된다. 위와 같은 프락시 설정을 매번 해주는 것이 번거롭기 때문에, 해당 설정을 세션에 저장해두면 편하다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2011/05/image8.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/image_thumb8.png" width="648" height="304" /></a></p>
+<h1>회사 내부 인트라넷 웹페이지 열기</h1>
+<p>웹페이지 접근도 SSH 의 경우와 동일하게 proxy 설정을 통해서 할 수 있다. IE 에서는 proxy 설정이 잘 안 되는 것 같았다. firefox 를 사용하면 아래와 같은 설정을 통해 접근이 가능하다.</p>
+<p>firefox 를 설치한 후, 설정-고급-네트워크-연결(설정버튼) 으로 가서</p>
+<p><a href="http://realgsong.files.wordpress.com/2011/05/image9.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/image_thumb9.png" width="508" height="480" /></a></p>
+<p>위와 같이 프록시 수동 설정을 선택하고 SOCKS 호스트에 127.0.0.1 을 입력 포트에 3000 그리고 SOCKS v4 를 선택한 뒤 확인을 눌러 설정 창을 닫는다. 이 후 firefox 에서 <a href="http://192.168.0.1">http://192.168.0.1</a> 등의 회사 내부 네트워크 접근이 가능.</p>
+<h1>Target 머신에 VNC 연결을 하고자 하는 경우</h1>
+<p>Home 머신의 SSH tunneling 에 다음을 추가한다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2011/05/image10.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/image_thumb10.png" width="425" height="244" /></a></p>
+<p>원 포트(source port) : 5900, 대상 : Target 머신의 내부 ipaddress 와 뒤에 :5900 을 붙이고, 로컬/자동을 선택하여 추가한다.</p>
+<p>이후 VNC viewer 와 같은 클라이언트에서 </p>
+<p><a href="http://realgsong.files.wordpress.com/2011/05/image11.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/image_thumb11.png" width="350" height="131" /></a></p>
+<p>127.0.0.1 로 접속하면 접근이 가능하다. 만약 VNC 로 접근해야 하는 머신이 여러개라면,</p>
+<p><a href="http://realgsong.files.wordpress.com/2011/05/image12.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/image_thumb12.png" width="427" height="373" /></a></p>
+<p>위와 같이 원 포트 값을 바꾸어 (예에서는 5901) 로 하고 대상 ipaddress 를 다르게 하여 설정한 뒤 VNC viewer 에서 127.0.0.1:1 로 접근하면 된다. </p>
+<p><a href="http://realgsong.files.wordpress.com/2011/05/image13.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/image_thumb13.png" width="341" height="137" /></a></p>
+<p>이 때 뒤의 포트넘버 1에 주의한다. 5901 로 설정했으면 5901 – 5900 인 1 을 써주면 되고, 5902 로 설정했으면 5902-5900 = 2로 써서 127.0.0.1:2 로 접근하면 된다.</p>

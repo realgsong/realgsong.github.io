@@ -1,0 +1,37 @@
+---
+layout: post
+title: 우분투로 (보안에 취약한) 원격 머신 간단 설정
+date: 2012-03-06 16:27:15.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- headless
+- 설정
+- 우분투
+- 원격
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _social_notify: '1'
+  _social_aggregation_log: a:10:{i:1331020824;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331022736;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331026266;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331030828;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331038944;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331054283;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331083823;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331127139;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331214341;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331387203;O:8:"stdClass":1:{s:6:"manual";s:0:"";}}
+  original_post_id: '5676'
+  _wp_old_slug: '5676'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>보통 원격 로그인으로 작업하는 PC 는 모니터를 잘 연결하지 않는다. 이런걸 Headless machine 라고 부르는 모양인데, 우분투에서 이렇게 사용하려면 문제가 좀 있다.</p>
+<p>문제의 원인은 VNC server 가 로그인을 해야만 작동한다는 것이다. 그래서 검색을 좀 해보면, 로그인 하기 전에 VNC Server 를 띄우는 여러가지 방법들이 나오는데, 하나같이 설정하기 귀찮다.</p>
+<p>그러다 <a href="http://www.abdevelopment.ca/blog/start-vnc-server-ubuntu-boot#comment-549">얻어 걸린 보안에 취약한 방법 하나</a>를 옮겨온다.</p>
+<ol>
+<li>Desktop Sharing 에서 원격 연결을 허용토록 하고, 적절한 패스워드를 설정한다.</li>
+<li>Screen 에 가서 30 초 후에 Lock Screen 이 되도록 한다.</li>
+<li>User Accounts 에서 해당 사용자 계정에 automatic login 을 설정한다.</li>
+</ol>

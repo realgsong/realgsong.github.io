@@ -1,0 +1,42 @@
+---
+layout: post
+title: 윈도우 Cygwin 에서 Python 개발 환경 셋업
+date: 2012-11-15 11:50:46.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- cygwin
+- pip
+- python
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  original_post_id: '6920'
+  _wp_old_slug: '6920'
+  _oembed_cd37b34555abd177000e5ab6dc20f305: '{{unknown}}'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p><a href="http://anythingsimple.blogspot.kr/2010/04/using-pip-virtualenv-and.html">Anything simple: Using pip, virtualenv, and virtualenvwrapper in Cygwin</a></p>
+<h1>pip 설치</h1>
+<p>Python 인터프리터와 PIP 그리고 Virtualenv 를 설정하여 파이썬 개발 가능한 환경을 Cygwin 에서 구축하는 방법에 대한 것이다.</p>
+<ol>
+<li>먼저 <a href="http://cygwin.com/install.html">여기</a>에서 cygwin 다운로드 받고 실행.</li>
+<li>설치할 component 목록에서 Python 선택 후 설치. wget 유틸도 함께 설치. 필요하다면 vim 같은 에디터도 설치한다.</li>
+<li>easy_install 설치. <a href="http://peak.telecommunity.com/dist/ez_setup.py">http://peak.telecommunity.com/dist/ez_setup.py</a> 를 다운로드해서 실행한다.</li>
+<li>easy_install pip</li>
+<li>pip install virtualenv</li>
+<li>pip install virtualenvwrapper</li>
+<li>$HOME/.bash_profile 에 다음 줄 추가. WORKON_HOME 의 값은 적당한 디렉토리로 설정.
+<pre>export WORKON_HOME=/cygdrive/c/Users/userid/dev/virtualenvs
+source /usr/bin/virtualenvwrapper.sh</pre>
+</li>
+</ol>
+<p>이렇게 해보니까 pip 이용해서 django 설치하고 테스트서버 돌려보는 정도는 작동하는 것 같다. 이외에도 cygwin 에서 설정이 필요한 부분들이 많겠다만, 그런 팁들은 좀 써본 다음 올릴 예정.</p>

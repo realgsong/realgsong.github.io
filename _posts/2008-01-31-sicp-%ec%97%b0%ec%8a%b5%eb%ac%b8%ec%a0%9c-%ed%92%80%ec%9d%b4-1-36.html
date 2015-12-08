@@ -1,0 +1,31 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.36
+date: 2008-01-31 08:27:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2690'
+  _wp_old_slug: '2690'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>[CODE]<br />(define (fixed-point f first-guess)<br />&nbsp; (define (close-enough? v1 v2)<br />&nbsp; &nbsp; (display v1)<br />&nbsp; &nbsp; (newline)<br />&nbsp; &nbsp; (&lt; (abs (- v1 v2)) tolerance))<br />&nbsp; (define (try guess)<br />&nbsp; &nbsp; (let ((next (f guess)))<br />&nbsp; &nbsp; &nbsp; (if (close-enough? guess next)<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; next<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (try next))))<br />&nbsp; (try first-guess))</p>
+<p>(define tolerance 0.00001)<br />[/CODE]</p>
+<p>&gt; (fixed-point (lambda (x) (/ (log 1000) (log x))) 3)<br />3<br />6.287709822868153<br />3.757079790200296<br />5.218748919675315<br />4.180797746063314<br />4.828902657081293<br />4.386936895811029<br />4.671722808746095<br />4.481109436117821<br />4.605567315585735<br />4.522955348093164<br />4.577201597629606<br />4.541325786357399<br />4.564940905198754<br />4.549347961475409<br />4.5596228442307565<br />4.552843114094703<br />4.55731263660315<br />4.554364381825887<br />4.556308401465587<br />4.555026226620339<br />4.55587174038325<br />4.555314115211184<br />4.555681847896976<br />4.555439330395129<br />4.555599264136406<br />4.555493789937456<br />4.555563347820309<br />4.555517475527901<br />4.555547727376273<br />4.555527776815261<br />4.555540933824255<br />4.555532257016376</p>
+<p>With average damping<br />[CODE]<br />(define (fixed-point f first-guess)<br />&nbsp; (define (close-enough? v1 v2)<br />&nbsp; &nbsp; (display v1)<br />&nbsp; &nbsp; (newline)<br />&nbsp; &nbsp; (&lt; (abs (- v1 v2)) tolerance))<br />&nbsp; (define (try guess)<br />&nbsp; &nbsp; (let ((next (f guess)))<br />&nbsp; &nbsp; &nbsp; (if (close-enough? guess next)<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; next<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (try next))))<br />&nbsp; (try first-guess))</p>
+<p>(define tolerance 0.00001)</p>
+<p>(define (average x y) (/ (+ x y) 2))</p>
+<p>[/CODE]<br />&gt; (fixed-point (lambda (x) (average x (/ (log 1000) (log x)))) 3)<br />3<br />4.643854911434076<br />4.571212264484558<br />4.558225323866829<br />4.555994244552759<br />4.555613793442989<br />4.5555490009596555<br />4.5555379689379265<br />4.55553609061889<br />&gt; </p>
+<p>Average damping 사용 시 근사 값을 훨씬 빨리 찾는 것을 알 수 있다.</p>

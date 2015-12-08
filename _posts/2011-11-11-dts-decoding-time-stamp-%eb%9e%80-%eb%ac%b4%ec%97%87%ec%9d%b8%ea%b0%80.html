@@ -1,0 +1,44 @@
+---
+layout: post
+title: DTS (Decoding Time Stamp) 란 무엇인가?
+date: 2011-11-11 23:12:11.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- b-frame
+- DTS
+- i-frame
+- MPEG
+- p-frame
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_notify: '0'
+  original_post_id: '4941'
+  _wp_old_slug: '4941'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>DTS 가 뭔지 알아보려면 먼저 MPEG-1 비디오에 대해서 살펴봐야 한다. <a href="http://en.wikipedia.org/wiki/MPEG-1">MPEG-1</a> 은 비디오, 오디오의 손실압축 표준이다.</p>
+<p>이 중 비디오는 네 가지 종류의 프레임들로 나뉜다.</p>
+<ul>
+<li>I-frames : Intra frame. 키프레임이라고도 한다. 바탕이 되는 정보를 가지고 있다.</li>
+<li>P-frames : Predicted frame. inter-frame 이라고도 한다. P-frame 은 그 전의 frame 에 대해서 바뀐 부분만 담고 있다. 그래서 ‘그 전’ 에 해당하는 프레임이 있어야 하고, 이것을 anchor frame 이라고 부른다. anchor frame 은 I-frame 이 될 수도 있고, P-frame 이 될 수도 있다.</li>
+<li>B-frames : bidirectional-frame. P-frame 이 그 전 프레임에 대한 delta 만 저장하고 있다면, B-frame 의 정보는 그 전 프레임은 물론이고, 그 다음에 나올 프레임에서도 쓰일 수 있다. 그래서 2 개의 anchor frame 을 갖는다.</li>
+<li>D-frames : 후에 나오는 비디오 표준에서는 쓰이지 않는다고 하니 생략.</li>
+</ul>
+<p>I-frame 과 P-frame 이 어떤 식으로 화면을 그려내는지는 다음 예제를 보면 이해가 쉽다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2011/11/droppedimage_2.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="droppedImage_2" src="{{ site.baseurl }}/assets/wp/droppedimage_2_thumb.png" alt="droppedImage_2" width="644" height="365" border="0" /></a></p>
+<p>위 그림 (<a href="http://www.roughlydrafted.com/RD/RDM.Tech.Q1.07/6FFE4614-E1AB-45C7-8611-19D06ECCAD9F.html">출처</a>) 에서 보듯이, Full frame 을 모두 가지고 있는 것 보다는 변하지 않는 배경 부분은 I-frame 에 담아두고, 떨어지는 사람과 폭포수만 다시 그려주면 되는 것이다.</p>
+<p>그럼 B-frame 은 무엇일까? B-frame 은 여기서 조금 더 압축률을 높이기 위한 방법이다. 앞의 anchor 에 대해서 바뀐 부분을 표시할 수도 있고, 뒤의 anchor 에 대해서 그전 상태가 뭔지 표시할 수도 있기 때문에 더 적은 데이터로도 표현 가능한 정보의 양이 많다고 할 수 있다. (이 부분은 아직 잘 이해가 가지 않는다.)</p>
+<p><a href="http://realgsong.files.wordpress.com/2011/11/ipb_frame_example.jpg"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="IPB_frame_example" src="{{ site.baseurl }}/assets/wp/ipb_frame_example_thumb.jpg" alt="IPB_frame_example" width="593" height="484" border="0" /></a></p>
+<p>어쨋든 위 그림(<a href="http://www.spiritalchemy.com/blog/feedback-and-levels-of-description">출처</a>)의 순서대로 압축률이 좋아진다고 할 수 있다.</p>
+<p>자 그럼 이제 마지막으로 DTS 란 무엇인가? DTS 는 B-frame 때문에 필요하다. B-frame 이 없이, I-frame 와 P-frame 만으로 구성됐다면, 그냥 순서대로 디코딩하면 된다. 하지만 B-frame 을 디코딩하기 위해서는 먼저 그 앞의 anchor frame 은 물론이고, 그 다음의 anchor frame 이 디코딩 되어야 한다. 즉, 보여지는 순서와 디코딩 순서가 다르고 그걸 처리하기 위해 DTS 라는 걸 만들어 쓰게 됐다.</p>
+<p>I0 B0 B1 P0 B2 B3 P1  으로 프레임을 보여줘야 한다면, 실제 디코딩 순서는 I0 P0 B0 B1 P1 B2 B3 가 된다. 이 순서를 나타내는 값이 Decoding Time Stamp 이다. 그렇다보니 아에 인코딩할 때 DTS 순서에 맞춰 인코딩하는 것이 보통이라고 한다.</p>

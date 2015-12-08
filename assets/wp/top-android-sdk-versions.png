@@ -1,0 +1,22 @@
+<html>
+<head>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<title>AppBrain</title>
+</head>
+<body>
+<h3>You have reached AppBrain</h3>
+
+<form action="/humancheck" method="POST">
+<div class="g-recaptcha" data-sitekey="6LcUtgITAAAAAFM_FAYUbQ7C3It9lKbYv_TBbt6M"></div>
+<input type='hidden' name='next' value="" id='location'>
+<p>
+    <input type='submit' value="Please click here to continue" >
+</p>
+</form>
+
+<script>
+document.getElementById('location').value = window.location.href;
+</script>
+
+</body>
+</html>

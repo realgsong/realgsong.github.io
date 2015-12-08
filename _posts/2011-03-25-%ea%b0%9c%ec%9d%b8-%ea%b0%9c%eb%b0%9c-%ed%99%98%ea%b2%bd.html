@@ -1,0 +1,67 @@
+---
+layout: post
+title: 개인 개발 환경
+date: 2011-03-25 15:40:47.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 개발 환경
+meta:
+  _publicize_pending: '1'
+  original_post_id: '3704'
+  _wp_old_slug: '3704'
+  _oembed_89661ffd053113ee42d04d42954026e2: '{{unknown}}'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>얼마나 유용하게 쓸지 알 순 없지만, 개인 개발 환경을 만들어 두면 좋을 것 같다는 생각이 들었다.</p>
+<p>그럼 어떤 것들이 필요할까? <a href="http://www.joelonsoftware.com/articles/fog0000000043.html">The Joel Test</a> 를 한 번 살펴보면,
+<ol>
+<li>Do you use source control?  </li>
+<li>Can you make a build in one step?  </li>
+<li>Do you make daily builds?  </li>
+<li>Do you have a bug database?  </li>
+<li>Do you fix bugs before writing new code?  </li>
+<li>Do you have an up-to-date schedule?  </li>
+<li>Do you have a spec?  </li>
+<li>Do programmers have quiet working conditions?  </li>
+<li>Do you use the best tools money can buy?  </li>
+<li>Do you have testers?  </li>
+<li>Do new candidates write code during their interview?  </li>
+<li>Do you do hallway usability testing? </li>
+</ol>
+<p>개인 개발 환경이니 3, 6, 8, 9, 10, 11, 12 등은 크게 상관이 없을 것 같고, 2, 5 은 execution 의 문제가 될 것 같으니 모두 제외하면,</p>
+<ol>
+<li>Do you use source control?  </li>
+<li> </li>
+<li> </li>
+<li>Do you have a bug database?  </li>
+<li> </li>
+<li> </li>
+<li>Do you have a spec?  </li>
+<li> </li>
+<li> </li>
+<li> </li>
+<li></li>
+</ol>
+<p>이렇게 요약되네. 소스 컨트롤 쓰냐? 스펙 쓰냐? Bug database 는 있냐? 되겠다. 이제 각각에 맞는 적절한 툴들을 구비해 놓으면 될 터인데.</p>
+<h2>Spec</h2>
+<p>스펙은 Windows live Skydrive 에 원노트를 이용해서 간단히 해결. 문서 draft 를 만들 때 원노트 만큼 쉽고 편한 게 없는데다 Skydrive 에서 브라우저로 바로 편집도 간단히 되니까 급할 때 사용할 수도 있다. 스펙 라이브러리는 이걸로 해결보고.</p>
+<h2>Source control</h2>
+<p>소스 컨트롤 선택에서 가장 큰 고민은 Centralized vs Decentralized 중에 선택하는 것이다. 여태 사용해 본 것들은 모두 중앙에 서버가 존재하는 Centralized 였고, 요즘 유행하는 Git 이니 Mercurial 이니 하는 것들은 분산 처리 방식이다. 선택에 결정적 영향을 준 StackOverflow 에서 본 글.</p>
+<blockquote><p>… Imagine you are a developer on the road, you develop on your laptop and you want to have source control so that you can go back 3 hours…</p>
+<p><a href="http://stackoverflow.com/questions/871/why-is-git-better-than-subversion">http://stackoverflow.com/questions/871/why-is-git-better-than-subversion</a></p>
+</blockquote>
+<p>그래서 Git 을 사용해 보기로 결정.</p>
+<h2>Issue Tracker</h2>
+<p>이슈 트래커는 사실 하기 나름이다. 관리에 자신이 있다면 텍스트 파일 하나 만들어서 관리해도 되고, 엑셀로 시트를 하나 만들어서 관리해도 된다. 개인으로 하는 프로젝트들이 얼마나 복잡해질지 모르겠다마는 일단은 보류. Git 과 통합작업이 용이한 것 중 하나가 되지 않을까 싶은데 Redmine 이라는 것을 물망에 올려놨다. </p>
+<p>다만 이 경우 서버 호스팅이 필요해지는데, 지금 쓰고 있는 블로그랑 같은 곳에서 호스팅이 가능한지 여부를 따져봐야 한다. 그렇지 않으면 부가 비용을 더 내고 서버를 하나 더 구해야 됨.</p>
+<p>&nbsp;</p>
+<p>일단 이 정도로 정리하고 세팅해봐야 겠다.</p></p>

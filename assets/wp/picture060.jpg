@@ -1,0 +1,733 @@
+
+
+	<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head profile="http://gmpg.org/xfn/11"> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="distribution" content="global" />
+
+<meta name="language" content="en-US" /> 
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="initial-scale=1.0; maximum-scale=3.0; width=device-width"/><title>Galaxy 15 Radio - We support the robot uprising</title>
+<link rel="apple-touch-icon" href="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/images/apple-icon.png"/>	
+<link rel="shortcut icon" href="" type="image/x-icon" />
+
+<link rel="stylesheet" href="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/css/foundation.css" type="text/css" />
+<link rel="stylesheet" href="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/css/app.css" type="text/css" />
+<!--[if IE]>
+<link rel="stylesheet" href="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/css/ie.css" type="text/css" />
+<![endif]-->
+<link rel="stylesheet" href="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/css/shortcode.css" type="text/css" />
+<link rel="stylesheet" href="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/css/elements.css" type="text/css" />
+<link rel="stylesheet" href="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/css/style.css" type="text/css" />
+<link rel="stylesheet" href="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/css/color/dark.css" type="text/css" />
+
+
+
+<link rel="pingback" href="http://www.galaxy15radio.com/xmlrpc.php" />
+
+	
+ <!-- wp_enqueue_script( 'comment-reply' );-->
+<meta name='robots' content='noindex,follow' />
+<link rel="alternate" type="application/rss+xml" title="Galaxy 15 Radio &raquo; Feed" href="http://www.galaxy15radio.com/?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="Galaxy 15 Radio &raquo; Comments Feed" href="http://www.galaxy15radio.com/?feed=comments-rss2" />
+<link rel="stylesheet" href="http://www.galaxy15radio.com/wp-content/plugins/xhanch-my-twitter/css/css.php" type="text/css" media="screen" /><style type="text/css">/*<![CDATA[*/ #xmt_Primary_wid.xmt ul li.tweet_list{min-height:57px}  /*]]>*/</style><link rel='stylesheet' id='contact-form-7-css'  href='http://www.galaxy15radio.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.1' type='text/css' media='all' />
+	
+	<style type="text/css" media="screen">
+		#wrapper input, textarea, #twitterbar, input[type=submit], input[type=reset], #imenu, .searchform, .post_container, .postformats, .postbar, .post-edit-link, .widget-container, .widget-title, .footer-widget-title, .comments_container, ol.commentlist li.even, ol.commentlist li.odd, .slider_nav, ul.metabox-tabs li, .tab-content, .list_item, .section-info, #of_container #header, .menu ul li a, .submit input, #of_container textarea, #of_container input, #of_container select, #of_container .screenshot img, #of_container .of_admin_bar, #of_container .subsection > h3, .subsection, #of_container #content .outersection .section, #carousel_list, #calloutwrap, #calloutbutton, .box1, .box2, .box3, .es-carousel-wrapper
+  		
+  	{
+  		behavior: url('http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/library/pie/PIE.php');
+	}
+	</style>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-includes/js/jquery/jquery.js?ver=1.11.1'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-includes/js/swfobject.js?ver=2.2-20120417'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/plugins/xhanch-my-twitter/js/marquee.js?ver=4.1.8'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/plugins/xhanch-my-twitter/js/innerfade.js?ver=4.1.8'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/library/js/foundation/jquery.orbit.js?ver=4.1.8'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/library/js/foundation/app.js?ver=4.1.8'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/library/js/foundation/jquery.placeholder.min.js?ver=4.1.8'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/library/js/foundation/jquery.reveal.js?ver=4.1.8'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/library/js/foundation/jquery.tooltips.js?ver=4.1.8'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/library/js/foundation/modernizr.foundation.js?ver=4.1.8'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/library/js/menu.js?ver=4.1.8'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/library/js/jquery.lightbox-0.5.js?ver=4.1.8'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/library/js/plusone.js?ver=4.1.8'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/library/js/mobilemenu.js?ver=4.1.8'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/library/js/oembed-twitter.js?ver=4.1.8'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/pro/library/js/jquery.easing.1.3.js?ver=4.1.8'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/themes/eclipsepro/core/pro/library/js/jquery.elastislide.js?ver=4.1.8'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/plugins/google-analyticator/external-tracking.min.js?ver=6.4.8'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.galaxy15radio.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.galaxy15radio.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.1.8" />
+
+<!-- Added By Wordspew Plugin, modified by Pierre, version 6.1 -->
+<link rel="stylesheet" href="http://www.galaxy15radio.com/wp-content/plugins/pierres-wordspew/style.css" type="text/css" />
+<style type="text/css">
+#chatoutput { 
+	border: 1px solid #0066CC; 
+	color: #111111;
+	background: #e1e1e1;
+}
+#chatoutput span { 
+	color: #0066CC;
+}
+#chatoutput li a { 
+	color: #0066CC;
+}
+#chatoutput li span a {
+	border-bottom: 1px dotted #0066CC;
+}
+#chatoutput ul#outputList li {
+	color: #111111;
+	min-height: 16px;
+}
+#lastMessage {
+	border-bottom: 2px dotted #666666;
+}
+#usersOnline {
+	color: #0066CC; 
+}
+tr.bg td {
+	border-bottom: 1px dashed #666666;
+}
+tr.bg:hover td, tr.bg:hover td a {
+	 background: #0066CC;
+	 color: #e1e1e1;
+}
+</style>
+<script type="text/javascript">
+//<![CDATA[
+var Old_Sname;
+function trim(s) {
+return s.replace(/^( | )+/, '').replace(/( | )+$/, '');
+}
+
+var PathToSmiley="http://www.galaxy15radio.com/wp-includes/images/smilies/", pathToImg="http://www.galaxy15radio.com/wp-content/plugins/pierres-wordspew/img/", pathToMP3="http://www.galaxy15radio.com/wp-content/plugins/pierres-wordspew/msg.mp3";
+var smilies=[[':arrow:', 'icon_arrow.gif'],[':grin:', 'icon_biggrin.gif'],[':-D', 'icon_biggrin.gif'],[':D', 'icon_biggrin.gif'],[':???:', 'icon_confused.gif'],[':?', 'icon_confused.gif'],[':-?', 'icon_confused.gif'],[':cool:', 'icon_cool.gif'],['8-)', 'icon_cool.gif'],[':cry:', 'icon_cry.gif'],[':shock:', 'icon_eek.gif'],['8O', 'icon_eek.gif'],['8-O', 'icon_eek.gif'],[':evil:', 'icon_evil.gif'],[':!:', 'icon_exclaim.gif'],[':idea:', 'icon_idea.gif'],[':lol:', 'icon_lol.gif'],[':x', 'icon_mad.gif'],[':mad:', 'icon_mad.gif'],[':-x', 'icon_mad.gif'],[':mrgreen:', 'icon_mrgreen.gif'],[':|', 'icon_neutral.gif'],[':neutral:', 'icon_neutral.gif'],[':-|', 'icon_neutral.gif'],[':?:', 'icon_question.gif'],[':-P', 'icon_razz.gif'],[':P', 'icon_razz.gif'],[':razz:', 'icon_razz.gif'],[':oops:', 'icon_redface.gif'],[':roll:', 'icon_rolleyes.gif'],[':-(', 'icon_sad.gif'],[':sad:', 'icon_sad.gif'],[':(', 'icon_sad.gif'],[':)', 'icon_smile.gif'],[':-)', 'icon_smile.gif'],[':smile:', 'icon_smile.gif'],[':-o', 'icon_surprised.gif'],[':o', 'icon_surprised.gif'],[':eek:', 'icon_surprised.gif'],[':twisted:', 'icon_twisted.gif'],[';)', 'icon_wink.gif'],[';-)', 'icon_wink.gif'],[':wink:', 'icon_wink.gif']];
+var Sht_Link="link", Sht_Email="email";
+var GetChaturl="http://www.galaxy15radio.com/wp-content/plugins/pierres-wordspew/wordspew.php?jalGetChat=yes", SendChaturl="http://www.galaxy15radio.com/wp-content/plugins/pierres-wordspew/wordspew.php?jalSendChat=yes";
+var Sht_Expand="Click here to expand/collapse the smiley's list", Sht_Chaine="Private message for", Sht_Delete="Delete", Sht_Alert1="Are you sure to delete the message:", Sht_Alert2="'Cancel' to stop, 'OK' to delete.";
+var jal_org_timeout=4000;
+
+var show_avatar=0, avatar_position="left", avatar_size=16, isAdmin=false;
+var var_XHTML=0, show_smiley=0, shout_user="";
+var fade_length=1500, fade_from="666666", fade_to="e1e1e1";
+
+function CheckSpam(theText,theURL) {
+theMsg=document.getElementById('chatbarText').value;
+theMsg=theMsg.toLowerCase();
+count_http=theMsg.split("http").length;
+var limit=2;
+if((document.getElementById('shoutboxU').value).length>7) {
+	if(document.getElementById('shoutboxU').style.display!="none") {
+		limit++;
+		count_http++;
+	}
+}
+if(count_http>limit) {
+	alert("Sorry, but you can post only one url by message...");
+	return false;
+}
+theText+=' '+theURL;
+var spam = [];
+TextToScan=theText.toLowerCase();
+for (var i = 0; i < spam.length; i++) {
+	if(TextToScan.indexOf(spam[i])!=-1) {
+		alert("No, sorry you used a banned word!\n-> "+spam[i].toUpperCase());
+		return false;
+		break;
+	}
+}
+return true;
+}
+//]]>
+</script>
+<script type="text/javascript" src="http://www.galaxy15radio.com/wp-content/plugins/pierres-wordspew/ajax_shout.js"></script>
+<!-- End Wordspew Plugin -->
+<!-- call Shout Stream Javascript in HEAD -->
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/plugins/shout-stream/ss_popup.js?ver=1.0'></script>
+<!-- done Shout Stream Javascript in HEAD -->
+<style type="text/css">body {color: #ffffff;}</style><style type="text/css">a {color: #0282bd;}.meta a {color: #0282bd;}</style><style type="text/css">a:hover {color: #0282bd;}.meta a:hover {color: #0282bd;}</style><style type="text/css">#nav ul li a {font-family: Helvetica;}</style><style type="text/css">#twittertext, #callout_text, .posts_title a, .sitename, .widget-title {font-family: 'Open Sans', sans-serif;}</style><style type="text/css">
+
+</style>
+<!-- Google Analytics Tracking by Google Analyticator 6.4.8: http://www.videousermanuals.com/google-analyticator/ -->
+<script type="text/javascript">
+    var analyticsFileTypes = [''];
+    var analyticsSnippet = 'enabled';
+    var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+  
+	_gaq.push(['_setAccount', 'UA-25458139-1']);
+    _gaq.push(['_addDevId', 'i9k95']); // Google Analyticator App ID with Google
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<!-- wp_head();-->
+	
+</head><!-- closing head tag-->
+
+<!-- Begin @response after_head_tag hook content-->
+		
+	<body style="font-family:'Helvetica', Helvetica, serif" class="home blog" > <!-- End @response after_head_tag hook content-->
+	
+<!-- Begin @response before_header hook  content-->
+	 
+<!-- End @response before_header hook content -->
+
+<!-- Adding wrapper class for sticky footer -->
+<div class="wrapper">
+			
+<header>		
+	
+<div id="header">
+	<div class="container">
+		<div class="row">	
+			
+			<div class="five columns"">
+				
+				<!-- Begin @Core header sitename hook -->
+						<div id="logo">
+		<a href="http://www.galaxy15radio.com/"><img src="http://www.galaxy15radio.com/wp-content/uploads/2013/01/g15websitelogo.jpg" alt="logo"></a>
+	</div>  
+				<!-- End @Core header sitename hook -->
+			
+			</div>	
+			
+			<div class="seven columns">
+			<div id="nav">
+			<div class="menu-nav-container"><ul id="nav_menu"><li id="menu-item-7558" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7558"><a href="http://www.galaxy15radio.com/?page_id=7557">Schedule</a></li>
+<li id="menu-item-7545" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children menu-item-7545"><a href="http://www.galaxy15radio.com">Shows</a>
+<ul class="sub-menu">
+	<li id="menu-item-7548" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7548"><a href="http://www.galaxy15radio.com/?page_id=7536">Pure Decking</a></li>
+	<li id="menu-item-7569" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7569"><a href="http://www.galaxy15radio.com/?page_id=7563">I Have Nothing</a></li>
+	<li id="menu-item-7577" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7577"><a href="http://www.galaxy15radio.com/?page_id=7573">Shoot the Noise</a></li>
+	<li id="menu-item-7572" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7572"><a href="http://www.galaxy15radio.com/?page_id=7570">Nameless Review 7</a></li>
+</ul>
+</li>
+<li id="menu-item-7546" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children menu-item-7546"><a href="http://www.galaxy15radio.com">Artists</a>
+<ul class="sub-menu">
+	<li id="menu-item-7703" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7703"><a href="http://www.galaxy15radio.com/?page_id=7700">_TV_</a></li>
+	<li id="menu-item-7688" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7688"><a href="http://www.galaxy15radio.com/?page_id=7684">Abducted by Sharks</a></li>
+	<li id="menu-item-8308" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8308"><a href="http://www.galaxy15radio.com/?page_id=8284">Arc Neon</a></li>
+	<li id="menu-item-7695" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7695"><a href="http://www.galaxy15radio.com/?page_id=7691">Axis</a></li>
+	<li id="menu-item-7699" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7699"><a href="http://www.galaxy15radio.com/?page_id=7696">Blush Reponse</a></li>
+	<li id="menu-item-8077" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8077"><a href="http://www.galaxy15radio.com/?page_id=8074">Clearside</a></li>
+	<li id="menu-item-71795" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71795"><a href="http://www.galaxy15radio.com/?page_id=71792">Concrete Lung</a></li>
+	<li id="menu-item-8306" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8306"><a href="http://www.galaxy15radio.com/?page_id=8302">Flammpunkt</a></li>
+	<li id="menu-item-8307" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8307"><a href="http://www.galaxy15radio.com/?page_id=8299">Gost</a></li>
+	<li id="menu-item-7891" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7891"><a href="http://www.galaxy15radio.com/?page_id=7888">Haloblack</a></li>
+	<li id="menu-item-7824" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7824"><a href="http://www.galaxy15radio.com/?page_id=7820">Left Spine Down</a></li>
+	<li id="menu-item-7719" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7719"><a href="http://www.galaxy15radio.com/?page_id=7715">Neon Shudder</a></li>
+	<li id="menu-item-7833" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7833"><a href="http://www.galaxy15radio.com/?page_id=7826">Panzer Division</a></li>
+	<li id="menu-item-7596" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7596"><a href="http://www.galaxy15radio.com/?page_id=7585">Patient Zero</a></li>
+	<li id="menu-item-7892" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7892"><a href="http://www.galaxy15radio.com/?page_id=7885">Pittersplatter</a></li>
+	<li id="menu-item-7832" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7832"><a href="http://www.galaxy15radio.com/?page_id=7829">Polyfuse</a></li>
+	<li id="menu-item-7678" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7678"><a href="http://www.galaxy15radio.com/?page_id=7657">Perturberator</a></li>
+	<li id="menu-item-8078" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8078"><a href="http://www.galaxy15radio.com/?page_id=8069">Volt 9000</a></li>
+	<li id="menu-item-71799" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71799"><a href="http://www.galaxy15radio.com/?page_id=71796">Youth Code</a></li>
+</ul>
+</li>
+<li id="menu-item-7549" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7549"><a href="http://www.galaxy15radio.com/?page_id=146">FeedBack</a>
+<ul class="sub-menu">
+	<li id="menu-item-7755" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7755"><a href="http://www.galaxy15radio.com/?page_id=7750">IRC</a></li>
+	<li id="menu-item-7552" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7552"><a href="http://galaxy15radio.reddit.com">G15Reddit</a></li>
+</ul>
+</li>
+</ul></div>			</div>					
+			</div>	
+		
+		</div><!--end row-->
+	</div>
+</div>
+
+<div id="subheader">
+	<div class="container">
+		<div class="row">	
+			
+			<div class="five columns">
+				
+			<!-- Begin @Core header description hook -->
+					
+	<div id="description">
+		<h1 class="description">We support the robot uprising&nbsp;</h1>
+	</div>  
+			<!-- End @Core header description hook -->
+			
+				
+			</div>	
+			
+			<div id="icons" class="seven columns">
+			
+			<!-- Begin @Core header social icon hook -->
+				
+	<div id="social">
+
+		<div class="icons">
+	
+																																					<a href="mailto:morpse@galaxy15radio.com" target="_blank"><img src="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/images/social/default/email.png" alt="E-mail" /></a>
+											<a href="http://www.galaxy15radio.com/?feed=rss2" target="_blank"><img src="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/images/social/default/rss.png" alt="RSS" /></a>
+			
+		</div><!--end icons--> 
+		
+	</div><!--end social-->  
+			<!-- End @Core header contact social icon hook -->	
+						
+			</div>	
+
+		
+		</div><!--end row-->
+	</div>
+</div>
+</header>
+
+<!-- Begin @response after_header hook -->
+	 
+<!-- End @response after_header hook -->
+
+
+
+
+
+		<div class="container">
+<div class="row">
+</div>
+<div class="row boxes">
+	<div id="box1" class="three columns widget_text">			<div class="textwidget"><div align="center"><iframe src="http://www.galaxy15radio.com/player/launcher/launch.htm" width="300" height="125" frameborder="0" scrolling="no">
+</iframe>
+</div>
+</div>
+		</div>	<div id="box2" class="three columns widget_text">			<div class="textwidget"><center>
+<br>
+<a href="http://www.galaxy15radio.com/?page_id=7750" target="_blank">
+<img src="http://www.galaxy15radio.com/images/Java_Chat.png" style="width:85px;height:85px;" ' /><br/>
+Launch IRC Chat 
+</a>
+</center></div>
+		</div>	<div id="box3" class="three columns widget_text">			<div class="textwidget"><center>
+<br>
+<a href="http://www.reddit.com/r/galaxy15radio/" target="_blank">
+<img src="http://www.galaxy15radio.com/other/obeyFinal.jpg" style="width:100px;height:85px;" ' /><br/>
+Launch G15r SubReddit
+</a>
+</center>
+</div>
+		</div>	<style>
+.rpwe-block ul{list-style:none!important;margin-left:0!important;padding-left:0!important;}.rpwe-block li{border-bottom:1px solid #eee;margin-bottom:10px;padding-bottom:10px;list-style-type: none;}.rpwe-block a{display:inline!important;text-decoration:none;}.rpwe-block h3{background:none!important;clear:none;margin-bottom:0!important;margin-top:0!important;font-weight:400;font-size:12px!important;line-height:1.5em;}.rpwe-thumb{border:1px solid #EEE!important;box-shadow:none!important;margin:2px 10px 2px 0;padding:3px!important;}.rpwe-summary{font-size:12px;}.rpwe-time{color:#bbb;font-size:11px;}.rpwe-alignleft{display:inline;float:left;}.rpwe-alignright{display:inline;float:right;}.rpwe-aligncenter{display:block;margin-left: auto;margin-right: auto;}.rpwe-clearfix:before,.rpwe-clearfix:after{content:"";display:table !important;}.rpwe-clearfix:after{clear:both;}.rpwe-clearfix{zoom:1;}
+</style>
+	<div id="box4" class="three columns rpwe_widget recent-posts-extended"><h3 class="box-widget-title">Latest Pure Decking</h3><div  class="rpwe-block "><ul class="rpwe-ul"><li class="rpwe-li rpwe-clearfix"><a class="rpwe-img" href="http://www.galaxy15radio.com/?p=71809" rel="bookmark"><img class="rpwe-alignright rpwe-thumb rpwe-default-thumb" src="http://www.galaxy15radio.com/images/g15icon.png" alt="Pure Decking 0170" width="50" height="50"></a><h3 class="rpwe-title"><a href="http://www.galaxy15radio.com/?p=71809" title="Permalink to Pure Decking 0170" rel="bookmark">Pure Decking 0170</a></h3><time class="rpwe-time published" datetime="2014-11-17T19:44:17+00:00">November 17, 2014</time></li></ul></div><!-- Generated by http://wordpress.org/plugins/recent-posts-widget-extended/ --></div></div>
+</div>
+	
+	<!--Begin @response sidebar init-->
+			<!--End @response sidebar init-->
+	<div class="container">
+	<div class="row">
+	<!--Begin @response before content sidebar hook-->
+						
+		
+		<!--End @response before content sidebar hook-->
+
+		<div id="content" class="nine columns">
+		
+						
+			<div class="post_container ">
+				<div class="post-71813 post type-post status-publish format-standard hentry category-sitenews" id="post-71813">
+		
+				<!--Begin @response index loop hook-->
+									
+			<!--Call @response Meta hook-->
+			<div class="row">
+			<div class="byline three columns">	
+			<div class="postformats hide-on-phones"><!--begin format icon-->
+			<img src="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/images/formats/default.png" alt="formats" />
+		</div><!--end format-icon-->
+		<div class="meta hide-on-phones">
+	<ul>
+		<li class="metadate"><a href="http://www.galaxy15radio.com/?p=71813">February 28, 2015</a></li>
+		<li class="metacomments"></li>
+		<li class="metaauthor"><a href="http://www.galaxy15radio.com/?author=1" title="Posts by morpse" rel="author">morpse</a></li>
+		<li class="metacat"> <a href="http://www.galaxy15radio.com/?cat=1" rel="category">Site News</a></li>
+		<li class="metatags">
+	</li>
+	</ul>
+	</div> </div>
+				<div class="entry nine columns">
+					<h2 class="posts_title"><a href="http://www.galaxy15radio.com/?p=71813">Where are all the pure decking shows?</a></h2>
+					
+						
+				
+		<div class="meta-mobile show-on-phones">
+	<ul>		<li class="postformats show-on-phones"><img src="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/images/formats/default.png" alt="formats" />
+</li>		<li class="metadate"><a href="http://www.galaxy15radio.com/?p=71813">February 28, 2015</a></li>
+		<li class="metacomments"></li>
+		<li class="metaauthor"><a href="http://www.galaxy15radio.com/?author=1" title="Posts by morpse" rel="author">morpse</a></li>
+		<li class="metacat"> <a href="http://www.galaxy15radio.com/?cat=1" rel="category">Site News</a></li>
+		<li class="metatags">
+	</li>
+	</ul>
+	</div> 					<p>While I&#8217;m working on the new site, here&#8217;s the shows</p>
+<p><a href="http://shows.galaxy15radio.com/decking/?p=home" target="_blank">http://shows.galaxy15radio.com/decking/?p=home</a></p>
+				<!--Begin @response link pages hook-->
+									<!--End @response link pages hook-->
+			
+				<!--Begin @response post edit link hook-->
+									<!--End @response post edit link hook-->
+				</div><!--end entry-->
+			</div><!--end row-->
+							<!--End @response index loop hook-->
+							
+				</div><!--end post_class-->
+			</div><!--end post container-->
+			
+						
+						
+						
+			<div class="post_container ">
+				<div class="post-71809 post type-post status-publish format-standard hentry category-pure-decking" id="post-71809">
+		
+				<!--Begin @response index loop hook-->
+									
+			<!--Call @response Meta hook-->
+			<div class="row">
+			<div class="byline three columns">	
+			<div class="postformats hide-on-phones"><!--begin format icon-->
+			<img src="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/images/formats/default.png" alt="formats" />
+		</div><!--end format-icon-->
+		<div class="meta hide-on-phones">
+	<ul>
+		<li class="metadate"><a href="http://www.galaxy15radio.com/?p=71809">November 17, 2014</a></li>
+		<li class="metacomments"></li>
+		<li class="metaauthor"><a href="http://www.galaxy15radio.com/?author=1" title="Posts by morpse" rel="author">morpse</a></li>
+		<li class="metacat"> <a href="http://www.galaxy15radio.com/?cat=3" rel="category">Pure Decking</a></li>
+		<li class="metatags">
+	</li>
+	</ul>
+	</div> </div>
+				<div class="entry nine columns">
+					<h2 class="posts_title"><a href="http://www.galaxy15radio.com/?p=71809">Pure Decking 0170</a></h2>
+					
+						
+				
+		<div class="meta-mobile show-on-phones">
+	<ul>		<li class="postformats show-on-phones"><img src="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/images/formats/default.png" alt="formats" />
+</li>		<li class="metadate"><a href="http://www.galaxy15radio.com/?p=71809">November 17, 2014</a></li>
+		<li class="metacomments"></li>
+		<li class="metaauthor"><a href="http://www.galaxy15radio.com/?author=1" title="Posts by morpse" rel="author">morpse</a></li>
+		<li class="metacat"> <a href="http://www.galaxy15radio.com/?cat=3" rel="category">Pure Decking</a></li>
+		<li class="metatags">
+	</li>
+	</ul>
+	</div> 					<p>Morpse&#8217;s show documenting our decline into a police state with Maddman, BSV, and BigBrother.</p>
+<p><a href="http://agent-paranoia.com/puredecking/pure_decking_0170.mp3">Listen / Download Here</a></p>
+<p><b>Current Events</b></p>
+<ul>
+<li><a href="http://arstechnica.com/security/2014/11/fbis-most-wanted-cybercriminal-used-his-cats-name-as-a-password/">http://arstechnica.com/security/2014/11/fbis-most-wanted-cybercriminal-used-his-cats-name-as-a-password/</a></li>
+<li><a href="http://thestack.com/chakravarty-tor-traffic-analysis-141114">http://thestack.com/chakravarty-tor-traffic-analysis-141114</a></li>
+<li><a href="http://www.forbes.com/sites/benkepes/2014/11/14/how-the-worm-turns-microsoft-open-sources-net/">http://www.forbes.com/sites/benkepes/2014/11/14/how-the-worm-turns-microsoft-open-sources-net/</a></li>
+<li><a href="http://www.dailydot.com/politics/doxbin-dark-net/">http://www.dailydot.com/politics/doxbin-dark-net/</a></li>
+<li><a href="http://singularityhub.com/2014/11/13/xmed-this-is-your-brain-on-prescription-strength-video-games/">http://singularityhub.com/2014/11/13/xmed-this-is-your-brain-on-prescription-strength-video-games/</a></li>
+<li><a href="http://arstechnica.com/tech-policy/2014/11/polygraph-com-owner-accused-of-training-customers-to-beat-the-polygraph/">http://arstechnica.com/tech-policy/2014/11/polygraph-com-owner-accused-of-training-customers-to-beat-the-polygraph/</a></li>
+<li><a href="http://www.itgovernanceusa.com/blog/us-weather-network-hacked/">http://www.itgovernanceusa.com/blog/us-weather-network-hacked/</a></li>
+<li><a href="http://arstechnica.com/tech-policy/2014/11/feds-gather-phone-data-from-the-sky-with-aircraft-mimicking-cell-towers/">http://arstechnica.com/tech-policy/2014/11/feds-gather-phone-data-from-the-sky-with-aircraft-mimicking-cell-towers/</a></li>
+</ul>
+<p>&nbsp;</p>
+<p><b>Digital Dojo</b></p>
+<p>&nbsp;</p>
+<ul>
+<li><a href="https://secupwn.github.io/Android-IMSI-Catcher-Detector/">https://secupwn.github.io/Android-IMSI-Catcher-Detector/</a></li>
+<li><a href="https://thetinhat.com/tutorials/darknets/i2p.html">https://thetinhat.com/tutorials/darknets/i2p.html</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+				<!--Begin @response link pages hook-->
+									<!--End @response link pages hook-->
+			
+				<!--Begin @response post edit link hook-->
+									<!--End @response post edit link hook-->
+				</div><!--end entry-->
+			</div><!--end row-->
+							<!--End @response index loop hook-->
+							
+				</div><!--end post_class-->
+			</div><!--end post container-->
+			
+						
+						
+						
+			<div class="post_container ">
+				<div class="post-71805 post type-post status-publish format-standard hentry category-pure-decking" id="post-71805">
+		
+				<!--Begin @response index loop hook-->
+									
+			<!--Call @response Meta hook-->
+			<div class="row">
+			<div class="byline three columns">	
+			<div class="postformats hide-on-phones"><!--begin format icon-->
+			<img src="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/images/formats/default.png" alt="formats" />
+		</div><!--end format-icon-->
+		<div class="meta hide-on-phones">
+	<ul>
+		<li class="metadate"><a href="http://www.galaxy15radio.com/?p=71805">November 8, 2014</a></li>
+		<li class="metacomments"></li>
+		<li class="metaauthor"><a href="http://www.galaxy15radio.com/?author=1" title="Posts by morpse" rel="author">morpse</a></li>
+		<li class="metacat"> <a href="http://www.galaxy15radio.com/?cat=3" rel="category">Pure Decking</a></li>
+		<li class="metatags">
+	</li>
+	</ul>
+	</div> </div>
+				<div class="entry nine columns">
+					<h2 class="posts_title"><a href="http://www.galaxy15radio.com/?p=71805">Pure Decking 0169</a></h2>
+					
+						
+				
+		<div class="meta-mobile show-on-phones">
+	<ul>		<li class="postformats show-on-phones"><img src="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/images/formats/default.png" alt="formats" />
+</li>		<li class="metadate"><a href="http://www.galaxy15radio.com/?p=71805">November 8, 2014</a></li>
+		<li class="metacomments"></li>
+		<li class="metaauthor"><a href="http://www.galaxy15radio.com/?author=1" title="Posts by morpse" rel="author">morpse</a></li>
+		<li class="metacat"> <a href="http://www.galaxy15radio.com/?cat=3" rel="category">Pure Decking</a></li>
+		<li class="metatags">
+	</li>
+	</ul>
+	</div> 					<p>Morpse&#8217;s show documenting our decline into a police state with Maddman, BigBrother, and RU486.</p>
+<p><a href="http://agent-paranoia.com/puredecking/pure_decking_0169.mp3">Listen / Download Here</a></p>
+<p><b>Current Events</b></p>
+<ul>
+<li><a href="http://arstechnica.com/tech-policy/2014/11/400-tor-anonymized-domains-tracked-down-and-seized-in-global-crackdown/">http://arstechnica.com/tech-policy/2014/11/400-tor-anonymized-domains-tracked-down-and-seized-in-global-crackdown/</a></li>
+<li><a href="https://www.schneier.com/blog/archives/2007/12/maninthemiddle.html">https://www.schneier.com/blog/archives/2007/12/maninthemiddle.html</a></li>
+<li><a href="http://www.tomsguide.com/us/spoiled-onions-tor-network,news-18237.html">http://www.tomsguide.com/us/spoiled-onions-tor-network,news-18237.html</a></li>
+<li><a href="http://www.pcworld.com/article/2841822/facebook-says-you-can-be-social-and-secure-acquires-onion-address-for-tor-users.html">http://www.pcworld.com/article/2841822/facebook-says-you-can-be-social-and-secure-acquires-onion-address-for-tor-users.html</a></li>
+<li><a href="http://www.bbc.com/news/technology-29914753">http://www.bbc.com/news/technology-29914753</a></li>
+<li><a href="http://www.itgovernanceusa.com/blog/home-depot-admits-53-million-email-addresses-stolen-in-data-breach/?utm_source=social&amp;utm_medium=reddit">http://www.itgovernanceusa.com/blog/home-depot-admits-53-million-email-addresses-stolen-in-data-breach/?utm_source=social&amp;utm_medium=reddit</a></li>
+<li><a href="http://www.slate.com/blogs/future_tense/2014/11/03/filevault_2_mac_users_unsaved_files_and_screenshots_are_automatically_uploaded.html">http://www.slate.com/blogs/future_tense/2014/11/03/filevault_2_mac_users_unsaved_files_and_screenshots_are_automatically_uploaded.html</a></li>
+<li><a href="http://www.oregonlive.com/portland/index.ssf/2014/11/aclu_launches_mobile_justice_s.html">http://www.oregonlive.com/portland/index.ssf/2014/11/aclu_launches_mobile_justice_s.html</a></li>
+<li><a href="http://bgr.com/2014/11/06/ios-vs-android-vs-blackberry-encryption/">http://bgr.com/2014/11/06/ios-vs-android-vs-blackberry-encryption/</a></li>
+</ul>
+<p><b>Digital Dojo</b></p>
+<p>&nbsp;</p>
+<ul>
+<li><b><a href="http://www.youtube.com/watch?v=HUEvRyemKSg">http://www.youtube.com/watch?v=HUEvRyemKSg</a></b></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+				<!--Begin @response link pages hook-->
+									<!--End @response link pages hook-->
+			
+				<!--Begin @response post edit link hook-->
+									<!--End @response post edit link hook-->
+				</div><!--end entry-->
+			</div><!--end row-->
+							<!--End @response index loop hook-->
+							
+				</div><!--end post_class-->
+			</div><!--end post container-->
+			
+						
+						
+						
+			<div class="post_container ">
+				<div class="post-71802 post type-post status-publish format-standard hentry category-sitenews" id="post-71802">
+		
+				<!--Begin @response index loop hook-->
+									
+			<!--Call @response Meta hook-->
+			<div class="row">
+			<div class="byline three columns">	
+			<div class="postformats hide-on-phones"><!--begin format icon-->
+			<img src="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/images/formats/default.png" alt="formats" />
+		</div><!--end format-icon-->
+		<div class="meta hide-on-phones">
+	<ul>
+		<li class="metadate"><a href="http://www.galaxy15radio.com/?p=71802">November 2, 2014</a></li>
+		<li class="metacomments"></li>
+		<li class="metaauthor"><a href="http://www.galaxy15radio.com/?author=1" title="Posts by morpse" rel="author">morpse</a></li>
+		<li class="metacat"> <a href="http://www.galaxy15radio.com/?cat=1" rel="category">Site News</a></li>
+		<li class="metatags">
+	</li>
+	</ul>
+	</div> </div>
+				<div class="entry nine columns">
+					<h2 class="posts_title"><a href="http://www.galaxy15radio.com/?p=71802">Where the hell did everybody go?</a></h2>
+					
+						
+				
+		<div class="meta-mobile show-on-phones">
+	<ul>		<li class="postformats show-on-phones"><img src="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/images/formats/default.png" alt="formats" />
+</li>		<li class="metadate"><a href="http://www.galaxy15radio.com/?p=71802">November 2, 2014</a></li>
+		<li class="metacomments"></li>
+		<li class="metaauthor"><a href="http://www.galaxy15radio.com/?author=1" title="Posts by morpse" rel="author">morpse</a></li>
+		<li class="metacat"> <a href="http://www.galaxy15radio.com/?cat=1" rel="category">Site News</a></li>
+		<li class="metatags">
+	</li>
+	</ul>
+	</div> 					<p>No, I haven&#8217;t been abducted by a shadow possibly government related organization. There won&#8217;t be any blinking Morse code or hidden messages. The simple truth is burn out. It&#8217;s taken me awhile to get up to speed with moving to a new city, starting a new job, and a bunch of other real life stuff. There wasn&#8217;t much balance in my time and something had to give. Never minding slogging through just how screwed up things are getting on a weekly basis.<br />
+<strong><br />
+Right now the plan is to bring back Pure Decking on Fridays, at approx 11PM EST / 8 PST. The show format will be looser, and the hosts will be drunker.</strong></p>
+				<!--Begin @response link pages hook-->
+									<!--End @response link pages hook-->
+			
+				<!--Begin @response post edit link hook-->
+									<!--End @response post edit link hook-->
+				</div><!--end entry-->
+			</div><!--end row-->
+							<!--End @response index loop hook-->
+							
+				</div><!--end post_class-->
+			</div><!--end post container-->
+			
+						
+						
+						
+			<div class="post_container ">
+				<div class="post-71788 post type-post status-publish format-standard hentry category-sitenews" id="post-71788">
+		
+				<!--Begin @response index loop hook-->
+									
+			<!--Call @response Meta hook-->
+			<div class="row">
+			<div class="byline three columns">	
+			<div class="postformats hide-on-phones"><!--begin format icon-->
+			<img src="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/images/formats/default.png" alt="formats" />
+		</div><!--end format-icon-->
+		<div class="meta hide-on-phones">
+	<ul>
+		<li class="metadate"><a href="http://www.galaxy15radio.com/?p=71788">September 7, 2014</a></li>
+		<li class="metacomments"></li>
+		<li class="metaauthor"><a href="http://www.galaxy15radio.com/?author=1" title="Posts by morpse" rel="author">morpse</a></li>
+		<li class="metacat"> <a href="http://www.galaxy15radio.com/?cat=1" rel="category">Site News</a></li>
+		<li class="metatags">
+	</li>
+	</ul>
+	</div> </div>
+				<div class="entry nine columns">
+					<h2 class="posts_title"><a href="http://www.galaxy15radio.com/?p=71788">Site re-shuffle / catchup</a></h2>
+					
+						
+				
+		<div class="meta-mobile show-on-phones">
+	<ul>		<li class="postformats show-on-phones"><img src="http://www.galaxy15radio.com/wp-content/themes/eclipsepro/images/formats/default.png" alt="formats" />
+</li>		<li class="metadate"><a href="http://www.galaxy15radio.com/?p=71788">September 7, 2014</a></li>
+		<li class="metacomments"></li>
+		<li class="metaauthor"><a href="http://www.galaxy15radio.com/?author=1" title="Posts by morpse" rel="author">morpse</a></li>
+		<li class="metacat"> <a href="http://www.galaxy15radio.com/?cat=1" rel="category">Site News</a></li>
+		<li class="metatags">
+	</li>
+	</ul>
+	</div> 					<p>So we now have the site re-shuffled a bit. Old School blog layout! We&#8217;ll run with this for a bit and probably change it up again next time I get tired of looking at it.<br />
+That said, I have finally gotten the summer pure decking uploaded and posted. Decking has been moved to Saturday (but not yesterday, I was dealing with a prior obligation). </p>
+				<!--Begin @response link pages hook-->
+									<!--End @response link pages hook-->
+			
+				<!--Begin @response post edit link hook-->
+									<!--End @response post edit link hook-->
+				</div><!--end entry-->
+			</div><!--end row-->
+							<!--End @response index loop hook-->
+							
+				</div><!--end post_class-->
+			</div><!--end post container-->
+			
+						
+						
+					
+						
+			<!--Begin @response pagination hook-->
+			<div class="pagination"><span>Page 1 of 113</span><span class="current">1</span><a href='http://www.galaxy15radio.com/?paged=2' class="inactive">2</a><a href='http://www.galaxy15radio.com/?paged=3' class="inactive">3</a><a href='http://www.galaxy15radio.com/?paged=4' class="inactive">4</a><a href='http://www.galaxy15radio.com/?paged=5' class="inactive">5</a><a href="http://www.galaxy15radio.com/?paged=2"">Next &rsaquo;</a><a href="http://www.galaxy15radio.com/?paged=113">Last &raquo;</a></div>
+			<!--End @response pagination loop hook-->
+			
+			<div class='clear'>&nbsp;</div>
+		
+		</div><!--end row-->
+		
+	<!--Begin @response after content sidebar hook-->
+			
+		<div id="sidebar" class="three columns">
+		<div id="text-13" class="widget-container widget_text"><h2 class="widget-title">Recent Tracks</h2>			<div class="textwidget"><div id="cc_recenttracks_ewxnfaqg" class="cc_recenttracks_list">Loading ...</div>
+&nbsp;
+
+</center></div>
+<script src="http://cp3.comcities.com:2199/system/recenttracks.js" type="text/javascript" language="javascript"></script></div>
+		</div><div id="nav_menu-5" class="widget-container widget_nav_menu"><h2 class="widget-title">Shows</h2><div class="menu-shows-container"><ul id="menu-shows" class="menu"><li id="menu-item-7544" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7544"><a href="http://www.galaxy15radio.com/?page_id=7536">Pure Decking</a></li>
+<li id="menu-item-7530" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7530"><a href="http://www.galaxy15radio.com/?cat=6">I Have Nothing</a></li>
+<li id="menu-item-7533" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7533"><a href="http://www.galaxy15radio.com/?cat=13">Shoot the Noise</a></li>
+<li id="menu-item-7532" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-7532"><a href="http://www.galaxy15radio.com/?cat=10">Nameless Review 7</a></li>
+</ul></div></div><div id="nav_menu-6" class="widget-container widget_nav_menu"><h2 class="widget-title">Friends of G15r</h2><div class="menu-links-container"><ul id="menu-links" class="menu"><li id="menu-item-7561" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7561"><a href="http://keirstudios.galaxy15radio.com">Keir Studios</a></li>
+<li id="menu-item-7562" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7562"><a href="http://rostudios.org/">Red Octagon Studios</a></li>
+</ul></div></div>	</div>
+		
+	 
+	
+	 	<!--End @response after content sidebar hook-->
+	</div><!--end container-->
+
+</div>
+
+
+<!-- For sticky footer -->
+<div class="push"></div>  
+</div>	<!-- End of wrapper -->
+
+</div>
+	
+	<div class="footer"> <!-- Footer class for sticky footer -->
+		<div id="footer">
+			<div class="container">
+				<div class="row">
+    	
+	<!-- Begin @response footer hook content-->
+		<div class="three columns footer-widgets widget_text">			<div class="textwidget"><span class='product_text_text'>Galaxy 15 Radio curates and creates some of the best creative commons, free, and open audio from around the web.</span></div>
+		</div><div class="three columns footer-widgets widget_text">			<div class="textwidget"><span class='product_text_text'>We produce many of our own shows and music, as well as collect music and shows from artists who want their work distributed on an open platform.</span></div>
+		</div><div class="three columns footer-widgets widget_text">			<div class="textwidget"><span class='product_text_text'>
+ Galaxy 15 carries a variety of views and opinions, but does not hold a official stance on any topic. 
+Free speech is more important than pushing an agenda.
+</span></div>
+		</div>    
+<!-- 
+	Plugin: Custom Meta Widget	Plugin URL: http://shinraholdings.com/plugins/custom-meta-widget/-->
+
+
+	<div class="three columns footer-widgets customMetaWidget">	<h3 class="footer-widget-title">Meta</h3>	<ul>
+	
+	
+    <li><a href="http://www.galaxy15radio.com/wp-login.php">Log in</a></li><li><a href="http://www.galaxy15radio.com/?feed=rss2" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>	
+	</ul>
+    
+	</div><div class='clear'></div> 	<!-- End @response footer hook content-->
+	
+		
+
+		</div><!--end footer_wrap-->
+	</div><!--end footer-->
+</div> 
+
+</div>  <!--End of footer class for sticky footer -->
+
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/plugins/audio-link-player/player-js.php?ver=1.3.12'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/www.galaxy15radio.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ..."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.1'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-includes/js/jquery/ui/core.min.js?ver=1.11.2'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.2'></script>
+<script type='text/javascript' src='http://www.galaxy15radio.com/wp-includes/js/jquery/ui/tabs.min.js?ver=1.11.2'></script>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+---
+layout: post
+title: 코딩 원칙
+date: 2011-09-01 22:41:11.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags: []
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  original_post_id: '4156'
+  _wp_old_slug: '4156'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>리팩토링 되지 않은 코드는 설계 작업을 미래의 일로 미룸으로써 회사의 부채를 만든다. 그래서 매일하는 작업 속에 자신의 코드 변경을 가능한 리팩토링 한 다음 체크인 하는 것이 빚을 지지 않고 코딩하는 방법이다.</p>
+<p>그러기 위해서 체크인 시 몇가지 원칙들을 고민해봐야 하는데,</p>
+<ul>
+<li>버그와 상관 없는 코드는 해당 체인지에서 넣지 않는다.</li>
+<li>테스트 되지 않은 코드(dead 코드 포함)는 넣지 않는다.</li>
+<li>가능하면 코멘트를 없앤다. (코드 자체로 충분히 self descriptive 하게)</li>
+<li>클래스의 멤버들은 꼭 필요한 경우가 아니면, 외부로 노출하지 않는다.</li>
+<li>중복된 코드를 만들지 않는다.</li>
+</ul>
+<div>이 정도만 서로가 지켜나가려고 노력해도 충분히 좋은 디자인들이 창발할 수 있지 않을까.</div>

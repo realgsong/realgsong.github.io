@@ -1,0 +1,32 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.37
+date: 2008-01-31 08:37:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2691'
+  _wp_old_slug: '2691'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>a.</p>
+<p>[CODE]<br />(define (fixed-point f first-guess)<br />&nbsp; (define (close-enough? v1 v2)<br />&nbsp; &nbsp; (display v1)<br />&nbsp; &nbsp; (newline)<br />&nbsp; &nbsp; (&lt; (abs (- v1 v2)) tolerance))<br />&nbsp; (define (try guess)<br />&nbsp; &nbsp; (let ((next (f guess)))<br />&nbsp; &nbsp; &nbsp; (if (close-enough? guess next)<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; next<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (try next))))<br />&nbsp; (try first-guess))</p>
+<p>(define tolerance 0.00001)</p>
+<p>(define (average x y) (/ (+ x y) 2))</p>
+<p>(define (cont-frac n d k)<br />&nbsp; (define (cont-frac-iter i)<br />&nbsp; &nbsp; (if (= i k) 0<br />&nbsp; &nbsp; &nbsp; &nbsp; (/ (n i) (+ (d i) (cont-frac-iter (+ i 1))))))<br />&nbsp; (cont-frac-iter 1))<br />[/CODE]</p>
+<p>&gt; (/ 1 (cont-frac (lambda (x) 1.0) (lambda (x) 1.0) 10))<br />1.6176470588235294</p>
+<p>&gt; (/ 1 (cont-frac (lambda (x) 1.0) (lambda (x) 1.0) 12))<br />1.6179775280898876<br />&gt; (/ 1 (cont-frac (lambda (x) 1.0) (lambda (x) 1.0) <strong>13</strong>))<br />1.6180555555555558</p>
+<p>b.<br />[CODE]<br />(define (cont-frac n d k)<br />&nbsp; (define (cont-frac-iter i result)<br />&nbsp; &nbsp; (if (= i 0) result<br />&nbsp; &nbsp; &nbsp; &nbsp; (cont-frac-iter (- i 1) (/ (n i) (+ (d i) result)))))<br />&nbsp; (cont-frac-iter k 0))</p>
+<p>[/CODE]<br />&gt; (/ 1 (cont-frac (lambda (i) 1.0) (lambda (i) 1.0) 13))<br />1.6180257510729614</p>

@@ -1,0 +1,46 @@
+---
+layout: post
+title: Javascript Closure 예제
+date: 2014-01-03 13:25:21.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 클로져
+- 예제
+- 자바스크립트
+- 코드
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _wpas_skip_2551853: '1'
+  original_post_id: '10836'
+  _wp_old_slug: '10836'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<pre><code>var scope = "global scope";
+function checkscope() {
+    var scope = "local scope";
+    function f() { return scope; }
+    return f();
+}
+checkscope();
+</code></pre>
+<p>위 코드의 실행 결과는 "local scope" 이다. 이번엔 코드를 살짝 바꿔서</p>
+<pre><code>var scope = "global scope";
+function checkscope() {
+    var scope = "local scope";
+    function f() { return scope; }
+    return f;
+}
+checkscope()();
+</code></pre>
+<p>라고 했을 때 실행 결과는?</p>
+<p>클로져 이해를 요구하는 괜찮은 예제인 듯 ㅋ.</p>

@@ -1,0 +1,35 @@
+---
+layout: post
+title: Windows Vista 의 TrustedInstaller.exe process
+date: 2007-11-16 12:07:16.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- cpu 100%
+- 윈도우즈 비스타
+- trustedinstaller
+- windows vista
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2584'
+  _wp_old_slug: '2584'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>회사에서 메일박스로 쓰는 노트북과 집에서 사용하는 데스크탑에 윈도우즈 비스타가 설치되어 있습니다. 둘 다 사양이 썩 좋지 않은데요. 한번씩 CPU 사용률이 100% 로 올라가며 시스템이 현저히 느려지는 때가 있습니다. 프로세스 정보를 살펴보면 TrustedInstaller.exe 라는 놈이 갑자기 나타나 CPU 를 전부 잡아 먹어버리고 있습니다. </p>
+<p>이름 부터 몹시 의심스러운 TrustedInstaller.exe. 도대체 뭐하는 프로세스인지 한번 찾아봤습니다.</p>
+<blockquote>
+<p><em>trustedinstaller.exe is a Windows Modules Installer from Microsoft Corporation belonging to Microsoft® Windows® Operating System.</em> </p>
+<p>from <a href="http://www.liutilities.com/products/wintaskspro/processlibrary/trustedinstaller/" target="_blank">this site</a></p>
+</blockquote>
+<p>네 대충 보아하니 윈도우즈 업데이트 등에 쓰이는 프로그램으로 보입니다. 그러니까 내 시스템에서 새로 업데이트 해야할 항목이 있는 지 점검하는 작업을 하는 데 그 많은 CPU 를 사용하고 있었던 걸로 추측되네요.</p>
+<p>웹을 검색해보니 이 프로그램에 대한 불평이 아주 많았습니다. 그도 그럴 것이 게임처럼 순간반응이 중요한 뭔가를 하고 있다가 갑자기 CPU 사용률이 100% 가 되어 버리면 아주 난감하겠지요. </p>
+<p><a href="http://realgsong.files.wordpress.com/2007/11/1456759223.png"><img style="border-width:0;" height="351" alt="image" src="{{ site.baseurl }}/assets/wp/2047824441.png" width="406" border="0" /></a> </p>
+<p>지금 글을 쓰는 이 순간에도 CPU 사용률이 높아지길래 확인해 보니 위와 같습니다. 이거 정말 어떻게 고쳐주지 않으면 사용자가 겪는 불편이 날로 커질 것 같네요.</p>

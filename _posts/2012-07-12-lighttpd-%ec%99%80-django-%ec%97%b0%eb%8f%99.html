@@ -1,0 +1,52 @@
+---
+layout: post
+title: Lighttpd 와 Django 연동
+date: 2012-07-12 18:28:23.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- django
+- fastcgi
+- lighttpd
+- python
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  original_post_id: '6367'
+  _wp_old_slug: '6367'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>Lighttpd 를 웹서버로 사용하고, 동적처리가 필요한 페이지들은 Django 쪽으로 넘겨 처리하려면 이 둘을 fastcgi 로 엮어야 한다.</p>
+<p>우선 lighttpd 설정에 아래와 같은 사항을 추가한다.</p>
+<pre class="brush: shell; gutter: true">$HTTP[&quot;host&quot;] == &quot;mytestsite.com&quot; {
+    server.document-root = &quot;/var/www&quot;
+    fastcgi.server = (
+        &quot;/fcgi&quot; =&gt; (
+            &quot;cgicall&quot; =&gt; (
+                &quot;host&quot; =&gt; &quot;127.0.0.1&quot;,
+                &quot;port&quot; =&gt; 3033,
+                &quot;check-local&quot; =&gt; &quot;disable&quot;,
+                &quot;fix-root-scriptname&quot; =&gt; &quot;enable&quot;,
+            )
+        ),
+    )
+
+    url.rewrite-once = (
+        &quot;^(/static/.*)$&quot; =&gt; &quot;/fcgi$1&quot;,
+        &quot;^(/admin/.*)$&quot; =&gt; &quot;/fcgi$1&quot;,
+        &quot;^(/accounts/.*)$&quot; =&gt; &quot;/fcgi$1&quot;,
+    )
+}</pre>
+<p>url.rewrite-once 부분을 저렇게 처리 안하는 방법이 있나 싶어 찾아 봤으나 뾰쪽한 방법이 없는 듯 하다. 깔끔하게 처리하려면 Apache 에 WSGI 로 연동하는 걸 고려해보는 게 나을 지도 모르겠다.</p>
+<p>django 프로젝트의 settings.py 에는 다음의 설정을 추가한다.</p>
+<pre class="brush: bash; gutter: true">FORCE_SCRIPT_NAME=&quot;/fcgi&quot;
+LOGIN_URL=&quot;/fcgi/accounts/login/&quot;</pre>
+<p>설정을 바꿔서 더 깔끔하게 세팅할 수 있는 방법을 여전히 찾고 있다.</p>

@@ -1,0 +1,53 @@
+---
+layout: post
+title: Implementation Patterns
+date: 2010-05-09 02:34:22.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Book
+tags:
+- 독서
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  original_post_id: '3064'
+  _wp_old_slug: '3064'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<table>
+<tbody>
+<tr>
+<td><a href="http://www.aladin.co.kr/shop/wproduct.aspx?ISBN=0321413091&amp;ttbkey=ttbgsong791557002&amp;COPYPaper=1"><img src="{{ site.baseurl }}/assets/wp/0321413091_1.jpg" alt="" border="0" /></a></td>
+<td align="left"><a href="http://www.aladin.co.kr/shop/wproduct.aspx?ISBN=0321413091&amp;ttbkey=ttbgsong791557002&amp;COPYPaper=1">Implementation Patterns (Paperback)</a> - <img src="{{ site.baseurl }}/assets/wp/star_s10.gif" alt="10점" border="0" /><br />
+Beck, Kent/Addison-Wesley Professional</td>
+</tr>
+</tbody>
+</table>
+<p>책 읽는 데 제법 많은 시간이 걸렸다. 켄트 벡의 문장 스타일이 그리 읽기 편한 편은 아닌 것 같다. 한 문장 한 문장 곱씹어야 하는 것들이 많아서 얇은 책 두께에도 불구하고 시간이 꽤 걸린다. 담백한 코드를 좋아하는 스타일이 글에서도 고스란히 드러난 모양이다.</p>
+<p>책은 크게 아래와 같은 방식에 따라 챕터별로 나눠져 있다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2010/05/1313944387.png"><img style="display:inline;border-width:0;" title="image" src="{{ site.baseurl }}/assets/wp/1264417200.png" alt="image" width="612" height="339" border="0" /></a></p>
+<p>Programming 을 잘하기 위해 우리가 추구해야 할 가치는</p>
+<ul>
+<li><strong>Communication</strong> : 코드를 더 읽기 쉽게 만드는 것을 말한다.</li>
+<li><strong>Simplicity</strong> : 과하게 복잡한 부분들을 제거함으로써 프로그램을 읽고 사용하고 수정하는 것을 더욱 빠르게 해준다.</li>
+<li><strong>Flexibility</strong> : 프로그램은 Flexible 해야 한다. 단 그 프로그램이 변화되는 방향으로 유연해야 함을 말한다.</li>
+</ul>
+<p>이 세가지의 가치들이 코드를 개선하고자 하는 모티브를 제공하는데 이것을 실제로 행할 때 기준이 되는 원칙들이 있다.</p>
+<ul>
+<li><strong>Local Consequences</strong> : code change 가 비슷한 부분들에서 일어 나도록 해야 한다. 버그 하나를 잡기 위해 여기 저기 고치는 것은 비용을 막대하게 증가시킨다.</li>
+<li><strong>Minimize Repetition</strong> : 위의 Local consequence 를 지키기 위한 원리 하나는 중복된 코드를 최소화 하는 것이다.</li>
+<li><strong>Logic and Data Together</strong> : Local consequence 를 위한 또 다른 원리는 logic 과 data 를 함께 두는 것이다. 가능하다면 같은 메소드에 또는 같은 객체에 아니면 적어도 같은 패키지 안에 두는 것을 말한다.</li>
+<li><strong>Symmetry</strong> : Add() 메소드가 있으면 Remove() 메소드가 있는 것을 말한다. 같은 파라메터를 가지며 같은 lifetiem 을 가진다.</li>
+<li><strong>Declarative Expression</strong> : 프로그래머의 의도를 최대한 명확하게 드러내는 표현을 사용한다.</li>
+<li><strong>Rate of Change</strong> : 시간적으로 바뀌는 정도의 빠르기가 비슷한 데이터와 로직을 한 군데에 모은다. 예를 들어 세금 계산이라면 general 세금계산 로직은 해당 년도 별 세금과는 따로 떼어 관리한다.</li>
+</ul>
+<p><a href="http://realgsong.files.wordpress.com/2010/05/1047531255.png"><img style="display:inline;border-width:0;" title="image" src="{{ site.baseurl }}/assets/wp/1080580269.png" alt="image" width="648" height="382" border="0" /></a></p>
+<p>위 그림 처럼 Values 를 지키기 위한 motivation 을 실제 액션으로 바꿔 줄 때, 가이드 역할을 Principiles 가 하게 된다. 그리고 실제 Action 에 해당하는 Implementation Patterns 들은 이 책의 전반에 걸쳐 다룬다. 크게 Class, State, Behavior, Methods, Collection, Framework 의 6 파트로 구성되어 있다.</p>
+<p>책의 나머지에는 각 패턴들에 대한 소개와 설명들이 나온다. 다양한 경우의 패턴들이 있으며 그 중 몇몇은 익혀두면 코딩 속도&amp;품질을 높이는 데 도움이 될 것 같다.</p>

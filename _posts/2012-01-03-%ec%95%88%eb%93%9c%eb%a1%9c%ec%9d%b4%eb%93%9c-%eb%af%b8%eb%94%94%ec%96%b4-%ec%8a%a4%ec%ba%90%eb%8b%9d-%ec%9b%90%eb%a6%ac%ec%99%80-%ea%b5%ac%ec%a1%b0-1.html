@@ -1,0 +1,84 @@
+---
+layout: post
+title: 안드로이드 미디어 스캐닝 원리와 구조 (1)
+date: 2012-01-03 15:40:43.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- android
+- 미디어
+- 스캔
+- 안드로이드
+- MediaScanner
+- MediaScannerService
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_notify: '1'
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _social_broadcasted_ids: a:1:{s:7:"twitter";a:1:{i:63617283;a:1:{i:154090490705346560;a:3:{s:7:"message";s:2616:"eyJpbl9yZXBseV90b191c2VyX2lkX3N0ciI6bnVsbCwiY29vcmRpbmF0ZXMiOm51bGwsInBsYWNlIjpudWxsLCJpZF9zdHIiOiIxNTQwOTA0OTA3MDUzNDY1NjAiLCJpbl9yZXBseV90b19zdGF0dXNfaWQiOm51bGwsImNvbnRyaWJ1dG9ycyI6bnVsbCwidHJ1bmNhdGVkIjpmYWxzZSwidXNlciI6eyJsaXN0ZWRfY291bnQiOjMsImxhbmciOiJrbyIsIm5vdGlmaWNhdGlvbnMiOmZhbHNlLCJwcm90ZWN0ZWQiOmZhbHNlLCJsb2NhdGlvbiI6Ilx1YWNiZFx1YWUzMFx1YjNjNCwgXHVjMTMxXHViMGE4XHVjMmRjIiwidmVyaWZpZWQiOmZhbHNlLCJ0aW1lX3pvbmUiOiJTZW91bCIsInByb2ZpbGVfc2lkZWJhcl9ib3JkZXJfY29sb3IiOiJDMERFRUQiLCJuYW1lIjoiS2kgU3VuZyBCYWUiLCJpZF9zdHIiOiI2MzYxNzI4MyIsImNvbnRyaWJ1dG9yc19lbmFibGVkIjpmYWxzZSwidXJsIjoiaHR0cDpcL1wvZ3NvbmcucGUua3IiLCJkZWZhdWx0X3Byb2ZpbGUiOnRydWUsInByb2ZpbGVfdXNlX2JhY2tncm91bmRfaW1hZ2UiOnRydWUsInV0Y19vZmZzZXQiOjMyNDAwLCJkZXNjcmlwdGlvbiI6IkkgZG9uJ3QgdHdlZXQiLCJkZWZhdWx0X3Byb2ZpbGVfaW1hZ2UiOmZhbHNlLCJmcmllbmRzX2NvdW50IjoxNzcsInByb2ZpbGVfdGV4dF9jb2xvciI6IjMzMzMzMyIsInN0YXR1c2VzX2NvdW50IjozOTksImZvbGxvd2luZyI6ZmFsc2UsInByb2ZpbGVfYmFja2dyb3VuZF9pbWFnZV91cmwiOiJodHRwOlwvXC9hMC50d2ltZy5jb21cL2ltYWdlc1wvdGhlbWVzXC90aGVtZTFcL2JnLnBuZyIsImlzX3RyYW5zbGF0b3IiOmZhbHNlLCJjcmVhdGVkX2F0IjoiRnJpIEF1ZyAwNyAwMjozOTozOSArMDAwMCAyMDA5IiwicHJvZmlsZV9saW5rX2NvbG9yIjoiMDA4NEI0IiwicHJvZmlsZV9iYWNrZ3JvdW5kX2ltYWdlX3VybF9odHRwcyI6Imh0dHBzOlwvXC9zaTAudHdpbWcuY29tXC9pbWFnZXNcL3RoZW1lc1wvdGhlbWUxXC9iZy5wbmciLCJmYXZvdXJpdGVzX2NvdW50IjoxMDYsImZvbGxvd19yZXF1ZXN0X3NlbnQiOmZhbHNlLCJnZW9fZW5hYmxlZCI6dHJ1ZSwicHJvZmlsZV9iYWNrZ3JvdW5kX2NvbG9yIjoiQzBERUVEIiwicHJvZmlsZV9iYWNrZ3JvdW5kX3RpbGUiOmZhbHNlLCJmb2xsb3dlcnNfY291bnQiOjgxLCJwcm9maWxlX2ltYWdlX3VybCI6Imh0dHA6XC9cL2EyLnR3aW1nLmNvbVwvcHJvZmlsZV9pbWFnZXNcLzExMTQzNjUzOTdcLzQxNjMzXzY3NjQ5MTUyOV8xMjI5X25fbm9ybWFsLmpwZyIsInNjcmVlbl9uYW1lIjoicmVhbGdzb25nIiwiaWQiOiI2MzYxNzI4MyIsInNob3dfYWxsX2lubGluZV9tZWRpYSI6dHJ1ZSwicHJvZmlsZV9zaWRlYmFyX2ZpbGxfY29sb3IiOiJEREVFRjYiLCJwcm9maWxlX2ltYWdlX3VybF9odHRwcyI6Imh0dHBzOlwvXC9zaTAudHdpbWcuY29tXC9wcm9maWxlX2ltYWdlc1wvMTExNDM2NTM5N1wvNDE2MzNfNjc2NDkxNTI5XzEyMjlfbl9ub3JtYWwuanBnIn0sImdlbyI6bnVsbCwiZmF2b3JpdGVkIjpmYWxzZSwiY3JlYXRlZF9hdCI6IlR1ZSBKYW4gMDMgMDY6NDM6MzAgKzAwMDAgMjAxMiIsImluX3JlcGx5X3RvX3VzZXJfaWQiOm51bGwsInJldHdlZXRfY291bnQiOjAsImluX3JlcGx5X3RvX3NjcmVlbl9uYW1lIjpudWxsLCJzb3VyY2UiOiI8YSBocmVmPVwiaHR0cHM6XC9cL3NvcHJlc3RvLm1haWxjaGltcC5jb21cIiByZWw9XCJub2ZvbGxvd1wiPlNvY2lhbCBQcm94eSBieSBNYWlsY2hpbXA8XC9hPiIsImluX3JlcGx5X3RvX3N0YXR1c19pZF9zdHIiOm51bGwsImlkIjoiMTU0MDkwNDkwNzA1MzQ2NTYwIiwicG9zc2libHlfc2Vuc2l0aXZlIjpmYWxzZSwicmV0d2VldGVkIjpmYWxzZSwidGV4dCI6Ilx1YzU0OFx1YjRkY1x1Yjg1Y1x1Yzc3NFx1YjRkYyBcdWJiZjhcdWI1MTRcdWM1YjQgXHVjMmE0XHVjZTkwXHViMmRkIFx1YzZkMFx1YjlhY1x1YzY0MCBcdWFkNmNcdWM4NzAgKDEpIGh0dHA6XC9cL3QuY29cL0xOaGY4T2MxIn0=";s:4:"urls";a:2:{i:0;s:33:"http://www.gsong.pe.kr/wp/?p=5222";i:1;s:23:"http://wp.me/p1vsu3-1me";}s:7:"account";O:8:"stdClass":1:{s:4:"user";O:8:"stdClass":38:{s:24:"profile_background_color";s:6:"C0DEED";s:9:"protected";s:0:"";s:17:"profile_image_url";s:79:"http://a2.twimg.com/profile_images/1114365397/41633_676491529_1229_n_normal.jpg";s:23:"profile_background_tile";s:0:"";s:23:"profile_image_url_https";s:81:"https://si0.twimg.com/profile_images/1114365397/41633_676491529_1229_n_normal.jpg";s:4:"name";s:11:"Ki
+    Sung Bae";s:21:"show_all_inline_media";s:1:"1";s:20:"contributors_enabled";s:0:"";s:16:"favourites_count";s:1:"8";s:26:"profile_sidebar_fill_color";s:6:"DDEEF6";s:12:"listed_count";s:1:"3";s:4:"lang";s:2:"en";s:10:"utc_offset";s:5:"32400";s:10:"created_at";s:30:"Fri
+    Aug 07 02:39:39 +0000 2009";s:11:"description";s:13:"I don't tweet";s:9:"time_zone";s:5:"Seoul";s:28:"profile_sidebar_border_color";s:6:"C0DEED";s:15:"followers_count";s:2:"67";s:8:"verified";s:0:"";s:14:"statuses_count";s:3:"250";s:11:"geo_enabled";s:1:"1";s:28:"profile_use_background_image";s:1:"1";s:21:"default_profile_image";s:0:"";s:13:"notifications";s:0:"";s:18:"profile_text_color";s:6:"333333";s:9:"following";s:0:"";s:28:"profile_background_image_url";s:47:"http://a0.twimg.com/images/themes/theme1/bg.png";s:8:"location";s:20:"경기도,
+    성남시";s:6:"id_str";s:8:"63617283";s:13:"is_translator";s:0:"";s:15:"default_profile";s:1:"1";s:34:"profile_background_image_url_https";s:49:"https://si0.twimg.com/images/themes/theme1/bg.png";s:18:"profile_link_color";s:6:"0084B4";s:2:"id";s:8:"63617283";s:19:"follow_request_sent";s:0:"";s:13:"friends_count";s:3:"136";s:3:"url";s:22:"http://www.gsong.pe.kr";s:11:"screen_name";s:9:"realgsong";}}}}}}
+  _social_aggregation_log: a:12:{i:1325574033;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1325577076;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1325580464;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1325583040;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1325586761;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1325591143;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1325599252;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1325613654;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1325642566;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1325686538;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1325773833;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1325947143;O:8:"stdClass":1:{s:6:"manual";s:0:"";}}
+  original_post_id: '5222'
+  _wp_old_slug: '5222'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<h1>Abstract</h1>
+<p>안드로이드에서 미디어가 담긴 파일시스템을 붙이거나, 시스템을 최초 부팅하면 저장소 내의 미디어 파일들을 스캔하여 라이브러리를 구축해 준다. 스캐닝 과정과 원리를 세부적으로 살펴보려 한다.</p>
+<h1>Overview</h1>
+<p><a href="http://realgsong.files.wordpress.com/2012/01/android_mediascanner.jpg"><img class="alignnone" style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-image:initial;border-width:0;" title="android_mediascanner" src="{{ site.baseurl }}/assets/wp/android_mediascanner_thumb.jpg" alt="android_mediascanner" width="507" height="375" border="0" /></a></p>
+<p>시작은 MediaScannerReceiver 에서 부터다. ACTION_BOOT_COMPLETED, ACTION_MEDIA_MOUNTED, ACTION_MEDIA_SCANNER_SCAN_FILE 의 인텐트에 대해 반응하고 처리를 시작한다. 각 인텐트는 다음과 같은 상황에서 발생한다.</p>
+<ul>
+<li>ACTION_BOOT_COMPLETED : 시스템이 부팅을 마치고 나면 딱 한번 브로드캐스트하는 것이다.</li>
+<li>ACTION_MEDIA_MOUNTED : external media 가 있고 마운트가 됐을 때 브로드캐스트 된다.</li>
+<li>ACTION_MEDIA_SCANNER_SCAN_FILE : 미디어 스캐너로 하여금 해당 파일을 스캔하고 데이터베이스에 추가하도록 한다.</li>
+</ul>
+<p>이때 실질적인 처리는 MediaScannerService 에 맡기게 되는데, 그 이유는 스캐닝에 제법 긴 시간이 필요하기 때문이다.</p>
+<p>MediaScannerService 는 MediaScanner 라는 객체를 만들어 실제적인 스캔작업이 이뤄지고, MediaScanner 는 MediaProvider 라는 미디어 데이터베이스를 이용한다.</p>
+<p>다시 실제 스캐닝의 핵심 작업은 c++ 로 이루어진 라이브러리에서 이뤄지고, 이 인터페이스는 JNI 로 노출되어 있다.</p>
+<h2>MediaScannerReceiver</h2>
+<p>MediaScannerReceiver 는 아래 두 폴더에서 스캔을 진행한다.</p>
+<ul>
+<li>internal volume, $(ANDROID_ROOT)/media</li>
+<li>external volume, $(EXTERNAL_STROAGE)</li>
+</ul>
+<div>
+<pre class="brush: java; gutter: true">public class MediaScannerReceiver extends BroadcastReceiver
+{
+...
+private void scan(Context context, String volume) {
+    Bundle args = new Bundle();
+    args.putString(&quot;volume&quot;, volume);
+    context.startService(
+        new Intent(context, MediaScannerService.class).putExtras(args));
+}
+
+private void scanFile(Context context, String path) {
+    Bundle args = new Bundle();
+    args.putString(&quot;filepath&quot;, path);
+    context.startService(
+        new Intent(context, MediaScannerService.class).putExtras(args));
+}
+
+...
+}</pre>
+</div>
+<p>MediaScannerReceiver 내에 scan() 과 scanFile() 을 보면 결국 context 를 통해 startService() 를 호출하는 것을 알 수 있는데, 이때 호출되는 서비스는 위에서 얘기했다시피 MediaScannerService 이다.</p>
+<h2>MediaScannerService</h2>
+<p><a href="http://realgsong.files.wordpress.com/2012/01/mediascannerservice-class-diagram1.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border:0;" title="MediaScannerService-Class-Diagram" src="{{ site.baseurl }}/assets/wp/mediascannerservice-class-diagram_thumb.png" alt="MediaScannerService-Class-Diagram" width="644" height="422" border="0" /></a></p>
+<p>MediaScannerService 에서 스캔 작업은 쓰레드를 생성하여 처리한다. 쓰레드가 생성되면 Runnable 인터페이스의 run() 을 호출하게 된다. ServiceHandler 라는 internal class 를 생성하여 서비스 요청을 처리하는데, 여기에서 다시 MediaScanner 라는 클래스의 인스턴스를 생성하여 스캔 작업을 시킨다.</p>
+<p>MediaScanner 와 JNI 로 넘어가는 부분은 다시 새로운 포스팅으로 다룰 예정.</p>
+<h1>참고 사이트</h1>
+<ul>
+<li><a href="http://blog.csdn.net/lylianlll/article/details/5721586">Android Media Scanner Mechanism Analyze - lylianlll的专栏 - 博客频道 - CSDN.NET</a></li>
+</ul>

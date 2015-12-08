@@ -1,0 +1,52 @@
+---
+layout: post
+title: 기본 값으로만 호출되는 파라메터
+date: 2011-08-11 00:20:42.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- code review
+- 코드리뷰
+- refactoring
+- remove parameter
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  original_post_id: '4162'
+  _wp_old_slug: '4162'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>아래의 코드를 보자.</p>
+<pre class="brush: cpp; gutter: true">class Parser
+{
+  ....
+  int GetUTC_timeString(
+    UTC_time *pUtcTime,
+    RMascii *buffer,
+    RMuint32 buf ferSize,
+    RMbool mode24 = TRUE,
+    RMbool ignoreSecond = FALSE);
+ ....
+};</pre>
+<p>위와 같이 선언되어 있는 코드가 있다. 그러나 이 메소드를 호출하는 곳은 아래처럼 단 한 군데 밖에 없다.</p>
+<pre class="brush: cpp; gutter: true">g_Parser.GetUTC_timeString(
+    &amp;m_pTotInfo-&gt;local_time,
+    szTime,
+    MAX_TIME_STRING_LEN);</pre>
+<p>아마도 이 메소드를 만든 사람은 차후에 mode24 와 ignoreSecond 가 사용될 여지가 있을지도 몰라 이런게 만든 것일 수 있다. 그러나 이것은 잘못내린 결정이다.</p>
+<blockquote><p>Programmers often add parameters but are reluctant to remove them. After all, a spurious parameter doesn't cause any problems, and you might need it again later.</p>
+<p>This is the demon Obfuscatis speaking; purge him from our soul! A parameter indicates information that is needed; different values make a difference. Your caller has to worry what values to pass. By not removing the parameter your are making further work for everyone who uses the method. That's not a good trade-off, especially because removing parameters is an easy refactoring.</p>
+<p>- Remove Parameter, <a href="http://www.aladin.co.kr/shop/wproduct.aspx?ISBN=0201485672&amp;amp;ttbkey=ttbgsong791557002&amp;amp;COPYPaper=1">Refactong, Martine Fowler</a></p></blockquote>
+<p>요약하자면 제거 가능한 파라메터를 추가하는 것은 잘못된 일이다. 파라메터란 그 메소드가 호출될 때 어떤 정보가 필요한 지 알려주는 역할을 하는데, 그것을 남겨두면 caller 가 쓸데 없는 파라메터에 신경을 써야 한다. 제거 가능한 파라메터를 남겨두는 것은 그 메소드를 호출할 모든 사람에게 일을 떠넘기는 것과 같다라는 이야기다.</p>
+<p>프로그래머들은 종종 자신의 메소드를 많은 곳에 유연하게 사용되게하려고, 저런식의 generality 를 만드려는 유혹을 느낀다. 그러나 사실은 그렇게 해서 파라메터가 늘어날 수 록 유용성은 떨어지고, 긴 파라메터를 채워 호출하기 위해 프로그래밍의 복잡도는 늘어만 가게 된다.</p>
+<p>그러므로 위와 같은 코드에서 쓰이지 않는 파라메터들은 메소드 내의 지역변수로 바꾸는 것이 바람직하다.</p>
+<p>----</p>
+<p>불현듯 생각이 나서 시작하게 된 글인데 앞으로 실제 코드 리뷰를 하면서 목격한 것들을 블로그에 하나씩 포스팅해볼 예정이다. 그렇게 해서 코드 리뷰 하면서 발견하게 되는 것들을 나름의 지식으로 패턴화 해볼 수 있지 않을까 기대한다.</p>

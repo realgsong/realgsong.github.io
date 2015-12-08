@@ -1,0 +1,32 @@
+---
+layout: post
+title: 우분투에서 부팅할 때 디스크 체크하기
+date: 2011-11-09 17:29:33.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 디스크체크
+- fsck
+- 우분투
+- ubuntu
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_notify: '0'
+  original_post_id: '4920'
+  _wp_old_slug: '4920'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<pre class="brush: bash; gutter: true">sudo touch /forcefsck</pre>
+<p>위와 같이 해서 루트밑에 forcefsck 라는 파일을 만들어 주면 재부팅할 때 디스크체크를 한번 하게 된다.</p>
+<p>아니면</p>
+<pre class="brush: bash; gutter: true">shutdown -rF now</pre>
+<p>를 해줘도 됨.</p>

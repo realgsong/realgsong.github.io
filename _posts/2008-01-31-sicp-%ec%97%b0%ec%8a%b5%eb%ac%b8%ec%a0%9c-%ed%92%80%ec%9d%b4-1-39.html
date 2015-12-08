@@ -1,0 +1,24 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.39
+date: 2008-01-31 09:12:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2693'
+  _wp_old_slug: '2693'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>[CODE]<br />(define (square x) (* x x))<br />(define (tan-cf x k)<br />&nbsp; (define (d-tan i) (- (* 2 i) 1))<br />&nbsp; (define (n-tan i)<br />&nbsp; &nbsp; (if (= i 1)<br />&nbsp; &nbsp; &nbsp; &nbsp; x<br />&nbsp; &nbsp; &nbsp; &nbsp; (square x)))<br />&nbsp; (cont-frac n-tan d-tan k))<br />[/CODE]</p>

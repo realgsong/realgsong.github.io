@@ -1,0 +1,42 @@
+---
+layout: post
+title: include 의 쌍따옴표와 꺽쇠 기호의 차이
+date: 2012-02-11 00:43:46.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- '""'
+- 부등호
+- 꺽쇠
+- include
+- 쌍따옴표
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_notify: '1'
+  _social_broadcasted_ids: a:1:{s:7:"twitter";a:1:{i:63617283;a:1:{i:167997224712802304;a:3:{s:7:"message";s:2604:"eyJpbl9yZXBseV90b19zdGF0dXNfaWRfc3RyIjpudWxsLCJjcmVhdGVkX2F0IjoiRnJpIEZlYiAxMCAxNTo0Mzo1NCArMDAwMCAyMDEyIiwicG9zc2libHlfc2Vuc2l0aXZlIjpmYWxzZSwiaW5fcmVwbHlfdG9fdXNlcl9pZF9zdHIiOm51bGwsInBsYWNlIjpudWxsLCJpbl9yZXBseV90b191c2VyX2lkIjpudWxsLCJpbl9yZXBseV90b19zY3JlZW5fbmFtZSI6bnVsbCwiaWRfc3RyIjoiMTY3OTk3MjI0NzEyODAyMzA0IiwiaW5fcmVwbHlfdG9fc3RhdHVzX2lkIjpudWxsLCJjb250cmlidXRvcnMiOm51bGwsInVzZXIiOnsiZGVmYXVsdF9wcm9maWxlIjp0cnVlLCJzaG93X2FsbF9pbmxpbmVfbWVkaWEiOnRydWUsImNyZWF0ZWRfYXQiOiJGcmkgQXVnIDA3IDAyOjM5OjM5ICswMDAwIDIwMDkiLCJmb2xsb3dlcnNfY291bnQiOjkzLCJwcm90ZWN0ZWQiOmZhbHNlLCJwcm9maWxlX2ltYWdlX3VybCI6Imh0dHA6XC9cL2EyLnR3aW1nLmNvbVwvcHJvZmlsZV9pbWFnZXNcLzExMTQzNjUzOTdcLzQxNjMzXzY3NjQ5MTUyOV8xMjI5X25fbm9ybWFsLmpwZyIsImxhbmciOiJrbyIsInByb2ZpbGVfYmFja2dyb3VuZF9jb2xvciI6IkMwREVFRCIsIm5hbWUiOiJLaSBTdW5nIEJhZSIsInByb2ZpbGVfYmFja2dyb3VuZF90aWxlIjpmYWxzZSwidGltZV96b25lIjoiU2VvdWwiLCJwcm9maWxlX2ltYWdlX3VybF9odHRwcyI6Imh0dHBzOlwvXC9zaTAudHdpbWcuY29tXC9wcm9maWxlX2ltYWdlc1wvMTExNDM2NTM5N1wvNDE2MzNfNjc2NDkxNTI5XzEyMjlfbl9ub3JtYWwuanBnIiwic3RhdHVzZXNfY291bnQiOjQ2NiwiZ2VvX2VuYWJsZWQiOnRydWUsIm5vdGlmaWNhdGlvbnMiOmZhbHNlLCJwcm9maWxlX2JhY2tncm91bmRfaW1hZ2VfdXJsX2h0dHBzIjoiaHR0cHM6XC9cL3NpMC50d2ltZy5jb21cL2ltYWdlc1wvdGhlbWVzXC90aGVtZTFcL2JnLnBuZyIsInV0Y19vZmZzZXQiOjMyNDAwLCJwcm9maWxlX3NpZGViYXJfZmlsbF9jb2xvciI6IkRERUVGNiIsImRlc2NyaXB0aW9uIjoiSSBkb24ndCB0d2VldCIsInNjcmVlbl9uYW1lIjoicmVhbGdzb25nIiwiaWRfc3RyIjoiNjM2MTcyODMiLCJkZWZhdWx0X3Byb2ZpbGVfaW1hZ2UiOmZhbHNlLCJmcmllbmRzX2NvdW50IjoyMDYsImZhdm91cml0ZXNfY291bnQiOjIzNSwicHJvZmlsZV9zaWRlYmFyX2JvcmRlcl9jb2xvciI6IkMwREVFRCIsImxvY2F0aW9uIjoiXHVhY2JkXHVhZTMwXHViM2M0LCBcdWMxMzFcdWIwYThcdWMyZGMiLCJpc190cmFuc2xhdG9yIjpmYWxzZSwiZm9sbG93X3JlcXVlc3Rfc2VudCI6ZmFsc2UsImZvbGxvd2luZyI6ZmFsc2UsInZlcmlmaWVkIjpmYWxzZSwicHJvZmlsZV91c2VfYmFja2dyb3VuZF9pbWFnZSI6dHJ1ZSwidXJsIjoiaHR0cDpcL1wvZ3NvbmcucGUua3IiLCJjb250cmlidXRvcnNfZW5hYmxlZCI6ZmFsc2UsInByb2ZpbGVfdGV4dF9jb2xvciI6IjMzMzMzMyIsImxpc3RlZF9jb3VudCI6MywicHJvZmlsZV9iYWNrZ3JvdW5kX2ltYWdlX3VybCI6Imh0dHA6XC9cL2EwLnR3aW1nLmNvbVwvaW1hZ2VzXC90aGVtZXNcL3RoZW1lMVwvYmcucG5nIiwiaWQiOiI2MzYxNzI4MyIsInByb2ZpbGVfbGlua19jb2xvciI6IjAwODRCNCJ9LCJmYXZvcml0ZWQiOmZhbHNlLCJjb29yZGluYXRlcyI6bnVsbCwidHJ1bmNhdGVkIjpmYWxzZSwicmV0d2VldGVkIjpmYWxzZSwicmV0d2VldF9jb3VudCI6MCwic291cmNlIjoiPGEgaHJlZj1cImh0dHBzOlwvXC9zb3ByZXN0by5tYWlsY2hpbXAuY29tXCIgcmVsPVwibm9mb2xsb3dcIj5Tb2NpYWwgUHJveHkgYnkgTWFpbGNoaW1wPFwvYT4iLCJnZW8iOm51bGwsImlkIjoiMTY3OTk3MjI0NzEyODAyMzA0IiwidGV4dCI6ImluY2x1ZGUgXHVjNzU4IFx1YzMwZFx1YjUzMFx1YzYzNFx1ZDQ1Y1x1YzY0MCBcdWJkODBcdWI0ZjFcdWQ2MzggXHVhZTMwXHVkNjM4XHVjNzU4IFx1Y2MyOFx1Yzc3NCBodHRwOlwvXC90LmNvXC92cDBGb01rMSJ9";s:4:"urls";a:2:{i:0;s:33:"http://www.gsong.pe.kr/wp/?p=5353";i:1;s:23:"http://wp.me/p1vsu3-1ol";}s:7:"account";O:8:"stdClass":1:{s:4:"user";O:8:"stdClass":38:{s:24:"profile_background_color";s:6:"C0DEED";s:9:"protected";s:0:"";s:17:"profile_image_url";s:79:"http://a2.twimg.com/profile_images/1114365397/41633_676491529_1229_n_normal.jpg";s:23:"profile_background_tile";s:0:"";s:23:"profile_image_url_https";s:81:"https://si0.twimg.com/profile_images/1114365397/41633_676491529_1229_n_normal.jpg";s:4:"name";s:11:"Ki
+    Sung Bae";s:21:"show_all_inline_media";s:1:"1";s:20:"contributors_enabled";s:0:"";s:16:"favourites_count";s:1:"8";s:26:"profile_sidebar_fill_color";s:6:"DDEEF6";s:12:"listed_count";s:1:"3";s:4:"lang";s:2:"en";s:10:"utc_offset";s:5:"32400";s:10:"created_at";s:30:"Fri
+    Aug 07 02:39:39 +0000 2009";s:11:"description";s:13:"I don't tweet";s:9:"time_zone";s:5:"Seoul";s:28:"profile_sidebar_border_color";s:6:"C0DEED";s:15:"followers_count";s:2:"67";s:8:"verified";s:0:"";s:14:"statuses_count";s:3:"250";s:11:"geo_enabled";s:1:"1";s:28:"profile_use_background_image";s:1:"1";s:21:"default_profile_image";s:0:"";s:13:"notifications";s:0:"";s:18:"profile_text_color";s:6:"333333";s:9:"following";s:0:"";s:28:"profile_background_image_url";s:47:"http://a0.twimg.com/images/themes/theme1/bg.png";s:8:"location";s:20:"경기도,
+    성남시";s:6:"id_str";s:8:"63617283";s:13:"is_translator";s:0:"";s:15:"default_profile";s:1:"1";s:34:"profile_background_image_url_https";s:49:"https://si0.twimg.com/images/themes/theme1/bg.png";s:18:"profile_link_color";s:6:"0084B4";s:2:"id";s:8:"63617283";s:19:"follow_request_sent";s:0:"";s:13:"friends_count";s:3:"136";s:3:"url";s:22:"http://www.gsong.pe.kr";s:11:"screen_name";s:9:"realgsong";}}}}}}
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _social_aggregation_log: a:10:{i:1328889646;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1328892325;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1328895059;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1328898725;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1328906949;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1328922024;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1328950863;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1328994216;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1329081337;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1329254162;O:8:"stdClass":1:{s:6:"manual";s:0:"";}}
+  original_post_id: '5353'
+  _wp_old_slug: '5353'
+  _oembed_c55c2e8ef4431fdea561873755b1e55f: '{{unknown}}'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<pre class="brush: cpp; gutter: true">#include &lt;aaa.h&gt;
+#include &quot;aaa.h&quot;</pre>
+<p>위 두 줄의 차이점은 무엇일까? 보통 &lt;&gt; 은 standard library header 에 사용하고 "" 은 user defined header 사용한다고 알려져 있다. 관용적으로 그렇게 쓰다보니 크게 틀린 말은 아니지만 정확한 이해는 다음과 같다.</p>
+<p>먼저 &lt;&gt; 로 되어 있는 include 문은 컴파일러 구현체에 따라 정의된 곳에서 header 를 찾아 그 내용을 가지고 온다. 이때 헤더를 가르키는 문자열은 유일해야 한다. 이 헤더가 가르키는 것이 꼭 파일일 필요도 없다.</p>
+<p>다음 "" 로 되어 있는 include 문은 컴파일러 구현체에 따라 정의된 곳에서 <strong>해당 파일</strong>을 찾아 그 내용을 가지고 온다. 만약 파일을 찾지 못하면, "" 를 &lt;&gt; 로 바꿔 위에서 얘기한 replacement 를 다시 진행한다.</p>
+<p>그러니까 둘의 차이점은 header 를 읽을 것인가 아니면 source file 을 읽을 것인가라고 생각하면 된다. standard header 들이 꼭 파일로 존재하지 않고 compiler 에 built-in 으로 들어가 있을 수도 있다는 점을 생각해보면 쉽게 이 차이가 이해될 것이다.</p>
+<p>출처 : <a href="http://stackoverflow.com/questions/21593/what-is-the-difference-between-include-filename-and-include-filename">http://stackoverflow.com/questions/21593/what-is-the-difference-between-include-filename-and-include-filename</a></p>

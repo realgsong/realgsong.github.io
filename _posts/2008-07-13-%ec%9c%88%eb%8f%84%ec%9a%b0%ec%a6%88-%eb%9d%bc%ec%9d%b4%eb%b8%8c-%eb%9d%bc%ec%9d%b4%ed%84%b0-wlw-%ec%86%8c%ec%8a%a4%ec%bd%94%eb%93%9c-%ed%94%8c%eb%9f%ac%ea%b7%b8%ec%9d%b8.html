@@ -1,0 +1,69 @@
+---
+layout: post
+title: 윈도우즈 라이브 라이터 (WLW) 소스코드 플러그인
+date: 2008-07-13 09:05:37.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 소스코드 포맷터
+- 플러그인
+- 윈도우즈 라이브 라이터
+- WLW source code formatter plugin
+meta:
+  _publicize_pending: '1'
+  _oembed_bf6260420b887912928eefa5120e70e3: '{{unknown}}'
+  _oembed_4af2a464f95fe93c02362b2e6c96c346: '{{unknown}}'
+  _oembed_464a04d8ffdbfc64a52b218663d4df8d: '{{unknown}}'
+  _oembed_9f69eece78fb1ad34c1e570a591a3b7a: '{{unknown}}'
+  _oembed_3022c0c296f9988586d16ca06eca9159: '{{unknown}}'
+  _oembed_004df80b10545a4b70086b84bb3fb504: '{{unknown}}'
+  original_post_id: '2778'
+  _wp_old_slug: '2778'
+  _oembed_da05a3ad4b73f0763f761260875a4661: '{{unknown}}'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>Windows Live Writer (이하 WLW) source code formatter plug in 입니다. 출처는 <a title="http://stevedunns.googlepages.com/codeformatterforwindowslivewriter" href="http://stevedunns.googlepages.com/codeformatterforwindowslivewriter">http://stevedunns.googlepages.com/codeformatterforwindowslivewriter</a> 구요.</p>
+<p>설치 방법은 </p>
+<ol>
+<li><a href="http://stevedunns.googlepages.com/CodeFormatterPluginBinaries1.0.0.4.zip">여기</a>에서 바이너리 파일을 다운로드 받습니다. </li>
+<li>C:Program FilesWindows LiveWriterPlugins 여기에 zip 파일의 압축을 풉니다. </li>
+<li>WLW 를 다시 시작합니다. </li>
+</ol>
+<p>입니다. 간단하죠? </p>
+<p><a href="http://realgsong.files.wordpress.com/2008/07/1630353078.png"><img style="border-right:0;border-top:0;border-left:0;border-bottom:0;" height="561" alt="image" src="{{ site.baseurl }}/assets/wp/1079073985.png" width="498" border="0" /></a> </p>
+<p>그럼 위의 빨간 동그라미 부분과 같은 메뉴가 추가로 생깁니다. 이걸 이용해서 예쁘게 포맷팅된 소스코드를 올리 수가 있네요. 시험 삼아 저도 한번 올려 봅니다.</p>
+<div class="wlWriterSmartContent" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E7:17a017bb-29ff-4263-9950-12ab4b8ddc14" style="display:inline;float:none;margin:0;padding:0;">
+<pre style="background-color:White;overflow:auto;" />
+<div><span style="color:#0000FF;">bool</span><span style="color:#000000;"> GetConfigFileName ( </span><span style="color:#0000FF;">char</span><span style="color:#000000;">*</span><span style="color:#000000;"> pszName, size_t nBuffSize )<br />
+{<br />
+</span><span style="color:#0000FF;">char</span><span style="color:#000000;"> szConfigFilename[MAX_PATH];</p>
+<p>    </span><span style="color:#008000;">//</span><span style="color:#008000;"> Read install dir from registry... we'll assume it succeeds.</p>
+<p>    </span><span style="color:#008000;">//</span><span style="color:#008000;"> Add on a backslash if it wasn't present in the registry value.<br />
+    </span><span style="color:#008000;">//</span><span style="color:#008000;"> First, get a pointer to the terminating zero.</span><span style="color:#008000;"><br />
+</span><span style="color:#0000FF;">char</span><span style="color:#000000;">*</span><span style="color:#000000;"> pLastChar </span><span style="color:#000000;">=</span><span style="color:#000000;"> strchr ( szConfigFilename, </span><span style="color:#800000;">'</span><span style="color:#800000;"></span><span style="color:#800000;">'</span><span style="color:#000000;"> );</p>
+<p>    </span><span style="color:#008000;">//</span><span style="color:#008000;"> Now move it back one character.</span><span style="color:#008000;"><br />
+</span><span style="color:#000000;">    pLastChar</span><span style="color:#000000;">--</span><span style="color:#000000;">;  </p>
+<p>    </span><span style="color:#0000FF;">if</span><span style="color:#000000;"> ( </span><span style="color:#000000;">*</span><span style="color:#000000;">pLastChar </span><span style="color:#000000;">!=</span><span style="color:#000000;"> </span><span style="color:#800000;">'</span><span style="color:#800000;">\</span><span style="color:#800000;">'</span><span style="color:#000000;"> )<br />
+        strcat ( szConfigFilename, </span><span style="color:#800000;">&quot;</span><span style="color:#800000;">\</span><span style="color:#800000;">&quot;</span><span style="color:#000000;"> );</p>
+<p>    </span><span style="color:#008000;">//</span><span style="color:#008000;"> Add on the name of the config file.</span><span style="color:#008000;"><br />
+</span><span style="color:#000000;">    strcat ( szConfigFilename, </span><span style="color:#800000;">&quot;</span><span style="color:#800000;">config.bin</span><span style="color:#800000;">&quot;</span><span style="color:#000000;"> );</p>
+<p>    </span><span style="color:#008000;">//</span><span style="color:#008000;"> If the caller's buffer is big enough, return the filename.</span><span style="color:#008000;"><br />
+</span><span style="color:#000000;">    </span><span style="color:#0000FF;">if</span><span style="color:#000000;"> ( strlen ( szConfigFilename ) </span><span style="color:#000000;">&gt;=</span><span style="color:#000000;"> nBuffSize )<br />
+        </span><span style="color:#0000FF;">return</span><span style="color:#000000;"> </span><span style="color:#0000FF;">false</span><span style="color:#000000;">;<br />
+    </span><span style="color:#0000FF;">else</span><span style="color:#000000;"><br />
+        {<br />
+        strcpy ( pszName, szConfigFilename );<br />
+        </span><span style="color:#0000FF;">return</span><span style="color:#000000;"> </span><span style="color:#0000FF;">true</span><span style="color:#000000;">;<br />
+        }<br />
+}<br />
+</span></div>
+<p><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+<p>이쁜가요? ㅎㅎ</p>

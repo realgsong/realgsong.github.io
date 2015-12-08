@@ -1,0 +1,31 @@
+---
+layout: post
+title: 우분투 12.10 에서 유선랜 연결이 활성화되지 않을 때
+date: 2012-11-21 10:59:43.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 네트웍
+- 활성화
+- 우분투
+- 유선랜
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  original_post_id: '7032'
+  _wp_old_slug: '7032'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>어제 갑작스런 전력차단으로 컴퓨터가 꺼진 일이 있었는데, 그 이후 부팅을 해도 유선랜이 활성화되지 않는 문제가 있었다. 원인은 자세히 모르겠으나, 구글링을 통해 찾은 해법은</p>
+<p>/etc/NetworkManager/NetworkManager.conf 에서</p>
+<pre class="brush: bash; gutter: true">[ifupdown]
+managed=false</pre>
+<p>에서 false 를 true 로 바꾸고 리부팅하니 해결되었다. <a href="http://shallop.com/2012/11/ubuntu-12-04-wired-connection-device-not-managed/">출처</a></p>

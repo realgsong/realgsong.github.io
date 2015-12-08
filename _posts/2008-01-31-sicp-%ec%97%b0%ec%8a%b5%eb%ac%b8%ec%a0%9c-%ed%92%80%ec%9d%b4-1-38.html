@@ -1,0 +1,26 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.38
+date: 2008-01-31 09:05:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2692'
+  _wp_old_slug: '2692'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>[CODE]<br />(define (n-e i) 1.0)<br />(define (d-e i)<br />&nbsp; (if (= 2 (remainder i 3))<br />&nbsp; &nbsp; &nbsp; 1.0<br />&nbsp; &nbsp; &nbsp; (* 2 (/ (+ i 1) 3))))</p>
+<p>[/CODE]</p>
+<p>&gt; (+ 2 (cont-frac n-e d-e 10))<br />2.4813757546665216<br />&gt;</p>

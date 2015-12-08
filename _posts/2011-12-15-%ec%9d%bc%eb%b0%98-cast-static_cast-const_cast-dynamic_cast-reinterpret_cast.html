@@ -1,0 +1,112 @@
+---
+layout: post
+title: C++ type casting 정리
+date: 2011-12-15 15:06:57.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- c++
+- const_cast
+- dynamic_cast
+- 타입캐스팅
+- regular cast
+- reinterpret_cast
+- static_cast
+- type cast
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _social_notify: '1'
+  _social_aggregation_log: a:11:{i:1323930790;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323933339;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323933550;O:8:"stdClass":1:{s:6:"manual";s:1:"1";}i:1323936954;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323941484;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323949588;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323964898;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323993757;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1324037761;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1324125037;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1324298180;O:8:"stdClass":1:{s:6:"manual";s:0:"";}}
+  _social_broadcasted_ids: a:1:{s:7:"twitter";a:1:{i:63617283;a:2:{i:147195968146776064;a:3:{s:7:"message";s:2640:"eyJnZW8iOm51bGwsInRydW5jYXRlZCI6ZmFsc2UsImlkX3N0ciI6IjE0NzE5NTk2ODE0Njc3NjA2NCIsInJldHdlZXRfY291bnQiOjAsImZhdm9yaXRlZCI6ZmFsc2UsInBvc3NpYmx5X3NlbnNpdGl2ZSI6ZmFsc2UsImluX3JlcGx5X3RvX3NjcmVlbl9uYW1lIjpudWxsLCJpbl9yZXBseV90b191c2VyX2lkIjpudWxsLCJpbl9yZXBseV90b19zdGF0dXNfaWRfc3RyIjpudWxsLCJ1c2VyIjp7InByb2ZpbGVfdXNlX2JhY2tncm91bmRfaW1hZ2UiOnRydWUsInByb3RlY3RlZCI6ZmFsc2UsImlzX3RyYW5zbGF0b3IiOmZhbHNlLCJmb2xsb3dfcmVxdWVzdF9zZW50IjpmYWxzZSwiZm9sbG93aW5nIjpmYWxzZSwiZ2VvX2VuYWJsZWQiOnRydWUsInByb2ZpbGVfdGV4dF9jb2xvciI6IjMzMzMzMyIsIm5hbWUiOiJLaSBTdW5nIEJhZSIsImlkX3N0ciI6IjYzNjE3MjgzIiwic3RhdHVzZXNfY291bnQiOjM3NywidmVyaWZpZWQiOmZhbHNlLCJwcm9maWxlX2JhY2tncm91bmRfaW1hZ2VfdXJsX2h0dHBzIjoiaHR0cHM6XC9cL3NpMC50d2ltZy5jb21cL2ltYWdlc1wvdGhlbWVzXC90aGVtZTFcL2JnLnBuZyIsInByb2ZpbGVfYmFja2dyb3VuZF9pbWFnZV91cmwiOiJodHRwOlwvXC9hMC50d2ltZy5jb21cL2ltYWdlc1wvdGhlbWVzXC90aGVtZTFcL2JnLnBuZyIsImZhdm91cml0ZXNfY291bnQiOjg4LCJzaG93X2FsbF9pbmxpbmVfbWVkaWEiOnRydWUsInV0Y19vZmZzZXQiOjMyNDAwLCJwcm9maWxlX2xpbmtfY29sb3IiOiIwMDg0QjQiLCJkZXNjcmlwdGlvbiI6IkkgZG9uJ3QgdHdlZXQiLCJsb2NhdGlvbiI6Ilx1YWNiZFx1YWUzMFx1YjNjNCwgXHVjMTMxXHViMGE4XHVjMmRjIiwidGltZV96b25lIjoiU2VvdWwiLCJwcm9maWxlX2JhY2tncm91bmRfY29sb3IiOiJDMERFRUQiLCJ1cmwiOiJodHRwOlwvXC9nc29uZy5wZS5rciIsInByb2ZpbGVfaW1hZ2VfdXJsX2h0dHBzIjoiaHR0cHM6XC9cL3NpMC50d2ltZy5jb21cL3Byb2ZpbGVfaW1hZ2VzXC8xMTE0MzY1Mzk3XC80MTYzM182NzY0OTE1MjlfMTIyOV9uX25vcm1hbC5qcGciLCJkZWZhdWx0X3Byb2ZpbGUiOnRydWUsImxpc3RlZF9jb3VudCI6MywiY29udHJpYnV0b3JzX2VuYWJsZWQiOmZhbHNlLCJub3RpZmljYXRpb25zIjpmYWxzZSwicHJvZmlsZV9iYWNrZ3JvdW5kX3RpbGUiOmZhbHNlLCJmb2xsb3dlcnNfY291bnQiOjczLCJwcm9maWxlX2ltYWdlX3VybCI6Imh0dHA6XC9cL2EyLnR3aW1nLmNvbVwvcHJvZmlsZV9pbWFnZXNcLzExMTQzNjUzOTdcLzQxNjMzXzY3NjQ5MTUyOV8xMjI5X25fbm9ybWFsLmpwZyIsInNjcmVlbl9uYW1lIjoicmVhbGdzb25nIiwibGFuZyI6ImtvIiwicHJvZmlsZV9zaWRlYmFyX2ZpbGxfY29sb3IiOiJEREVFRjYiLCJjcmVhdGVkX2F0IjoiRnJpIEF1ZyAwNyAwMjozOTozOSArMDAwMCAyMDA5IiwicHJvZmlsZV9zaWRlYmFyX2JvcmRlcl9jb2xvciI6IkMwREVFRCIsImlkIjoiNjM2MTcyODMiLCJkZWZhdWx0X3Byb2ZpbGVfaW1hZ2UiOmZhbHNlLCJmcmllbmRzX2NvdW50IjoxNzF9LCJjb29yZGluYXRlcyI6bnVsbCwicmV0d2VldGVkIjpmYWxzZSwiaW5fcmVwbHlfdG9fdXNlcl9pZF9zdHIiOm51bGwsInBsYWNlIjpudWxsLCJzb3VyY2UiOiI8YSBocmVmPVwiaHR0cHM6XC9cL3NvcHJlc3RvLm1haWxjaGltcC5jb21cIiByZWw9XCJub2ZvbGxvd1wiPlNvY2lhbCBQcm94eSBieSBNYWlsY2hpbXA8XC9hPiIsImlkIjoiMTQ3MTk1OTY4MTQ2Nzc2MDY0IiwiY3JlYXRlZF9hdCI6IlRodSBEZWMgMTUgMDY6MDc6MDggKzAwMDAgMjAxMSIsImNvbnRyaWJ1dG9ycyI6bnVsbCwiaW5fcmVwbHlfdG9fc3RhdHVzX2lkIjpudWxsLCJ0ZXh0IjoiXHVjNzdjXHViYzE4IGNhc3QsIHN0YXRpY19jYXN0LCBjb25zdF9jYXN0LCBkeW5hbWljX2Nhc3QsIHJlaW50ZXJwcmV0X2Nhc3Q6IGludCBwOyBkb3VibGUgZG91OyBcL1wvc2FtZSBhcyBwID0gaW50IChkb3UpOy4uLiBodHRwOlwvXC90LmNvXC9NNWtSWHc0YyJ9";s:4:"urls";a:2:{i:0;s:33:"http://www.gsong.pe.kr/wp/?p=3480";i:1;s:22:"http://wp.me/p1vsu3-U8";}s:7:"account";O:8:"stdClass":1:{s:4:"user";O:8:"stdClass":38:{s:24:"profile_background_color";s:6:"C0DEED";s:9:"protected";s:0:"";s:17:"profile_image_url";s:79:"http://a2.twimg.com/profile_images/1114365397/41633_676491529_1229_n_normal.jpg";s:23:"profile_background_tile";s:0:"";s:23:"profile_image_url_https";s:81:"https://si0.twimg.com/profile_images/1114365397/41633_676491529_1229_n_normal.jpg";s:4:"name";s:11:"Ki
+    Sung Bae";s:21:"show_all_inline_media";s:1:"1";s:20:"contributors_enabled";s:0:"";s:16:"favourites_count";s:1:"8";s:26:"profile_sidebar_fill_color";s:6:"DDEEF6";s:12:"listed_count";s:1:"3";s:4:"lang";s:2:"en";s:10:"utc_offset";s:5:"32400";s:10:"created_at";s:30:"Fri
+    Aug 07 02:39:39 +0000 2009";s:11:"description";s:13:"I don't tweet";s:9:"time_zone";s:5:"Seoul";s:28:"profile_sidebar_border_color";s:6:"C0DEED";s:15:"followers_count";s:2:"67";s:8:"verified";s:0:"";s:14:"statuses_count";s:3:"250";s:11:"geo_enabled";s:1:"1";s:28:"profile_use_background_image";s:1:"1";s:21:"default_profile_image";s:0:"";s:13:"notifications";s:0:"";s:18:"profile_text_color";s:6:"333333";s:9:"following";s:0:"";s:28:"profile_background_image_url";s:47:"http://a0.twimg.com/images/themes/theme1/bg.png";s:8:"location";s:20:"경기도,
+    성남시";s:6:"id_str";s:8:"63617283";s:13:"is_translator";s:0:"";s:15:"default_profile";s:1:"1";s:34:"profile_background_image_url_https";s:49:"https://si0.twimg.com/images/themes/theme1/bg.png";s:18:"profile_link_color";s:6:"0084B4";s:2:"id";s:8:"63617283";s:19:"follow_request_sent";s:0:"";s:13:"friends_count";s:3:"136";s:3:"url";s:22:"http://www.gsong.pe.kr";s:11:"screen_name";s:9:"realgsong";}}}i:147196977673801728;a:3:{s:7:"message";s:2676:"eyJnZW8iOm51bGwsInRydW5jYXRlZCI6ZmFsc2UsImlkX3N0ciI6IjE0NzE5Njk3NzY3MzgwMTcyOCIsInJldHdlZXRfY291bnQiOjAsImZhdm9yaXRlZCI6ZmFsc2UsInBvc3NpYmx5X3NlbnNpdGl2ZSI6ZmFsc2UsImluX3JlcGx5X3RvX3NjcmVlbl9uYW1lIjpudWxsLCJpbl9yZXBseV90b191c2VyX2lkIjpudWxsLCJpbl9yZXBseV90b19zdGF0dXNfaWRfc3RyIjpudWxsLCJ1c2VyIjp7InByb2ZpbGVfdXNlX2JhY2tncm91bmRfaW1hZ2UiOnRydWUsInByb3RlY3RlZCI6ZmFsc2UsImlzX3RyYW5zbGF0b3IiOmZhbHNlLCJmb2xsb3dfcmVxdWVzdF9zZW50IjpmYWxzZSwiZm9sbG93aW5nIjpmYWxzZSwiZ2VvX2VuYWJsZWQiOnRydWUsInByb2ZpbGVfdGV4dF9jb2xvciI6IjMzMzMzMyIsIm5hbWUiOiJLaSBTdW5nIEJhZSIsImlkX3N0ciI6IjYzNjE3MjgzIiwic3RhdHVzZXNfY291bnQiOjM3NywidmVyaWZpZWQiOmZhbHNlLCJwcm9maWxlX2JhY2tncm91bmRfaW1hZ2VfdXJsX2h0dHBzIjoiaHR0cHM6XC9cL3NpMC50d2ltZy5jb21cL2ltYWdlc1wvdGhlbWVzXC90aGVtZTFcL2JnLnBuZyIsInByb2ZpbGVfYmFja2dyb3VuZF9pbWFnZV91cmwiOiJodHRwOlwvXC9hMC50d2ltZy5jb21cL2ltYWdlc1wvdGhlbWVzXC90aGVtZTFcL2JnLnBuZyIsImZhdm91cml0ZXNfY291bnQiOjg4LCJzaG93X2FsbF9pbmxpbmVfbWVkaWEiOnRydWUsInV0Y19vZmZzZXQiOjMyNDAwLCJwcm9maWxlX2xpbmtfY29sb3IiOiIwMDg0QjQiLCJkZXNjcmlwdGlvbiI6IkkgZG9uJ3QgdHdlZXQiLCJsb2NhdGlvbiI6Ilx1YWNiZFx1YWUzMFx1YjNjNCwgXHVjMTMxXHViMGE4XHVjMmRjIiwiZGVmYXVsdF9wcm9maWxlIjp0cnVlLCJ0aW1lX3pvbmUiOiJTZW91bCIsInByb2ZpbGVfYmFja2dyb3VuZF9jb2xvciI6IkMwREVFRCIsInVybCI6Imh0dHA6XC9cL2dzb25nLnBlLmtyIiwicHJvZmlsZV9pbWFnZV91cmxfaHR0cHMiOiJodHRwczpcL1wvc2kwLnR3aW1nLmNvbVwvcHJvZmlsZV9pbWFnZXNcLzExMTQzNjUzOTdcLzQxNjMzXzY3NjQ5MTUyOV8xMjI5X25fbm9ybWFsLmpwZyIsImxpc3RlZF9jb3VudCI6MywiY29udHJpYnV0b3JzX2VuYWJsZWQiOmZhbHNlLCJub3RpZmljYXRpb25zIjpmYWxzZSwicHJvZmlsZV9iYWNrZ3JvdW5kX3RpbGUiOmZhbHNlLCJmb2xsb3dlcnNfY291bnQiOjczLCJwcm9maWxlX2ltYWdlX3VybCI6Imh0dHA6XC9cL2EyLnR3aW1nLmNvbVwvcHJvZmlsZV9pbWFnZXNcLzExMTQzNjUzOTdcLzQxNjMzXzY3NjQ5MTUyOV8xMjI5X25fbm9ybWFsLmpwZyIsInNjcmVlbl9uYW1lIjoicmVhbGdzb25nIiwibGFuZyI6ImtvIiwicHJvZmlsZV9zaWRlYmFyX2ZpbGxfY29sb3IiOiJEREVFRjYiLCJjcmVhdGVkX2F0IjoiRnJpIEF1ZyAwNyAwMjozOTozOSArMDAwMCAyMDA5IiwicHJvZmlsZV9zaWRlYmFyX2JvcmRlcl9jb2xvciI6IkMwREVFRCIsImlkIjoiNjM2MTcyODMiLCJkZWZhdWx0X3Byb2ZpbGVfaW1hZ2UiOmZhbHNlLCJmcmllbmRzX2NvdW50IjoxNzF9LCJjb29yZGluYXRlcyI6bnVsbCwicmV0d2VldGVkIjpmYWxzZSwiaW5fcmVwbHlfdG9fdXNlcl9pZF9zdHIiOm51bGwsInBsYWNlIjpudWxsLCJzb3VyY2UiOiI8YSBocmVmPVwiaHR0cHM6XC9cL3NvcHJlc3RvLm1haWxjaGltcC5jb21cIiByZWw9XCJub2ZvbGxvd1wiPlNvY2lhbCBQcm94eSBieSBNYWlsY2hpbXA8XC9hPiIsImlkIjoiMTQ3MTk2OTc3NjczODAxNzI4IiwiY3JlYXRlZF9hdCI6IlRodSBEZWMgMTUgMDY6MTE6MDggKzAwMDAgMjAxMSIsImNvbnRyaWJ1dG9ycyI6bnVsbCwiaW5fcmVwbHlfdG9fc3RhdHVzX2lkIjpudWxsLCJ0ZXh0IjoiQysrIHR5cGUgY2FzdGluZyBcdWM4MTVcdWI5YWM6IGludCBwOyBkb3VibGUgZG91OyBcL1wvc2FtZSBhcyBwID0gaW50IChkb3UpOyBwID0gKGludCkgZG91OyBcdWM3MDRcdWNjOThcdWI3ZmMgXHVhZDA0XHVkNjM4XHViOTdjIFx1Yzc3NFx1YzZhOVx1ZDU1Yy4uLiBodHRwOlwvXC90LmNvXC9NNWtSWHc0YyJ9";s:4:"urls";a:2:{i:0;s:33:"http://www.gsong.pe.kr/wp/?p=3480";i:1;s:22:"http://wp.me/p1vsu3-U8";}s:7:"account";O:8:"stdClass":1:{s:4:"user";O:8:"stdClass":38:{s:24:"profile_background_color";s:6:"C0DEED";s:9:"protected";s:0:"";s:17:"profile_image_url";s:79:"http://a2.twimg.com/profile_images/1114365397/41633_676491529_1229_n_normal.jpg";s:23:"profile_background_tile";s:0:"";s:23:"profile_image_url_https";s:81:"https://si0.twimg.com/profile_images/1114365397/41633_676491529_1229_n_normal.jpg";s:4:"name";s:11:"Ki
+    Sung Bae";s:21:"show_all_inline_media";s:1:"1";s:20:"contributors_enabled";s:0:"";s:16:"favourites_count";s:1:"8";s:26:"profile_sidebar_fill_color";s:6:"DDEEF6";s:12:"listed_count";s:1:"3";s:4:"lang";s:2:"en";s:10:"utc_offset";s:5:"32400";s:10:"created_at";s:30:"Fri
+    Aug 07 02:39:39 +0000 2009";s:11:"description";s:13:"I don't tweet";s:9:"time_zone";s:5:"Seoul";s:28:"profile_sidebar_border_color";s:6:"C0DEED";s:15:"followers_count";s:2:"67";s:8:"verified";s:0:"";s:14:"statuses_count";s:3:"250";s:11:"geo_enabled";s:1:"1";s:28:"profile_use_background_image";s:1:"1";s:21:"default_profile_image";s:0:"";s:13:"notifications";s:0:"";s:18:"profile_text_color";s:6:"333333";s:9:"following";s:0:"";s:28:"profile_background_image_url";s:47:"http://a0.twimg.com/images/themes/theme1/bg.png";s:8:"location";s:20:"경기도,
+    성남시";s:6:"id_str";s:8:"63617283";s:13:"is_translator";s:0:"";s:15:"default_profile";s:1:"1";s:34:"profile_background_image_url_https";s:49:"https://si0.twimg.com/images/themes/theme1/bg.png";s:18:"profile_link_color";s:6:"0084B4";s:2:"id";s:8:"63617283";s:19:"follow_request_sent";s:0:"";s:13:"friends_count";s:3:"136";s:3:"url";s:22:"http://www.gsong.pe.kr";s:11:"screen_name";s:9:"realgsong";}}}}}}
+  original_post_id: '3480'
+  _wp_old_slug: '3480'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<pre class="brush: c; gutter: true">int p;
+double dou;
+//same as p = int (dou);
+p = (int) dou;</pre>
+<p>위처럼 괄호를 이용한 C-style 캐스팅을 쓸 때의 단점은, 타입체크를 하지 않아서 버그를 만들기 쉽다는 것이다.</p>
+<p>C++ 에는 static_cast, dynamic_cast, reinterpret_cast, const_cast 와 같은 cast operator 들이 있는데 각각의 역할을 다시 한번 되새겨 볼 필요가 있다.</p>
+<h1>static_cast</h1>
+<p>derived class 의 포인터를 base class 로 캐스팅한다. base class 를 derived class 로 캐스팅하는 데도 쓰인다. compile time 에 타입체크를 한다. 이 외에도 기본적인 타입들의 변환에도 사용된다. 그러나 runtime check 를 하지 않기 때문에, 그리 안전한 선택은 아니다.</p>
+<pre class="brush: cpp; gutter: true">int p;
+double dou;
+p = static_cast&lt;int&gt; (dou);
+
+--------------------------
+#include &lt;iostream.h&gt;
+#include &lt;stdlib.h&gt;
+int main()
+{
+       int sum = 1000;
+       int count = 21;
+       double average1 = sum/count;
+       cout&lt;&lt;&quot;Before conversion = &quot;&lt;&lt;average1&lt;&lt;endl;
+       double average2 = static_cast&lt;double&gt;(sum)/count;
+       cout&lt;&lt;&quot;After conversion  = &quot;&lt;&lt;average2&lt;&lt;endl;
+       system(&quot;pause&quot;);
+       return 0;
+}</pre>
+<pre class="brush: cpp; gutter: true">// static_cast_Operator.cpp
+// compile with: /LD
+class B {};
+
+class D : public B {};
+
+void f(B* pb, D* pd) {
+   D* pd2 = static_cast&lt;D*&gt;(pb);   // Not safe, D can have fields
+                                   // and methods that are not in B.
+
+   B* pb2 = static_cast&lt;B*&gt;(pd);   // Safe conversion, D always
+                                   // contains all of B.
+}</pre>
+<h1>const_cast</h1>
+<p>타입에 const 키워드를 붙이거나 뗄 때 사용된다. 그 외에 volatile 키워드에도 사용될 수 있다. 역시 컴파일 타임에 타입을 확인한다.</p>
+<h1>dynamic_cast</h1>
+<p>이 캐스팅은 객체의 포인터에만 사용한다. 특히 해당 객체를 상속 관계 속에서 캐스팅 할 때 쓰인다. 다른 캐스팅과는 달리 dynamic_cast 는 runtime 시에 작동한다. 그래서 polymorphic class 를 다룰 때 사용한다. 즉 virtual function 을 가지고 있는 클래스 말이다. non polymorphic class 를 다룰 때에는 위에서 살펴본 static_cast 를 사용하면 된다. 만약 주어진 포인터가 캐스팅하기에 적절치 않으면 NULL 을 리턴한다.</p>
+<p>dynamic_cast 를 통해 하는 캐스팅에는 다시 upcast, downcast, crosscast 가 있다. upcast 는 derived class 를 base class 로 캐스팅 하는 것이고, downcast 는 그 반대이다. 클래스 상속도 에서 부모 자식 관계를 생각해 보면 되니, 그리 어렵지 않다.</p>
+<p>crosscast 는 multiple inheritance 일 때 사용된다. upcast 와 downcast 거기에 더해서 multiple inheritance 가 된다는 것을 이해하면 cross cast 도 쉽게 이해할 수 있다. 예를 들어 다음의 코드를 보자.</p>
+<pre class="brush: cpp; gutter: true">// dynamic_cast_6.cpp
+// compile with: /c /GR
+class A {virtual void f();};
+class B : public A {virtual void f();};
+class C : public A { };
+class D {virtual void f();};
+class E : public B, public C, public D {virtual void f();};
+
+void test(D* pd) {
+   B* pb = dynamic_cast&lt;B*&gt;(pd);   // cross cast
+   A* pa = pb;   // upcast, implicit conversion
+}
+
+void main()
+{
+   D* ptr = dynamic_cast&lt;D*&gt;(new E());  // up cast
+   test(ptr);
+}</pre>
+<p>test 함수 안을 보면 D 타입의 포인터를 받아 B 타입으로 dynamic_cast 를 하고 있다. main 함수를 참고하면 여기서 넘어가 D* pd 가 가르키는 진짜 object 는 사실 E 객체라는 것을 알 수 있다. 그렇기 때문에 cross cast 할 때 D* 에서 E* (down cast) -&gt; B* (up cast) 되는 두 단계를 거쳐서 캐스팅이 이뤄진다. 만약 D* pd 가 가르키는 것이 new D() 로 만들어진 객체 였다면 cross cast 는 실패하고 NULL 을 리턴할 것이다.</p>
+<h1>reinterpret_cast</h1>
+<p>이 캐스트는 아무 포인터를 받아서 어떤 걸로든 캐스트 할 수 있다. 그만큼 강하지만 위험하기도 하다. const 와 volatile 관련해서는 쓸 수 없다. 이 경우는 const_cast 를 써야 한다. 조심해서 써야하는 operator.</p>
+<p>References</p>
+<ul>
+<li><a href="http://msdn.microsoft.com/en-us/library/cby9kycs.aspx">http://msdn.microsoft.com/en-us/library/cby9kycs.aspx</a></li>
+<li><a href="http://www.tenouk.com/download/pdf/Module22.pdf">http://www.tenouk.com/download/pdf/Module22.pdf</a></li>
+<li><a href="http://stackoverflow.com/questions/28002/regular-cast-vs-static-cast-vs-dynamic-cast">c++ - Regular cast vs. static_cast vs. dynamic_cast - Stack Overflow</a></li>
+</ul>

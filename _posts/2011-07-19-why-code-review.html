@@ -1,0 +1,40 @@
+---
+layout: post
+title: Why Code Review?
+date: 2011-07-19 00:10:07.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- code review
+- 개발
+- 소프트웨어
+- 코드 리뷰
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_notify: '0'
+  original_post_id: '4044'
+  _wp_old_slug: '4044'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>마이크로소프트에 입사 하여 가장 먼저 겪었던 것 중 하나가 코드 리뷰였다. 처음 해봐서 생소하기도 했고, 그것에 적응하는 과정에서 심리적으로 힘들었던 점들도 있었다. 그러나 차츰 시간이 지나면서, 코드리뷰가 개발에서 어떤 비중을 차지하고 있는지, 그것의 장점이 무엇인지 목격하면서, 이 프락티스가 가지는 혜택에 확신을 가지게 되었다.</p>
+<p>소프트웨어 품질을 높이기 위해 개발자가 할 수 있는 것은 어떤 것이 있을까? 제일 먼저 생각나는 것은 테스팅이다. 전문화된 테스팅이 아니더라도 개발자 스스로 하는 테스팅들 말이다. 유닛 테스팅, 함수 단위 테스팅, integration 테스팅 등이 있을 것이다. 그러나 과연 이것이 효과적일까?</p>
+<p>코드컴플릿의 글 일부를 인용하면,</p>
+<blockquote><p>…As noted in Chapter 23, software testing alone has limited effectiveness – the average defect-detection rate is only 25 percent for unit testing, 35 percent for function testing, and 45 percent for integration testing. <strong>In contrast, the average effectivenesses of design and code inspection are 55 and 60 percent(Jones 1986a)</strong>. The auxiliary benefit of reviews is that they decrease development time, which in turn lower development costs. Case studies of review results have been impressive.   -Ch24 Reviews, Code Complete.</p></blockquote>
+<p>각종 테스팅으로 버그를 찾아내는 것보다 훨씬 더 효과적인 방법이 바로 code inspection, 즉 코드리뷰라는 것이다. 다른 사람의 시각으로 내가 만든 코드를 보게 되면 놓치고 있는 많은 점들을 찾을 수 있다. 뿐만 아니라 서로의 코드에 대해 이야기해볼 기회를 제공함으로써 배움을 통한 성장을 촉진하는 효과도 있다.</p>
+<p>그럼 코드 리뷰만 잘하면, 나머지 테스팅은 필요 없다는 말인가? 그렇지 않다. 위 이야기는 오히려 그 반대의 이야기를 하는 것인데, <strong>코드 리뷰로만 잡아낼 수 있는 버그가 분명 존재한다는 것</strong>이다. 즉, 소프트웨어 품질을 높이기 위해서는 다양한 테스팅과 코드리뷰를 병행해야 한다.</p>
+<p>하지만, 막상 현업에 나와보면 코드리뷰를 잘 하지 않게 된다. 몇 가지 이유가 있는데, 문화적 장벽이라 칭해지는 심리적인 것이 첫째요. 시간이나 스케줄에 쫓긴다는 일정 문제가 둘째다.</p>
+<p>심리적 허들은 개발자로 성장하기 위해서는 반드시 넘어서야 하는 것이다. 이것을 극복해내지 않고서 좋은 개발자로 성장할 순 없다. 여기에 관해서는 <a href="http://www.gsong.pe.kr/wp/?p=4072">Egoless Programming</a> 을 참고해서 다시 다루려고 한다.</p>
+<p>두 번째 스케줄에 쫓긴다는 것은 사실 프로젝트의 너무 늦은 시기에 코드리뷰를 도입하기 때문에 생기는 문제이다. 일정 맞춰 끝내기도 바쁜데 새로운 프락티스를 도입하려니 개발자가 힘들 수 밖에 없지 않겠는가? 게다가 그것이 앞서 말한 심리적 장벽을 극복해야 하는 과제까지 동반하고 있다면 말이다.</p>
+<p>소프트웨어 품질과 관련된 모든 것들이 그렇지만, 특정 시점에 한 번 시도 한다고 해서 잘 되지 않는다. 매일 매일 익히는 연습을 하여 그것을 습관화 해버려야 된다. 그렇기 때문에 비교적 시간 여유가 많은 프로젝트 초반에 더욱 더 열심히 해볼 필요가 있다.</p>
+<p>개발자의 커리어 성장 관점에서 보면, 본인의 손으로 코딩을 하고 그 코드로 자신의 가치를 입증하기에는 분명 한계가 있다. 사람은 머리가 하나 손은 두 개 밖에 없기 때문이다. 코드 리뷰 같은 협동작업을 통해 다른 사람의 코드를 개선시켜 주는 것이야 말로 경험 많은 개발자가 되기 위한 선결조건이라고 할 수 있겠다.</p>
+<p><a href="http://www.gsong.pe.kr/wp/?p=3073">예전에 읽었던 책</a>에 왜 코드 리뷰를 해야 하는가 에 대한 더 많은 근거들이 있다. 조만간 사내에 코드 리뷰에 대한 발표를 하기 위해 미리 자료를 만들어 보는 중이다. 이번에는 블로그로 글을 썼다가 내용을 축약해서 발표할 예정인데, 추후에 새로운 분이 오셔도 미리 써둔 글로 발표 내용을 대신할 수 있으리라는 기대 때문이다.</p>
+<p>결론을 내려 보자면 코드 리뷰는 좋은 것. 잘 안 되는 이유는 실행의 문제. 그렇다면 다음 질문은 “코드 리뷰, 어떻게 해야 하는가?” 그리고 그 전에 선행해야 하는 문제는 “<a href="http://www.gsong.pe.kr/wp/?p=4072">코드 리뷰를 대하는 우리의 자세는 무엇인가</a>?” 정도가 될 것 같다.</p>

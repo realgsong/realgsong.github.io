@@ -1,0 +1,47 @@
+---
+layout: post
+title: Ubuntu 12.04 64bit 에서 안드로이드 개발 환경을 갖추기
+date: 2012-04-21 22:53:08.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 64비트
+- 개발 환경
+- 안드로이드
+- 우분투
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_notify: '1'
+  _social_aggregation_log: a:11:{i:1335018787;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335021323;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335023165;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335025956;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335030061;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335037581;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335051992;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335080849;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335124900;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335212246;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335385950;O:8:"stdClass":1:{s:6:"manual";s:0:"";}}
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _wpas_skip_2551853: '1'
+  original_post_id: '6040'
+  _wp_old_slug: '6040'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p><strong>아래 내용은 최신 버전 에는 맞지 않습니다. Ubuntu 12.10 이상에서 <a href="http://developer.android.com/sdk/index.html">여기</a> 에서 developer tool 받아다 압축 풀고 실행하시면 문제 없이 이클립스가 뜹니다.</strong></p>
+<hr />
+<p>Ubuntu 12.04 64bit 버전에 안드로이드 개발 환경 갖추기</p>
+<pre><code>cd ~/
+wget https://raw.github.com/flexiondotorg/oab-java6/master/oab-java.sh -O oab-java.sh
+chmod +x oab-java.sh
+sudo ./oab-java.sh
+sudo apt-get install sun-java6-jdk
+</code></pre>
+<ol>
+<li>JDK6 설치하기가 조금 까다롭다. 다행히 <a href="http://blog.flexion.org/2012/01/16/install-sun-java-6-jre-jdk-from-deb-packages/">용자분이 계셔서</a>이미 해결해두었음. 위 스크립트 실행</li>
+<li><a href="http://www.eclipse.org/downloads/">여기</a>에서 eclipse 다운로드 받아 적당한 위치에 압축 풀어 두기.</li>
+<li><a href="http://dl.google.com/android/ADT-18.0.0.zip">여기</a>에서 ADT Plugin 다운로드.</li>
+<li>eclipse 실행한 다음  Help &lt; Install New Software 에서 Add 누르고 위에서 다운로드한 zip 파일 선택</li>
+<li>sudo apt-get ia32-libs</li>
+<li>나머지는 ADT plugin 을 통해 모두 설치. ia32-libs 없으니까 adb 명령이 안돌아감.</li>
+</ol>

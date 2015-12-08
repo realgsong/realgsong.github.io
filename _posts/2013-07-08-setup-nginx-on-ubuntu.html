@@ -1,0 +1,35 @@
+---
+layout: post
+title: Setup NginX on Ubuntu
+date: 2013-07-08 17:03:05.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 우분투
+- nginx
+- node.js
+- reverse proxy
+- ubuntu
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _wpas_skip_2551853: '1'
+  original_post_id: '9480'
+  _wp_old_slug: '9480'
+  _oembed_a9c8202355dc5a084658ee63c991580d: '{{unknown}}'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p><a href="http://wiki.nginx.org/Install">http://wiki.nginx.org/Install</a></p>
+<pre><code>sudo apt-add-repository ppa:nginx/stable
+sudo apt-get update
+sudo apt-get install nginx
+</code></pre>
+<p>이후 node.js 등을 위한 reverse proxy 설정은 <a href="https://gist.github.com/joemccann/644282">여기</a> 를 참고.</p>

@@ -1,0 +1,29 @@
+---
+layout: post
+title: DVD 의 구조
+date: 2011-10-04 11:39:04.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- DVD
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  original_post_id: '4580'
+  _wp_old_slug: '4580'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p><a href="http://dvd-review-dvd.blogspot.com/2009/11/dvd-structure.html">http://dvd-review-dvd.blogspot.com/2009/11/dvd-structure.html</a></p>
+<p>DVD 디스크의 최상위 조직체는 Volume 이다. 볼륨은 DVD video zone 과 Set-top video 를 위한 요소들을 포함하고 있고, 컴퓨터등에서 쓰일 용도의 non-DVD-video data 들도 포함하고 있다. set-top player 는 video zone 이외에는 접근이 불가능 하다. 반면 컴퓨터는 다른 여러 영역들에 접근이 가능해서, 응용프로그램에서 UI 를 통해 DVD video zone 을 열 수도 있다.</p>
+<p>DVD video zone 안에는 Video manager 가 있다. 비디오 매니저는 data elements 를 관장하는 최상위 디렉터리다. 이 data elements 다음에는 video 와 audio elements 의 묶음이 1-99 개까지 있을 수 있다. video manager 에는 일반적으로 비디오 클립이나 로고, 네비게이션을 위한 메뉴등이 들어 있다.</p>
+<p>앞에서 언급했듯, Video manager 다음에는 video title sets(VTS) 가 있는데, VTS 는 메뉴와 복수개의 video title 이 들어 있다. 타이틀은 다시 parts of title (PTT) 로 나눠진다.</p>
+<p>video title 의 데이터는 여러개의 video objects (VOB) 의 집합으로 이뤄져 있다. VOB 는 video, audio, navigation data, subpictures 들로 이뤄진다. VOB 는 DVD 미디어의 근본이 되는 단위다.</p>
+<p>VOB 는 다시 cell 단위로 나눌 수도 있다. 셀의 크기는 영화 전체가 될 수도 있고, MPEG GOP (Group of Pictures) 만큼 작을 수도 있다.</p>

@@ -1,0 +1,36 @@
+---
+layout: post
+title: Prototype Pattern
+date: 2007-05-16 14:33:32.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- design pattern
+- 디자인 패턴
+- Prototype pattern
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2498'
+  _wp_old_slug: '2498'
+  _oembed_1eeea23dfebd91273de0397c51472873: '{{unknown}}'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>Abstract Factory Pattern 에 이은 Prototype Pattern 입니다. <a href="http://www.gsong.pe.kr/tt/104" target="_blank">Abstract Factory</a> 에서 마지막에 나왔던 단점 중 하나가 각 Factory 들을 적절히 관리해야만 한다는 것이었지요. Prototype 은 그 부분을 조금 더 개선한 패턴입니다.</p>
+<p>Factory 들이 여러개 있을 경우, 어떤 조건에 따라 어떤 Factory 를 쓸 것인가하는 것을 결정해 주는 분기문이 객체 생성 전 어딘가에 반드시 있어야 합니다. 예를 들어 <a href="http://www.gsong.pe.kr/tt/104" target="_blank">Abstrac Factory Pattern </a>글의 마지막에 나왔던 pseudo code 를 다시 한번 보지요.<br />[CODE]<br />// Application code &nbsp; <br />FruitStore&nbsp; store;<br />if ( today == Mon || today == Tue || today == Wed)<br />&nbsp; &nbsp; store =&nbsp; new GuyFruitStore();<br />else<br />&nbsp; &nbsp; store = new AzummaFruitStore();<br />Fruit&nbsp; f&nbsp; = store.TakeMoneyAndGive( MySelf );<br />[/CODE]<br />Factory 를 통해 Fruit 의 인스턴스를 생성하기 전에 Factory 의 종류를 결정할 분기문이 필요한 것을 알 수 있습니다. Prototype 패턴은 이런 경우 유용합니다. 먼저 아래의 다이어그램을 한번 보지요.</p>
+<p>[caption id="" align="aligncenter" width="450" caption="from http://en.wikipedia.org/wiki/Image:Prototype_classdia.png under GPL"]<img src="{{ site.baseurl }}/assets/wp/1828855237.png" width="450" height="139" alt="Prototype pattern" />[/caption]</p>
+<p>위 그림에서 Clone() 이라는 메소드가 보이지요? 그게 Prototype 패턴의 핵심입니다. 분기문을 쓰지 않고 Clone() 이라는 메소드를 상속 받게 해서 if-else 나 switch 같은 문을 대신하겠다는 것이지요. 약간 억지스럽겠지만 위에 나왔던 코드를 Prototype 으로 만들어 볼까요?</p>
+<p>일단 과일 상점 클래스에 Clone() 이라는 메소드를 둡시다.<br />[CODE]<br />abstract class FruitStore<br />{<br />&nbsp; &nbsp; abstract Fruit &nbsp; TakeMoneyAndGive(Guest g);<br />&nbsp; &nbsp; abstract Fruit Clone();<br />}<br />[/CODE]<br />그리고 FruitStore 의 상속을 받은 클래스들은 Clone() 를 구현해야겠지요. 자 그럼 이 메소드를 추가함으로써 App code 가 어떻게 바뀌는 지 한번 보지요.<br />[CODE]<br />// Application code<br />FruitStoreCollection storePerWeek;</p>
+<p>Initialize()<br />{<br />&nbsp; &nbsp; GuyFruitStore guyStore = new GuyFruitStore();<br />&nbsp; &nbsp; AzummaFruitStore azStore = new AzummaFruitStore();<br />&nbsp; &nbsp; BadFruitStore badStore = new BadFruitStore();</p>
+<p>&nbsp; &nbsp; storePerWeek['Mon'] = guyStore ;<br />&nbsp; &nbsp; storePerWeek['Tue'] = guyStore ;<br />&nbsp; &nbsp; storePerWeek['Wed'] = guyStore ;<br />&nbsp; &nbsp; storePerWeek['Thu'] = azStore ;<br />&nbsp; &nbsp; storePerWeek['Fri'] = azStore;<br />&nbsp; &nbsp; storePerWeek['Sat'] = badStore;<br />&nbsp; &nbsp; storePerWeek['Sun'] = badStore;<br />}</p>
+<p>main()<br />{<br />&nbsp; &nbsp; Initialize();</p>
+<p>&nbsp; &nbsp; FruitStore store = <br />&nbsp; &nbsp; &nbsp; &nbsp; storePerWeek[Today.ToString()].Clone();</p>
+<p>&nbsp; &nbsp; Fruit f = store.TakeMoneyAndGive(MySelf);<br />}<br />[/CODE]<br />초기화 해주는 Initialize() 함수 때문에 전체 코드는 좀 길어진 것 같습니다만, 핵심은 main() 함수를 보시면 됩니다. Fruit 객체를 얻기 위해 Factory 를 가져와야 되는데, Abstract Factory 에서는 Factory 의 구체적인 타입을 if 문 등을 통해 결정했어야 되는 반면 Prototype 패턴에서는 Clone() 이라는 메소드를 사용하므로 if 문이 필요 없게 됩니다.</p>
+<p>위의 예로 든 코드는 앞서의 이야기에서 이어오기 위해 과일상점 얘기를 그대로 가져오다 보니 좀 지저분합니다. Prototype pattern 의 핵심은 Clone() 메소드를 이용하여 객체를 생성해낸다는 것임을 기억하면 될 것 같습니다. 예를 들어 객체를 처음부터 다시 만드는 비용이 너무 큰 경우 Clone() 메소드를 이용해서 기존의 객체를 약간 바꿔서 재사용하는 식으로 쓸 수 있을 겁니다.[footnote]<a href="http://compstat.chonbuk.ac.kr/rightway/designpatterns/prototype.html" target="_blank">http://compstat.chonbuk.ac.kr/rightway/designpatterns/prototype.html </a>여기를 보시면 prototype pattern 의 주된 사용 목적이 복잡한 객체를 만들어내기 위한 것이라고 하네요. 아무래도 예로 들은 코드가 적절한 예가 아닌가 봅니다. 조만간에 다른 걸로 바꿔봐야 겠네요.[/footnote]</p>

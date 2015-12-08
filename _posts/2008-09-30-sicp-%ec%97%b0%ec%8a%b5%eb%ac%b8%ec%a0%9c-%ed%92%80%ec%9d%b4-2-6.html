@@ -1,0 +1,53 @@
+---
+layout: post
+title: SICP 연습문제 풀이 2.6
+date: 2008-09-30 12:42:56.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제풀이
+- SICP
+meta:
+  _publicize_pending: '1'
+  _oembed_464a04d8ffdbfc64a52b218663d4df8d: '{{unknown}}'
+  _oembed_9f69eece78fb1ad34c1e570a591a3b7a: '{{unknown}}'
+  _oembed_3022c0c296f9988586d16ca06eca9159: '{{unknown}}'
+  _oembed_004df80b10545a4b70086b84bb3fb504: '{{unknown}}'
+  original_post_id: '2880'
+  _wp_old_slug: '2880'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p><div class="wlWriterSmartContent" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E7:48181397-deb5-44a9-be2d-cc8449df1682" style="display:inline;float:none;margin:0;padding:0;">
+<pre style="overflow:auto;background-color:white;" />
+<div><span style="color:#000000;">(define zero (lambda (f) (lambda (x) x)))<br />
+(define (add</span><span style="color:#000000;">-</span><span style="color:#800080;">1</span><span style="color:#000000;"> n)<br />
+  (lambda (f) (lambda (x) (f ((n f) x)))))<br />
+(define one (lambda (f) (lambda (x) (f x))))<br />
+(define (plus a b) (lambda (f) (lambda (x) ((b f) ((a f) x)))))</p>
+<p>(define (test n </span><span style="color:#0000ff;">int</span><span style="color:#000000;">)<br />
+  (equal</span><span style="color:#000000;">?</span><span style="color:#000000;"> </span><span style="color:#0000ff;">int</span><span style="color:#000000;"> ((n (lambda (x) (</span><span style="color:#000000;">+</span><span style="color:#000000;"> x </span><span style="color:#800080;">1</span><span style="color:#000000;">))) </span><span style="color:#800080;">0</span><span style="color:#000000;">)))</p>
+<p></span><span style="color:#800000;">'</span><span style="color:#800000;"> test result</span><span style="color:#800000;"><br />
+</span><span style="color:#000000;">&gt;</span><span style="color:#000000;"> (test zero </span><span style="color:#800080;">0</span><span style="color:#000000;">)<br />
+#t<br />
+</span><span style="color:#000000;">&gt;</span><span style="color:#000000;"> (test one </span><span style="color:#800080;">1</span><span style="color:#000000;">)<br />
+#t<br />
+</span><span style="color:#000000;">&gt;</span><span style="color:#000000;"> (test (add</span><span style="color:#000000;">-</span><span style="color:#800080;">1</span><span style="color:#000000;"> zero) </span><span style="color:#800080;">1</span><span style="color:#000000;">)<br />
+#t<br />
+</span><span style="color:#000000;">&gt;</span><span style="color:#000000;"> (test (plus zero zero) </span><span style="color:#800080;">0</span><span style="color:#000000;">)<br />
+#t<br />
+</span><span style="color:#000000;">&gt;</span><span style="color:#000000;"> (test (plus zero one) </span><span style="color:#800080;">1</span><span style="color:#000000;">)<br />
+#t<br />
+</span><span style="color:#000000;">&gt;</span><span style="color:#000000;"> (test (plus one one) </span><span style="color:#800080;">2</span><span style="color:#000000;">)<br />
+#t<br />
+</span><span style="color:#000000;">&gt;</span><span style="color:#000000;"> (test (plus one (plus one one)) </span><span style="color:#800080;">3</span><span style="color:#000000;">)<br />
+#t<br />
+</span><span style="color:#000000;">&gt;</span><span style="color:#000000;"> </span></div>
+<p><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div></p>

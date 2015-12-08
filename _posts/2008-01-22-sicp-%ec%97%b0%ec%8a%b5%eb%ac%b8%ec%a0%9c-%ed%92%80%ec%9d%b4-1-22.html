@@ -1,0 +1,36 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.22
+date: 2008-01-22 06:14:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습 문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2662'
+  _wp_old_slug: '2662'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>[CODE]<br />(define (smallest-divisor n) &nbsp; &nbsp;&nbsp; <br />&nbsp; (find-divisor n 2)) &nbsp; &nbsp;&nbsp; <br />&nbsp; &nbsp;&nbsp; <br />(define (find-divisor n test-divisor) &nbsp; &nbsp;&nbsp; <br />&nbsp; (cond ((&gt; (square test-divisor) n) n) &nbsp; &nbsp;&nbsp; <br />&nbsp; &nbsp; &nbsp; &nbsp; ((divides? test-divisor n) test-divisor) &nbsp; &nbsp;&nbsp; <br />&nbsp; &nbsp; &nbsp; &nbsp; (else (find-divisor n (+ test-divisor 1))))) &nbsp; &nbsp;&nbsp; <br />&nbsp; &nbsp;&nbsp; <br />(define (divides? a b) &nbsp; &nbsp;&nbsp; <br />&nbsp; (= (remainder b a) 0)) &nbsp; &nbsp;&nbsp; <br />&nbsp; &nbsp;&nbsp; <br />(define (prime? n) &nbsp; &nbsp;&nbsp; <br />&nbsp; (= n (smallest-divisor n))) &nbsp; &nbsp;&nbsp; <br />&nbsp; &nbsp;&nbsp; <br />(define (square x) (* x x)) &nbsp; <br />(define (timed-prime-test n) &nbsp; <br />&nbsp; (newline) &nbsp; <br />&nbsp; (display n) &nbsp; <br />&nbsp; (start-prime-test n (runtime))) &nbsp; <br />(define (runtime) (current-milliseconds)) &nbsp; <br />(define (start-prime-test n start-time) &nbsp; <br />&nbsp; (if (prime? n) &nbsp; <br />&nbsp; &nbsp; &nbsp; (report-prime (- (runtime) start-time)))) &nbsp; <br />(define (report-prime elapsed-time) &nbsp; <br />&nbsp; (display " *** ") &nbsp; <br />&nbsp; (display elapsed-time)) &nbsp; <br />(define (search-for-primes rangestart) &nbsp; <br />&nbsp; (define (SFP-iter start-time n) &nbsp; <br />&nbsp; &nbsp; (newline) &nbsp; <br />&nbsp; &nbsp; (display n) &nbsp; <br />&nbsp; &nbsp; (if (prime? n) (report-prime (- (runtime) start-time)) &nbsp; <br />&nbsp; &nbsp; &nbsp; &nbsp; (SFP-iter start-time (+ n 2)))) &nbsp; <br />&nbsp; (if (even? rangestart) (SFP-iter (runtime) (+ rangestart 1)) &nbsp; <br />&nbsp; &nbsp; &nbsp; (SFP-iter (runtime) rangestart))) &nbsp; <br />[/CODE]</p>
+<p>&gt; (search-for-primes 10000)</p>
+<p>10001<br />10003<br />10005<br />10007 *** 21<br />&gt; (search-for-primes 100000)</p>
+<p>100001<br />100003 *** 21<br />&gt; (search-for-primes 1000000)</p>
+<p>1000001<br />1000003 *** 22<br />&gt; (search-for-primes 10000000)</p>
+<p>10000001<br />10000003<br />10000005<br />10000007<br />10000009<br />10000011<br />10000013<br />10000015<br />10000017<br />10000019 *** 29<br />&gt; (search-for-primes 100000000)</p>
+<p>100000001<br />100000003<br />100000005<br />100000007 *** 44<br />&gt; (search-for-primes 1000000000)</p>
+<p>1000000001<br />1000000003<br />1000000005<br />1000000007 *** 57<br />&gt; (search-for-primes 10000000000)</p>
+<p>10000000001<br />10000000003<br />10000000005<br />10000000007<br />10000000009<br />10000000011<br />10000000013<br />10000000015<br />10000000017<br />10000000019 *** 317<br />&gt; (search-for-primes 100000000000)</p>
+<p>100000000001<br />100000000003 *** 676<br />&gt; </p>
+<p>10000 : 21 ms <br />100000 : 21 ms rate : 1<br />1000000 : 22 ms rate : 1.05<br />10000000 : 29 ms rate : 1.32<br />100000000 : 44 ms rate : 1.52<br />1000000000 : 57 ms rate : 1.30<br />10000000000 : 317 ms rate : 5.56<br />100000000000 : 676 ms rate : 2.13<br />1000000000000 : 2132 ms rate : 3.15<br />10000000000000 : 6615 ms rate : 3.10<br />100000000000000 : 21536 ms rate : 3.26</p>
+<p>데이터의 크기가 커지면서 수행시간 이 루트10 의 값인 3.16 가 비슷해져감을 알 수 있다.</p>
+<p>그나저나 왜 이 알고리즘이 쎄타(루트n) 의 수행시간을 갖는지는 잘 모르겠다.</p>

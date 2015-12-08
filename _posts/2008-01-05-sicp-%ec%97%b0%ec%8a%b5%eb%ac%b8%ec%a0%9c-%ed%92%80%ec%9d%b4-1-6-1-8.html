@@ -1,0 +1,55 @@
+---
+layout: post
+title: SICP 연습문제 풀이 (1.6 ~ 1.8)
+date: 2008-01-05 16:25:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2612'
+  _wp_old_slug: '2612'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<h1>1.6</h1>
+<p>Normal order evaluation 을 가정하고 주어진 함수를 evaluate 해보자.</p>
+<p>(sqrt-iter guess x) 를 실행할 경우</p>
+<p>=&gt;</p>
+<p>(new-if (good-enough? guess x) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; guess <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (sqrt-iter (improve guess x) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x))</p>
+<p>=&gt;</p>
+<p>(cond ((good-enough? guess x) guess) <br />&nbsp; &nbsp; &nbsp; &nbsp; (else (sqrt-iter (improve guess x) x)))</p>
+<p>가 된다. sqrt-iter 을 expand 하는 과정에서 다시 sqrt-iter 이 나왔으므로 무한 루프에 빠지게 된다.</p>
+<p>Applicative order evaluation 을 가정.</p>
+<p>(sqrt-iter 1.0 1) </p>
+<p>=&gt;</p>
+<p>(new-if (good-enough? 1.0 1) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1.0 <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (sqrt-iter (improve 1.0 1) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1))</p>
+<p>=&gt; 각 argument 들이 evaluate 된다.</p>
+<p>(new-if true 1.0 <strong>(sqrt-iter 1.0 1)</strong>)</p>
+<p>=&gt; argument 를 evaluate 하려다 보니 다시 (sqrt-iter 1.0 1) 를 evaluate 해야 한다. 그러므로 역시 무한 루프에 빠지게 된다.</p>
+<p>이것은 new-if 가 정의된 프로시져라서 벌어지는 일 인데, 프로시져의 argument 들은 어떤식으로든 evaluate 되야 되기 때문이다. 반면 일반 구문인 if 는 predicate 이 true 가 되면 else-clause 부분은 evaluate 되지 않기 때문에 무한루프에 빠지지 않는다.</p>
+<h1>1.7</h1>
+<p>&gt; (sqrt-iter 1.0 0.0001) <br />0.0323084483304812185178363...</p>
+<p>&gt; (sqrt-iter 1.0 92400000000000000 ) <br />user break</p>
+<p>다음과 같이 guess 의 변화량을 측정하여 판단하도록 good-enough 함수를 바꿔봤다.</p>
+<p>(define (good-enough2 guess x) (&lt; (/ (abs (- (improve guess x) guess)) guess) 0.001))</p>
+<p>(define (sqrt-iter-precise guess x) <br />&nbsp; &nbsp; (if (good-enough2 guess x) <br />&nbsp; &nbsp; &nbsp; &nbsp; guess <br />&nbsp; &nbsp; &nbsp; &nbsp; (sqrt-iter-precise (improve guess x) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; x)))</p>
+<p>실행결과는</p>
+<p>&gt; (sqrt-iter-precise 1.0 0.0001) <br />0.0100007140387117461927171...</p>
+<p>훨씬 정확해졌다. 큰 수의 경우는 해보지 않았다. 실행했더니 결과가 나오는 데 시간이 많이 걸린다. 뭔가 잘 못된 걸까?</p>
+<h1>1.8</h1>
+<p>1.7 의 풀이와 흡사하다.</p>
+<p>(define (good-enough2 guess x) (&lt; (/ (abs (- (improve-cube guess x) guess)) guess) 0.001))</p>
+<p>(define (improve-cube guess x) (/ (+ (/ x (square guess)) (* 2 guess)) 3))</p>
+<p>(define (cbrt-iter-precise guess x) <br />&nbsp; &nbsp; (if (good-enough2 guess x) <br />&nbsp; &nbsp; &nbsp; &nbsp; guess <br />&nbsp; &nbsp; &nbsp; &nbsp; (cbrt-iter-precise (improve-cube guess x) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; x)))</p>
+<p>----</p>
+<p>연습문제 푸는 데 시간이 꽤 걸렸습니다. 1.6 번 같은 경우 제대로 한 건지 확실하지 않네요.</p>

@@ -1,0 +1,53 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.20
+date: 2008-01-20 06:27:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2660'
+  _wp_old_slug: '2660'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>SICP 연습문제 풀이 1.20</p>
+<h3>(gcd 206 40) In normal order evaluation</h3>
+<p>=&gt;(if (= 40 0) <br />&nbsp; &nbsp; &nbsp; 206 <br />&nbsp; &nbsp; &nbsp; (gcd 40 (remainder 206 40)))</p>
+<p>=&gt;(gcd 40 (remainder 206 40))</p>
+<p>=&gt;(if (= (<strong><ins>remainder</ins></strong> 206 40) 0) <br />&nbsp; &nbsp; &nbsp; 40 <br />&nbsp; &nbsp; &nbsp; (gcd (remainder 206 40) (remainder 40 (remainder 206 40))))</p>
+<p>=&gt;(gcd (remainder 206 40) (remainder 40 (remainder 206 40)))</p>
+<p>=&gt;(if (= (<strong><ins>remainder</ins></strong> 40 (<strong><ins>remainder</ins></strong> 206 40)) 0) <br />&nbsp; &nbsp; &nbsp; (remainder 206 40) <br />&nbsp; &nbsp; &nbsp; (gcd (remainder 40 (remainder 206 40)) (remainder (remainder 206 40) (remainder 40 (remainder 206 40)))))</p>
+<p>=&gt;(gcd (remainder 40 (remainder 206 40)) (remainder (remainder 206 40) (remainder 40 (remainder 206 40))))</p>
+<p>=&gt;(if (= (<strong><ins>remainder</ins></strong> (<strong><ins>remainder</ins></strong> 206 40) (<strong><ins>remainder</ins></strong> 40 (<strong><ins>remainder</ins></strong> 206 40))) 0) <br />&nbsp; &nbsp; &nbsp; (remainder 40 (remainder 206 40)) <br />&nbsp; &nbsp; &nbsp; (gcd (remainder (remainder 206 40) (remainder 40 (remainder 206 40))) (remainder (remainder 40 (remainder 206 40)) (remainder (remainder 206 40) (remainder 40 (remainder 206 40))))))</p>
+<p>=&gt;(gcd (remainder (remainder 206 40) (remainder 40 (remainder 206 40))) (remainder (remainder 40 (remainder 206 40)) (remainder (remainder 206 40) (remainder 40 (remainder 206 40)))))</p>
+<p>=&gt;(if (= (<strong><ins>remainder</ins></strong> (<strong><ins>remainder</ins></strong> 40 (<strong><ins>remainder</ins></strong> 206 40)) (<strong><ins>remainder</ins></strong> (<strong><ins>remainder</ins></strong> 206 40) (<strong><ins>remainder</ins></strong> 40 (<strong><ins>remainder</ins></strong> 206 40)))) 0) <br />&nbsp; &nbsp; &nbsp; (remainder (remainder 206 40) (remainder 40 (remainder 206 40))) <br />&nbsp; &nbsp; &nbsp; (gcd (remainder (remainder 40 (remainder 206 40)) (remainder (remainder 206 40) (remainder 40 (remainder 206 40)))) (remainder (remainder (remainder 206 40) (remainder 40 (remainder 206 40))) <br />&nbsp;&nbsp; (remainder (remainder 40 (remainder 206 40)) (remainder (remainder 206 40) (remainder 40 (remainder 206 40)))))))</p>
+<p>=&gt;(<strong><ins>remainder</ins></strong> (<strong><ins>remainder</ins></strong> 206 40) (<strong><ins>remainder</ins></strong> 40 (<strong><ins>remainder</ins></strong> 206 40)))</p>
+<p>remainder 는 총 <strong>18</strong> 번 수행된다.</p>
+<h3>(gcd 206 40) In normal order evaluation</h3>
+<p>(gcd 206 40)</p>
+<p>=&gt;(if (= 40 0) <br />&nbsp; &nbsp; &nbsp; 206 <br />&nbsp; &nbsp; &nbsp; (gcd 40 (remainder 206 40)))</p>
+<p>=&gt;(gcd 40 (<strong><ins>remainder</ins></strong> 206 40))</p>
+<p>=&gt;(gcd 40 6)</p>
+<p>=&gt;(if (= 6 0) <br />&nbsp; &nbsp; &nbsp; 40 <br />&nbsp; &nbsp; &nbsp; (gcd 6 (remainder 40 6)))</p>
+<p>=&gt;(gcd 6 (<strong><ins>remainder</ins></strong> 40 6))</p>
+<p>=&gt;(gcd 6 4)</p>
+<p>=&gt;(if (= 4 0) <br />&nbsp; &nbsp; &nbsp; 6 <br />&nbsp; &nbsp; &nbsp; (gcd 4 (remainder 6 4)))</p>
+<p>=&gt;(gcd 4 (<strong><ins>remainder</ins></strong> 6 4))</p>
+<p>=&gt;(gcd 4 2)</p>
+<p>=&gt;(if (= 2 0) <br />&nbsp; &nbsp; &nbsp; 4 <br />&nbsp; &nbsp; &nbsp; (gcd 2 (remainder 4 2 )))</p>
+<p>=&gt;(gcd 2 (<ins><strong>remainder</strong> </ins>4 2 ))</p>
+<p>=&gt;(gcd 2 0)</p>
+<p>=&gt;(if (= 0 0) <br />&nbsp; &nbsp; &nbsp; 2 <br />&nbsp; &nbsp; &nbsp; (gcd 0 (remainder 2 0)))</p>
+<p>=&gt; 2</p>
+<p>remainder 는 총 <strong>4</strong> 번 수행된다.</p>

@@ -1,0 +1,46 @@
+---
+layout: post
+title: Limitation of Object Oriented
+date: 2007-04-29 13:11:27.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- design pattern
+- 디자인 패턴
+- 객체지향
+- Object Oriented Programming
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2493'
+  _wp_old_slug: '2493'
+  _oembed_71ec9b367fd11efb24bd9b2ce3516278: '{{unknown}}'
+  _oembed_dd69150a9be2d0eb3115150d5baad917: '{{unknown}}'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>OO (Object Oriented) 얘기를 좀 해볼까 합니다. 질문의 시작은 디자인 패턴은 과연 현실에서 쓸모가 있는가? 라는 데서 출발합니다. OO 와 디자인 패턴은 따로 생각할 수가 없습니다. 디자인 패턴 자체가 OO 라는 사고의 틀 안에서 생겨났기 때문입니다. Design Patterns 의 Preface 에 다음과 같은 문장이 있네요.</p>
+<blockquote><p>It's a book of <strong>design patterns</strong> that describes simple and elegant solutions to specific problems in object-oriented software design.</p></blockquote>
+<p>OO 의 관점에 풀어낸 다양한 문제 패턴에 대한 솔루션이라는 이야기지요. 결국 디자인 패턴의 실제 효용성에 대한 질문은 OO 에 대한 것으로 옮겨갑니다.</p>
+<blockquote><p><strong>OO 는 정말 쓸만 한 것인가?</strong></p></blockquote>
+<p>아쉽게도 썩 그렇지는 못합니다. 코드의 재사용성 측면에서라면 더욱 그렇지 못합니다. 객체간의 상관관계는 프로젝트가 클 수록 exponentially 하게 복잡해집니다. 그런 관계 속에서 객체의 수정은 파급효과가 무시무시합니다. 디자인패턴이 나온 이유도 이것입니다. 요구사항 변화에 따른 기존 코드의 수정에서 조금이라도 더 자유로워지자 라는 거지요.</p>
+<p>그럼에도 불구하고 <strong>OO 와 디자인 패턴을 공부해야하는 이유는</strong> 뭘까요? 전 이게 패러다임의 문제라고 봅니다. 토마스쿤은 과학혁명의 구조에서 과학의 발전단계를 다음과 같이 얘기했습니다.[fn]발전단계와 관련된 짧은 신문기사를 보실려면 다음 링크를 참고하세요. <a href="http://www.hani.co.kr/kisa/section-paperspcl/book/2005/07/000000000200507281939251.html" target="_blank">http://www.hani.co.kr/kisa/section-paperspcl/book/2005/07/000000000200507281939251.html</a>&nbsp;[/fn]</p>
+<blockquote><p>정상과학 --&gt; 위기 --&gt; 혁명 --&gt; 새로운 정상과학</p></blockquote>
+<p>저는 OO 가 점차 위기의 단계에 접어들고 있다고 봅니다. </p>
+<p>애초 OO 는 프로그래밍을 하는 관점을 바꿔놓은 <a href="http://www.terms.co.kr/OOP.htm" target="_blank">혁명</a>이었습니다. 기계의 관점에서가 아니라 사람의 관점에서 프로그래밍이 가능하도록 해줬지요. 그러나 최초의 OOP 언어인 <a href="http://www.terms.co.kr/Smalltalk.htm" target="_blank">Smalltalk</a> 이 나온지도 거의 30 년이 다되가다 보니, 이제 OO 의 패러다임은 점차 그 한계가 드러나기 시작하는 것 같습니다. </p>
+<p>과학에서 위기의 고조뒤에 새로운 이론들이 나타났듯이, OO 라는 패러다임을 대체할 새로운 무언가가 나타날 거라 믿어 의심치 않습니다. 그것은 기존과는 전혀 다른 CPU 에 의해 나타날 수도 있고, 혁명적인 컴파일러에 의해 나타날 수도 있고, 또는 누군가가 만든 새로운 Programming Language 에 의한 것일 수도 있습니다. 심지어 기술분야에서가 아니라 Development management 에서 나타난 새로운 개발방법론에 의한 것일 수도 있지요.</p>
+<p>OO 와 디자인 패턴을 공부해야 하는 가에 대한 제 대답을 요약하자면 이렇습니다. </p>
+<ul>
+<li>과학이 그러했듯, 기술에도 패러다임은 있다.</li>
+<li>OO 라는 패러다임은 서서히 위기 단계로 넘어가고 있다.</li>
+<li>위기 고조에 의한 혁명이 일어나기 전까지 우리는 기존의 패러다임 내에서 활동한다.</li>
+<li>디자인 패턴은 OO 라는 패러다임내에서 효율적으로 보이는 솔루션들의 집합일 뿐이다.[fn]디자인 패턴 그 자체로 완벽한 솔루션은 아닙니다. 다음의 링크에서 관련 얘기를 들을 수 있습니다. <a href="http://crowmaniac.net/crowmania/?p=317&nbsp; [/fn">http://crowmaniac.net/crowmania/?p=317 </a>[/fn] 그것이 만병통치약은 아니다. </li>
+<li>다만, 디자인 패턴과 같은 것들에 대해 알고 겪고 난 뒤라야 비로소 기술적혁명을 맞이할 준비가 될 수 있을 것이다.</li>
+</ul>
+<p></p>

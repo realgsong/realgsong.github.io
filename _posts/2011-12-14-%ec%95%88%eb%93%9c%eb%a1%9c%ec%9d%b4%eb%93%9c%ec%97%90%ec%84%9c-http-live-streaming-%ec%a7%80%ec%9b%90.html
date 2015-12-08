@@ -1,0 +1,32 @@
+---
+layout: post
+title: 안드로이드에서 HTTP Live Streaming 지원
+date: 2011-12-14 22:28:44.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- android
+- http live streaming
+- 안드로이드
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_notify: '1'
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _social_aggregation_log: a:10:{i:1323870345;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323872239;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323874981;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323879355;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323887505;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323902730;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323931635;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323974974;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1324062046;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1324234855;O:8:"stdClass":1:{s:6:"manual";s:0:"";}}
+  original_post_id: '4848'
+  _wp_old_slug: '4848'
+  _oembed_e17046e7e168cb0b919430994171ba41: '{{unknown}}'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>안드로이드에서 HLS(Http Live Streaming) 을 하려면, 인코딩된 파일의 해상도를 적절히 조절해줘야 한다.</p>
+<p><a href="http://developer.android.com/guide/appendix/media-formats.html">http://developer.android.com/guide/appendix/media-formats.html</a></p>
+<p>위 링크를 보면 SD (High quality) 360p 까지만 현재 지원이 되고, 720p 는 지원이 되지 않는다. 그리고 H.264 의 프로파일도 Baseline 을 써줘야 한다.</p>

@@ -1,0 +1,99 @@
+---
+layout: post
+title: 실용주의 프로그래머를 위한 단위테스트
+date: 2008-11-21 12:36:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Book
+tags:
+- 단위테스트
+- 실용주의
+- 프로그래머
+- 유닛테스팅
+- junit
+- Pragmatic Programmers
+- Unit Test
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  original_post_id: '2920'
+  _wp_old_slug: '2920'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<table>
+<tbody>
+<tr>
+<td><a href="http://www.aladin.co.kr/shop/wproduct.aspx?ISBN=899126803X&amp;ttbkey=ttbgsong791557002&amp;COPYPaper=1"><img src="{{ site.baseurl }}/assets/wp/899126803x_1.jpg" alt="" border="0" /></a></td>
+<td align="left"><a href="http://www.aladin.co.kr/shop/wproduct.aspx?ISBN=899126803X&amp;ttbkey=ttbgsong791557002&amp;COPYPaper=1">실용주의 프로그래머를 위한 단위 테스트 with JUnit</a> - <img src="{{ site.baseurl }}/assets/wp/star_s10.gif" alt="10점" border="0" /><br />
+데이비드 토머스 외 지음, 이용원 외 옮김/인사이트</td>
+</tr>
+</tbody>
+</table>
+<p>최근 다른 글에서도 이야기 했지만, 유닛 테스팅의 필요성을 온 몸으로 느끼고, 제가 작업하고 있는 코드에 슬쩍 집어 넣어 볼려고 노력 중입니다. 이미 회사 내의 다른 팀에서는 유닛 테스팅을 활발히 쓰고 있고, Test Driven Development 로 개발하고 있는 팀들도 꽤 됩니다. 아무튼 팀에 뭔가 새로운 것을 도입하려면 직접해서 효과를 보여주는 게 최고라고 생각하기에 없는 시간 쪼개서 유닛테스팅을 만들고 있습니다.</p>
+<p>&nbsp;</p>
+<p>책 두께 핸드북 처럼 얇습니다. 며칠이면 금새 읽을 수 있었습니다만, 이 책은 읽독 하는 것보다 직접 프로젝트에 유닛테스팅을 도입해 볼 때 가이드북으로 쓰는 게 더 좋을 것 같습니다. 책의 뒷부분에 있는 요약한 장을 그대로 가져왔습니다.</p>
+<p>&nbsp;</p>
+<h2>일반 원칙</h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ul>
+<li>망가질 가능성이 있는 모든 것을 테스트한다.</li>
+<li>망가지는 모든 것을 테스트한다.</li>
+<li>새 코드는 무죄가 증명되기 전까지는 유죄.</li>
+<li>적어도 제품 코드만큼 테스트 코드를 작성한다.</li>
+<li>컴파일을 할 때마다 지역 테스트를 실행한다.</li>
+<li>저장소에 체크인하기 전에 모든 테스트를 실행해 본다.</li>
+</ul>
+<p>&nbsp;</p>
+<h2>자문해 봐야 할 사항</h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ul>
+<li>이 코드가 옳게 동작한다면, 어떻게 그것을 알 수 있는가?</li>
+<li><span style="text-decoration:underline;">이것을 어떻게 테스트할 것인가</span>?</li>
+<li>'그밖에' 어떤 것이 잘못될 수 있는가?</li>
+<li><span style="text-decoration:underline;">이와 똑같은 종류의 문제가 다른 곳에서도 일어날 수 있을까</span>?</li>
+</ul>
+<p>&nbsp;</p>
+<h2>무엇을 테스트해야 하는가 Rigth-BICEP</h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ul>
+<li>결과가 옳은가(right)?</li>
+<li>모든 경계 조건(Boundary)이 CORRECT 한가?</li>
+<li>역 관계(Inverse)를 확인할 수 있는가?</li>
+<li>다른 수단을 사용해서 결과를 교차 확인(Cross check) 할 수 있는가?</li>
+<li>에러 조건(Error condition)을 강제로 만들어낼 수 있는가?</li>
+<li>성능(Performance) 특성이 한도 내에 있는가?</li>
+</ul>
+<p>&nbsp;</p>
+<h2>좋은 테스트는 A-TRIP 해야 한다.</h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ul>
+<li>자동적 (Automatic)</li>
+<li>철저함 (Thorough)</li>
+<li>반복 가능(Repeatable)</li>
+<li>독립적 (Independent)</li>
+<li>전문적 (Professional)</li>
+</ul>
+<p>&nbsp;</p>
+<h2>CORRECT 경계 조건</h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ul>
+<li>형식 일치 (Conformance) - 값의 형식이 예상한 형식과 일치하는가?</li>
+<li>순서 (Ordering) - 적절히 순서대로 되어 있거나 그렇지 않은 값인가?</li>
+<li>범위 (Range) - 적당한 최솟값과 최댓값 사이에 있는 값인가?</li>
+<li>참조 (Reference) - 코드가 자기가 직접 제어하지 않는 외부 코드를 참조하는가?</li>
+<li>존재성 (Existence) - 값이 존재하는가? (예: null 이 아님, 0이 아님, 집합 안에 존재함 등)</li>
+<li>개체 수 (Cardinality) - 확실히 충분한 값이 존재하는가?</li>
+<li>시간 (Time)(절대적으로, 그리고 상대적으로) - 모든 것이 순서대로 일어나는가? 제시간에? 때맞추어?</li>
+</ul>

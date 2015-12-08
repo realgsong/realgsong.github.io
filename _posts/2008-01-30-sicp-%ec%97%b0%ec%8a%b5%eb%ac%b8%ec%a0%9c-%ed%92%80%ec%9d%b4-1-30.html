@@ -1,0 +1,25 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.30
+date: 2008-01-30 03:17:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2684'
+  _wp_old_slug: '2684'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>[CODE]<br />(define (sum term a next b)<br />&nbsp; (define (iter a result)<br />&nbsp; &nbsp; (if (&gt; a b)<br />&nbsp; &nbsp; &nbsp; &nbsp; result<br />&nbsp; &nbsp; &nbsp; &nbsp; (iter (next a) (+ result (term a)))))<br />&nbsp; (iter a 0))</p>
+<p>(define (term a) a)<br />(define (next a) (+ a 1))<br />[/CODE]</p>

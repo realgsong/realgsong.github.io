@@ -1,0 +1,39 @@
+---
+layout: post
+title: VPATH in Makefile
+date: 2011-10-13 14:25:18.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- Makefile
+- VPATH
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_notify: '0'
+  original_post_id: '4727'
+  _wp_old_slug: '4727'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>dependencies 를 찾을 때, VPATH 라는 변수를 활용하면 보다 쉽게 Makefile 을 만들 수 있다.</p>
+<pre class="brush: bash; gutter: true">VPATH = src:../headers
+
+# 라고 되어 있고, foo.c 파일이 현재 디렉토리에 없고 src 안에 있을 때
+
+foo.o : foo.c
+
+# 이 규칙은 아래와 같이 해석된다.
+
+foo.o : src/foo.c</pre>
+<p><span style="color:#1b8be0;"><a href="http://www.gnu.org/software/make/manual/make.html#General-Search" target="_blank">http://www.gnu.org/software/make/manual/make.html#General-Search</a><br />
+</span></p>
+<p>이렇게 편한 걸 스트링 치환으로 해결하려 했다니...ㅋ</p>
+<p>&nbsp;</p>

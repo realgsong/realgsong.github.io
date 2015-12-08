@@ -1,0 +1,35 @@
+---
+layout: post
+title: Ubuntu 에서 Jenkins 를 일반 사용자 계정으로 실행하려면?
+date: 2012-05-15 10:36:47.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 계정
+- 사용자
+- 우분투
+- 젠킨스
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _social_aggregation_log: a:10:{i:1337047277;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1337050152;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1337053534;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1337057345;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1337065271;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1337079672;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1337108515;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1337151775;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1337238205;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1337411807;O:8:"stdClass":1:{s:6:"manual";s:0:"";}}
+  original_post_id: '6155'
+  _wp_old_slug: '6155'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>Ubuntu 에서 apt-get install jenkins 로 젠킨스를 설치하게 되면 jenkins 라는 계정을 만들어  그 계정에서 툴을 실행하게 된다. 대부분 개발은 개발자 자신의 사용자 계정에서 이뤄어 지므로, 젠킨스를 개인 용으로 쓰려면, 사용자 계정 권한으로 실행해줄 필요가 있을 수 있다.</p>
+<ol>
+<li>/etc/default/jenkins 에서 JENKINS_USER 를 본인의 사용자 계정으로 수정한다.</li>
+<li>sudo chown -R &lt;user&gt;:&lt;group&gt; /var/run/jenkins/war</li>
+<li>sudo chown -R &lt;user&gt;:&lt;group&gt; /var/log/jenkins</li>
+</ol>
+<p>이렇게 하면 권한 문제에 시달리지 않고 젠킨스를 설정할 수 있다.</p>

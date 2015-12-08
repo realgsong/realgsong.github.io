@@ -1,0 +1,25 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.21
+date: 2008-01-21 05:09:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습 문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2661'
+  _wp_old_slug: '2661'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>[CODE]<br />(define (smallest-divisor n) (find-divisor n 2)) (define (find-divisor n test-divisor) (cond ((&gt; (square test-divisor) n) n) ((divides? test-divisor n) test-divisor) (else (find-divisor n (+ test-divisor 1))))) (define (divides? a b) (= (remainder b a) 0)) (define (prime? n) (= n (smallest-divisor n))) (define (square x) (* x x)) [/CODE]</p>
+<p>실행 결과<br />&gt; (smallest-divisor 199)<br />199<br />&gt; (smallest-divisor 1999)<br />1999<br />&gt; (smallest-divisor 19999)<br />7</p>

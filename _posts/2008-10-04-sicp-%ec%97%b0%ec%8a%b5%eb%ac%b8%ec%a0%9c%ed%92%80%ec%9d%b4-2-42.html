@@ -1,0 +1,77 @@
+---
+layout: post
+title: SICP 연습문제풀이 2.42
+date: 2008-10-04 04:58:41.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제풀이
+- SICP
+meta:
+  _publicize_pending: '1'
+  _oembed_464a04d8ffdbfc64a52b218663d4df8d: '{{unknown}}'
+  _oembed_9f69eece78fb1ad34c1e570a591a3b7a: '{{unknown}}'
+  _oembed_3022c0c296f9988586d16ca06eca9159: '{{unknown}}'
+  _oembed_004df80b10545a4b70086b84bb3fb504: '{{unknown}}'
+  original_post_id: '2882'
+  _wp_old_slug: '2882'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p><div class="wlWriterSmartContent" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E7:76baed46-61b7-48cb-9d9a-744256f838f4" style="display:inline;float:none;margin:0;padding:0;">
+<pre style="overflow:auto;background-color:white;" />
+<div><span style="color:#000000;">;</span><span style="color:#800080;">2.42</span><span style="color:#000000;"><br />
+(define (queens board</span><span style="color:#000000;">-</span><span style="color:#000000;">size)<br />
+  (define (queen</span><span style="color:#000000;">-</span><span style="color:#000000;">cols k)<br />
+    (</span><span style="color:#0000ff;">if</span><span style="color:#000000;"> (</span><span style="color:#000000;">=</span><span style="color:#000000;"> k </span><span style="color:#800080;">0</span><span style="color:#000000;">)<br />
+        (list empty</span><span style="color:#000000;">-</span><span style="color:#000000;">board)<br />
+        (filter<br />
+         (lambda (positions) (safe</span><span style="color:#000000;">?</span><span style="color:#000000;"> k positions))<br />
+         (flatmap<br />
+          (lambda (rest</span><span style="color:#000000;">-</span><span style="color:#000000;">of</span><span style="color:#000000;">-</span><span style="color:#000000;">queens)<br />
+            (map (lambda (</span><span style="color:#0000ff;">new</span><span style="color:#000000;">-</span><span style="color:#000000;">row)<br />
+                   (adjoin</span><span style="color:#000000;">-</span><span style="color:#000000;">position </span><span style="color:#0000ff;">new</span><span style="color:#000000;">-</span><span style="color:#000000;">row k rest</span><span style="color:#000000;">-</span><span style="color:#000000;">of</span><span style="color:#000000;">-</span><span style="color:#000000;">queens))<br />
+                 (enumerate</span><span style="color:#000000;">-</span><span style="color:#000000;">interval </span><span style="color:#800080;">1</span><span style="color:#000000;"> board</span><span style="color:#000000;">-</span><span style="color:#000000;">size)))<br />
+          (queen</span><span style="color:#000000;">-</span><span style="color:#000000;">cols (</span><span style="color:#000000;">-</span><span style="color:#000000;"> k </span><span style="color:#800080;">1</span><span style="color:#000000;">))))))<br />
+  (queen</span><span style="color:#000000;">-</span><span style="color:#000000;">cols board</span><span style="color:#000000;">-</span><span style="color:#000000;">size))</p>
+<p>(define (flatmap proc seq)<br />
+  (accumulate append nil (map proc seq)))</p>
+<p>(define (accumulate op initial sequence)<br />
+  (</span><span style="color:#0000ff;">if</span><span style="color:#000000;"> (</span><span style="color:#0000ff;">null</span><span style="color:#000000;">?</span><span style="color:#000000;"> sequence)<br />
+      initial<br />
+      (op (car sequence)<br />
+          (accumulate op initial (cdr sequence)))))</p>
+<p>(define nil (list))</p>
+<p>(define (filter predicate sequence)<br />
+  (cond ((</span><span style="color:#0000ff;">null</span><span style="color:#000000;">?</span><span style="color:#000000;"> sequence) nil)<br />
+        ((predicate (car sequence))<br />
+         (cons (car sequence)<br />
+               (filter predicate (cdr sequence))))<br />
+        (</span><span style="color:#0000ff;">else</span><span style="color:#000000;"> (filter predicate (cdr sequence)))))</p>
+<p>(define (enumerate</span><span style="color:#000000;">-</span><span style="color:#000000;">interval low high)<br />
+  (</span><span style="color:#0000ff;">if</span><span style="color:#000000;"> (</span><span style="color:#000000;">&gt;</span><span style="color:#000000;"> low high)<br />
+      nil<br />
+      (cons low (enumerate</span><span style="color:#000000;">-</span><span style="color:#000000;">interval (</span><span style="color:#000000;">+</span><span style="color:#000000;"> low </span><span style="color:#800080;">1</span><span style="color:#000000;">) high))))</p>
+<p>;Solution<br />
+(define empty</span><span style="color:#000000;">-</span><span style="color:#000000;">board (list))<br />
+(define (adjoin</span><span style="color:#000000;">-</span><span style="color:#000000;">position </span><span style="color:#0000ff;">new</span><span style="color:#000000;">-</span><span style="color:#000000;">row k rest</span><span style="color:#000000;">-</span><span style="color:#000000;">of</span><span style="color:#000000;">-</span><span style="color:#000000;">queens) (append rest</span><span style="color:#000000;">-</span><span style="color:#000000;">of</span><span style="color:#000000;">-</span><span style="color:#000000;">queens (list </span><span style="color:#0000ff;">new</span><span style="color:#000000;">-</span><span style="color:#000000;">row)))<br />
+(define (safe</span><span style="color:#000000;">?</span><span style="color:#000000;"> k position)<br />
+  (define (iter col i)<br />
+    (cond ((</span><span style="color:#000000;">=</span><span style="color:#000000;"> i k) #t)<br />
+          ((and (SafeCol</span><span style="color:#000000;">?</span><span style="color:#000000;"> position (</span><span style="color:#000000;">-</span><span style="color:#000000;"> k i) col) (SafeCol</span><span style="color:#000000;">?</span><span style="color:#000000;"> position (</span><span style="color:#000000;">-</span><span style="color:#000000;"> k i) (</span><span style="color:#000000;">+</span><span style="color:#000000;"> col i)) (SafeCol</span><span style="color:#000000;">?</span><span style="color:#000000;"> position (</span><span style="color:#000000;">-</span><span style="color:#000000;"> k i) (</span><span style="color:#000000;">-</span><span style="color:#000000;"> col i)))<br />
+           (iter col (</span><span style="color:#000000;">+</span><span style="color:#000000;"> i </span><span style="color:#800080;">1</span><span style="color:#000000;">)))<br />
+          (</span><span style="color:#0000ff;">else</span><span style="color:#000000;"> #f)))<br />
+  (iter (colValue k position) </span><span style="color:#800080;">1</span><span style="color:#000000;">))<br />
+(define (colValue k position)<br />
+  (</span><span style="color:#0000ff;">if</span><span style="color:#000000;"> (</span><span style="color:#000000;">=</span><span style="color:#000000;"> k </span><span style="color:#800080;">1</span><span style="color:#000000;">) (car position)<br />
+      (colValue (</span><span style="color:#000000;">-</span><span style="color:#000000;"> k </span><span style="color:#800080;">1</span><span style="color:#000000;">) (cdr position))))<br />
+(define (SafeCol</span><span style="color:#000000;">?</span><span style="color:#000000;"> position checkcol col)<br />
+  (not (</span><span style="color:#000000;">=</span><span style="color:#000000;"> col (colValue checkcol position))))</span></div>
+<p><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div></p>

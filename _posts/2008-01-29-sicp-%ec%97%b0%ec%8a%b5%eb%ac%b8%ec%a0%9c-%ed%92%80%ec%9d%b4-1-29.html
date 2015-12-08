@@ -1,0 +1,28 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.29
+date: 2008-01-29 14:22:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습 문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2683'
+  _wp_old_slug: '2683'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>[CODE]<br />(define (integral f a b n)<br />&nbsp; (define (h) (/ (- b a) n))<br />&nbsp; (define (y k) (f (+ a (* k (h)))))<br />&nbsp; (define (integral-function i)<br />&nbsp; &nbsp; (* (/ (h) 3) (* (y i) (cond ((or (= i 0) (= i n)) 1)<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ((odd? i) 4)<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ((even? i) 2)))))<br />&nbsp; (define (integral-iter sum i)<br />&nbsp; &nbsp; (if (&gt; i n) sum<br />&nbsp; &nbsp; &nbsp; &nbsp; (integral-iter (+ sum (integral-function i)) (+ i 1))))<br />&nbsp; (integral-iter 0 0))</p>
+<p>(define (cube x) (* x x x))</p>
+<p>; Example in textbook<br />(define (integral2 f a b dx)<br />&nbsp; (define (add-dx x) (+ x dx))<br />&nbsp; (* (sum f (+ a (/ dx 2.0)) add-dx b)<br />&nbsp; &nbsp;&nbsp; dx))</p>
+<p>(define (sum term a next b)<br />&nbsp; (if (&gt; a b)<br />&nbsp; &nbsp; &nbsp; 0<br />&nbsp; &nbsp; &nbsp; (+ (term a)<br />&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (sum term (next a) next b))))<br />[/CODE]<br />수행 결과<br />&gt; (integral cube 0 1 100)<br />1/4<br />&gt; (integral cube 0 1 1000)<br />1/4<br />&gt; (integral2 cube 0 1 0.01)<br />0.24998750000000042<br />&gt; (integral2 cube 0 1 0.001)<br />0.249999875000001</p>
+<p>Simpson rule 을 사용한 방법이 cube 함수에 대해서는 훨씬 참에 가까운 값을 리턴해준다.</p>

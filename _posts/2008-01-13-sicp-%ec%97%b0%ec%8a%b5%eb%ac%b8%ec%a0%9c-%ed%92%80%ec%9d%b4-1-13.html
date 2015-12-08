@@ -1,0 +1,45 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.13
+date: 2008-01-13 07:54:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2618'
+  _wp_old_slug: '2618'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>이 문제는 사실 hint 에 주어진 </p>
+<p><a href="http://realgsong.files.wordpress.com/2008/03/1603467515.gif"><img style="border-width:0;" height="17" alt="clip_image002" src="{{ site.baseurl }}/assets/wp/1627420814.gif" width="138" border="0" /></a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (1)</p>
+<p>을 증명하면 되는 문제입니다. Fib(n) 이 가장 가까운 정수라는 말은 수식으로 표현하면,</p>
+<p><a href="http://realgsong.files.wordpress.com/2008/03/1288439931.gif"><img style="border-width:0;" height="19" alt="clip_image002[5]" src="{{ site.baseurl }}/assets/wp/1679267495.gif" width="141" border="0" /></a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (2)</p>
+<p>이 되는 데요.&nbsp; (1) 식에서 </p>
+<p><a href="http://realgsong.files.wordpress.com/2008/03/1938348008.gif"><img style="border-width:0;" height="18" alt="clip_image002[7]" src="{{ site.baseurl }}/assets/wp/1443910467.gif" width="40" border="0" /></a> 값을 살펴보면 정의에 의해 항상 0.5 보다 작음을 알 수 있습니다.</p>
+<p>그러므로 우리는 (1) 식만 증명을 하면 문제가 원하는 증명을 했다고 할 수 있겠네요.</p>
+<p><a href="http://realgsong.files.wordpress.com/2008/03/1106824022.gif"><img style="border-width:0;" height="17" alt="clip_image002[9]" src="{{ site.baseurl }}/assets/wp/1542578083.gif" width="128" border="0" /></a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (3)</p>
+<p>일단 G(n) 이라는 걸 이렇게 정의해 놓고 이것이 피보나치 수열의 특성을 만족시켜주는 지 알아보면 될 것 입니다.</p>
+<p>G(0) = 0, G(1) = 1 이라는 것은 간단한 계산을 통해 쉽게 알 수 있습니다.</p>
+<p>그럼 G(n) = G(n-1) + G(n-2) 가 성립되는 지 증명만 하면 되겠네요.</p>
+<p>위 식에 각각을 대입하여 다시 써보면</p>
+<p><a href="http://realgsong.files.wordpress.com/2008/03/1558901996.gif"><img style="border-width:0;" height="37" alt="clip_image002[11]" src="{{ site.baseurl }}/assets/wp/2058448888.gif" width="517" border="0" /></a></p>
+<p>이 되고 양변에 2^n 을 곱하면,</p>
+<p><a href="http://realgsong.files.wordpress.com/2008/03/1182715498.gif"><img style="border-width:0;" height="24" alt="clip_image002[13]" src="{{ site.baseurl }}/assets/wp/1979842186.gif" width="497" border="0" /></a></p>
+<p>&nbsp;<a href="http://realgsong.files.wordpress.com/2008/03/2138651003.gif"><img style="border-width:0;" height="18" alt="clip_image002[17]" src="{{ site.baseurl }}/assets/wp/1630363078.gif" width="50" border="0" /></a> 항은 왼쪽으로&nbsp; <a href="http://realgsong.files.wordpress.com/2008/03/1535787118.gif"><img style="border-width:0;" height="18" alt="clip_image002[19]" src="{{ site.baseurl }}/assets/wp/1922382756.gif" width="50" border="0" /></a> 항은 오른쪽으로 옮겨서 정리를 해보면</p>
+<p><a href="http://realgsong.files.wordpress.com/2008/03/1141921471.gif"><img style="border-width:0;" height="21" alt="clip_image002[21]" src="{{ site.baseurl }}/assets/wp/1321551320.gif" width="504" border="0" /></a>&nbsp; (4)</p>
+<p>이 됩니다. <a href="http://realgsong.files.wordpress.com/2008/03/2138651003.gif"><img style="border-width:0;" height="18" alt="clip_image002[17]" src="{{ site.baseurl }}/assets/wp/1630363078.gif" width="50" border="0" /></a> 와 <a href="http://realgsong.files.wordpress.com/2008/03/1535787118.gif"><img style="border-width:0;" height="18" alt="clip_image002[19]" src="{{ site.baseurl }}/assets/wp/1922382756.gif" width="50" border="0" /></a> 은 <a href="http://realgsong.files.wordpress.com/2008/03/1960912847.gif"><img style="border-width:0;" height="16" alt="clip_image002[23]" src="{{ site.baseurl }}/assets/wp/2068247671.gif" width="91" border="0" /></a>&nbsp; 이 식의 두 근임을 알 수 있으므로 (4) 식의 각 변을 정리해보면,</p>
+<p>좌변</p>
+<p><a href="http://realgsong.files.wordpress.com/2008/03/1251801687.gif"><img style="border-width:0;" height="22" alt="clip_image002[25]" src="{{ site.baseurl }}/assets/wp/1900185375.gif" width="240" border="0" /></a></p>
+<p><a href="http://realgsong.files.wordpress.com/2008/03/1517969552.gif"><img style="border-width:0;" height="19" alt="clip_image002[29]" src="{{ site.baseurl }}/assets/wp/1894673839.gif" width="193" border="0" /></a></p>
+<p>이 되고 우변도 마찬가지로 0 이 되므로 G(n) = G(n-1) + G(n-2) 을 만족함을 알 수 있습니다. 그러므로 G(n)=Fib(n) 이되어 증명이 끝납니다.</p>

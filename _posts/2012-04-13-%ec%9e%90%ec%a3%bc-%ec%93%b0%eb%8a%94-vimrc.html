@@ -1,0 +1,50 @@
+---
+layout: post
+title: 자주 쓰는 vimrc
+date: 2012-04-13 12:03:34.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags: []
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _social_aggregation_log: a:10:{i:1335062870;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335065698;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335069058;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335072953;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335080851;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335095302;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335124902;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335168971;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335255469;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1335429159;O:8:"stdClass":1:{s:6:"manual";s:0:"";}}
+  original_post_id: '5928'
+  _wp_old_slug: '5928'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<pre class="brush: bash; gutter: true">function SetTags()
+    let curdir = getcwd()
+
+    while !filereadable(&quot;tags&quot;) &amp;&amp; getcwd() != &quot;/&quot;
+        cd ..
+    endwhile
+
+    if filereadable(&quot;tags&quot;)
+        execute &quot;set tags=&quot; . getcwd() . &quot;/tags&quot;
+    endif
+
+    execute &quot;cd &quot; . curdir
+endfunction
+call SetTags()
+
+set softtabstop=4
+set tabstop=4
+set sw=4
+set expandtab
+set ic
+set ai
+set autochdir
+set nocp
+set nu
+colorscheme elflord</pre>
+<p>.vimrc 복사 붙이기 편하게 하려고 블로그에 좀 가져다 놓음.</p>

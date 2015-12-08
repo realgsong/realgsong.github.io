@@ -1,0 +1,105 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.23
+date: 2008-01-23 07:01:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습 문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2663'
+  _wp_old_slug: '2663'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p><a href="http://www.gsong.pe.kr/tt/262" target="_blank">1.22</a> 의 풀이에 다음의 코드만 수정, 추가 한다. <br />[CODE] <br />(define (find-divisor n test-divisor) &nbsp; <br />&nbsp; (cond ((&gt; (square test-divisor) n) n) &nbsp; <br />&nbsp; &nbsp; &nbsp; &nbsp; ((divides? test-divisor n) test-divisor) &nbsp; <br />&nbsp; &nbsp; &nbsp; &nbsp; (else (find-divisor n (next test-divisor))))) </p>
+<p>(define (next n) <br />&nbsp; (cond ((= n 2) 3) <br />&nbsp; &nbsp; &nbsp; &nbsp; ((even? n) (+ n 1)) <br />&nbsp; &nbsp; &nbsp; &nbsp; (else (+ n 2)))) <br />[/CODE] </p>
+<p>수행 결과 </p>
+<table style="width:289pt;border-collapse:collapse;" cellspacing="0" cellpadding="0" width="385" border="0">
+<col style="width:127pt;" width="169" />
+<col style="width:54pt;" span="span" width="72" />
+<tbody>
+<tr style="height:16.5pt;">
+<td class="xl66" style="border-right:windowtext .5pt solid;border-top:windowtext .5pt solid;border-left:windowtext .5pt solid;width:127pt;border-bottom:windowtext .5pt solid;height:16.5pt;background-color:transparent;" width="169" height="22"></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-top:windowtext .5pt solid;border-left-color:windowtext;width:54pt;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right" width="72"><font face="맑은 고딕">1.23</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-top:windowtext .5pt solid;border-left-color:windowtext;width:54pt;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right" width="72"><font face="맑은 고딕">1.22</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-top:windowtext .5pt solid;border-left-color:windowtext;width:54pt;border-bottom:windowtext .5pt solid;background-color:transparent;" width="72"><font face="맑은 고딕">rate</font></td>
+</tr>
+<tr style="height:16.5pt;">
+<td class="xl66" style="border-right:windowtext .5pt solid;border-left:windowtext .5pt solid;border-top-color:windowtext;border-bottom:windowtext .5pt solid;height:16.5pt;background-color:transparent;" align="right" height="22"><font face="맑은 고딕">10,000 </font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">11</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">21</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">1.9090909</font></td>
+</tr>
+<tr style="height:16.5pt;">
+<td class="xl66" style="border-right:windowtext .5pt solid;border-left:windowtext .5pt solid;border-top-color:windowtext;border-bottom:windowtext .5pt solid;height:16.5pt;background-color:transparent;" align="right" height="22"><font face="맑은 고딕">100,000 </font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">8</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">21</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">2.625</font></td>
+</tr>
+<tr style="height:16.5pt;">
+<td class="xl66" style="border-right:windowtext .5pt solid;border-left:windowtext .5pt solid;border-top-color:windowtext;border-bottom:windowtext .5pt solid;height:16.5pt;background-color:transparent;" align="right" height="22"><font face="맑은 고딕">1,000,000 </font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">9</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">22</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">2.4444444</font></td>
+</tr>
+<tr style="height:16.5pt;">
+<td class="xl66" style="border-right:windowtext .5pt solid;border-left:windowtext .5pt solid;border-top-color:windowtext;border-bottom:windowtext .5pt solid;height:16.5pt;background-color:transparent;" align="right" height="22"><font face="맑은 고딕">10,000,000 </font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">14</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">29</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">2.0714286</font></td>
+</tr>
+<tr style="height:16.5pt;">
+<td class="xl66" style="border-right:windowtext .5pt solid;border-left:windowtext .5pt solid;border-top-color:windowtext;border-bottom:windowtext .5pt solid;height:16.5pt;background-color:transparent;" align="right" height="22"><font face="맑은 고딕">100,000,000 </font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">38</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">44</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">1.1578947</font></td>
+</tr>
+<tr style="height:16.5pt;">
+<td class="xl66" style="border-right:windowtext .5pt solid;border-left:windowtext .5pt solid;border-top-color:windowtext;border-bottom:windowtext .5pt solid;height:16.5pt;background-color:transparent;" align="right" height="22"><font face="맑은 고딕">1,000,000,000 </font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">75</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">57</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">0.76</font></td>
+</tr>
+<tr style="height:16.5pt;">
+<td class="xl66" style="border-right:windowtext .5pt solid;border-left:windowtext .5pt solid;border-top-color:windowtext;border-bottom:windowtext .5pt solid;height:16.5pt;background-color:transparent;" align="right" height="22"><font face="맑은 고딕">10,000,000,000 </font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">221</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">317</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">1.4343891</font></td>
+</tr>
+<tr style="height:16.5pt;">
+<td class="xl66" style="border-right:windowtext .5pt solid;border-left:windowtext .5pt solid;border-top-color:windowtext;border-bottom:windowtext .5pt solid;height:16.5pt;background-color:transparent;" align="right" height="22"><font face="맑은 고딕">100,000,000,000 </font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">502</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">676</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">1.3466135</font></td>
+</tr>
+<tr style="height:16.5pt;">
+<td class="xl66" style="border-right:windowtext .5pt solid;border-left:windowtext .5pt solid;border-top-color:windowtext;border-bottom:windowtext .5pt solid;height:16.5pt;background-color:transparent;" align="right" height="22"><font face="맑은 고딕">1,000,000,000,000 </font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">1575</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">2132</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">1.3536508</font></td>
+</tr>
+<tr style="height:16.5pt;">
+<td class="xl66" style="border-right:windowtext .5pt solid;border-left:windowtext .5pt solid;border-top-color:windowtext;border-bottom:windowtext .5pt solid;height:16.5pt;background-color:transparent;" align="right" height="22"><font face="맑은 고딕">10,000,000,000,000 </font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">5039</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">6615</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">1.3127605</font></td>
+</tr>
+<tr style="height:16.5pt;">
+<td class="xl66" style="border-right:windowtext .5pt solid;border-left:windowtext .5pt solid;border-top-color:windowtext;border-bottom:windowtext .5pt solid;height:16.5pt;background-color:transparent;" align="right" height="22"><font face="맑은 고딕">100,000,000,000,000 </font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">16397</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">21536</font></td>
+<td class="xl67" style="border-right:windowtext .5pt solid;border-left-color:windowtext;border-top-color:windowtext;border-bottom:windowtext .5pt solid;background-color:transparent;" align="right"><font face="맑은 고딕">1.313411</font></td>
+</tr>
+</tbody>
+</table>
+<p>결과를 보면 1.22 때에 비해서 2배가 빨라지진 않는다. 수행하는 명령어의 수가 절반으로 줄었으나 원래 알고리즘의 수행시간이 <a href="http://realgsong.files.wordpress.com/2008/04/1614744555.gif"><img style="border-width:0;" height="17" alt="clip_image002[6]" src="{{ site.baseurl }}/assets/wp/1597116133.gif" width="35" border="0" /></a> 이었으므로 성능향상은 약 <a href="http://realgsong.files.wordpress.com/2008/04/1671552161.gif"><img style="border-width:0;" height="18" alt="clip_image002[8]" src="{{ site.baseurl }}/assets/wp/1353155433.gif" width="16" border="0" /></a> 만큼 일어난다고 보는 게 옳다. 실험 결과를 봐도 1.3 배 정도로 1.414 와 비슷한 것을 알 수 있다.</p>

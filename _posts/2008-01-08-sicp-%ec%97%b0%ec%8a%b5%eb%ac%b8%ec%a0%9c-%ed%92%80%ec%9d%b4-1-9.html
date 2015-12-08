@@ -1,0 +1,41 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.9
+date: 2008-01-08 16:02:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2614'
+  _wp_old_slug: '2614'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>(+ 4 5)</p>
+<p>첫번째 define<br />=&gt;<br />(if (= 4 0) <br />&nbsp; &nbsp; 5 <br />&nbsp; &nbsp; (inc (+ (dec 4) 5)))<br />=&gt;<br />(inc (+ (dec 4) 5)))</p>
+<p>=&gt;<br />(inc <br />(if (= (dec 4) 0) <br />&nbsp; &nbsp;&nbsp; 5 <br />&nbsp; &nbsp;&nbsp; (inc (+ (dec (dec 4) 5)))))</p>
+<p>=&gt;<br />(inc (inc (+ (dec (dec 4) 5))))</p>
+<p>이런 식으로 계속 되어 if 문의 predicate 이 (= 0 0) 으로 evaluate 될 때까지 반복된다.</p>
+<p>(inc (inc (inc (inc 5))))</p>
+<p>chain of operation 이 보이므로 이것은&nbsp; recursive process</p>
+<p>두번째 define<br />=&gt;<br />(if (= 4 0) <br />&nbsp; &nbsp; 5 <br />&nbsp; &nbsp; (+ (dec 4) (inc 5)))</p>
+<p>=&gt;<br />(+ (dec 4) (inc 5))</p>
+<p>=&gt;<br />(+ 3 6)</p>
+<p>=&gt;<br />(if (= 3 0) <br />&nbsp; &nbsp; 6 <br />&nbsp; &nbsp; (+ (dec 3) (inc 6)))</p>
+<p>=&gt;<br />(+ (dec 3) (inc 6))</p>
+<p>이런 식으로 계속되어 첫번째 인자가 0 이 될때까지 반복된다.</p>
+<p>(+ (dec 1) (inc 8))</p>
+<p>=&gt;<br />(+ 0 9)</p>
+<p>=&gt;<br />(if (= 0 0) <br />&nbsp; &nbsp; 9 <br />&nbsp; &nbsp; (+ (dec 0) (inc 9)))</p>
+<p>=&gt;<br />9</p>
+<p>첫번째 인자가 inc 를 몇번이나 더 호출해야 하는 지에 대한 상태값을 나타내므로 이것은 iterative process 라 할 수 있다.</p>

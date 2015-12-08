@@ -1,0 +1,35 @@
+---
+layout: post
+title: 어떤 경우에 assertion 을 써야 할까?
+date: 2008-08-18 10:09:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- assertion
+- 가이드라인
+- 개발
+- guideline
+- 사용법
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2834'
+  _wp_old_slug: '2834'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>어떤 경우에 assertion 을 써야 하는 지 Code Complete 를 보고 한번 정리해봤습니다. </p>
+<h4>절대 일어나선 안되는 경우에만 assertion 을 써라</h4>
+<p>함수에서 에러인 경우로 리턴되는 상황은 두가지로 나눠볼 수 있습니다. 예측했던 에러와 예측하지 못했던 에러. 이 중 assertion 을 써야 되는 건 후자 입니다. 일어나선 안되는 경우 에러 핸들링이 되지 않는 경우에 assertion 을 씁니다.</p>
+<h4>assertion 에 executable code 를 넣지 마라</h4>
+<p>assertion 구문은 debug 빌드에서는 활성화되지만 ship 빌드 경우에는 수행되지 않는 경우가 많습니다. 특히 assertion 을 위한 특정 매크로를 만들어 쓰는 경우라면 더욱 그렇습니다. 그러므로 assertion 에는 결과 값을 확인하는 코드만 넣고 프로그램의 수행에 영향을 줄 수 있는 코드는 사용하지 말아야 합니다.</p>
+<h4>도큐먼트화와 precondition 과 postcondition 검증에 assertion 을 써라</h4>
+<p>assertion 은 함수의 시작 부분에서 들어온 parameter 가 유효한지 검증할 때도 쓸 수 있고, 함수가 끝날 때 리턴값 검증에도 쓸 수 있습니다. 이 precondition / postcondition 체크 외에도 특정 제약조건들에 대해서도 사용하면 도움이 됩니다. 예를 들어 이 시점에서 얻어온 SampleObject 라는 오브젝트가 가지고 있는 Count 라는 property 는 10 보다 커야 한다. 코드 자체가 아니라 spec 등에서 생겨난 제약사항들에 대해 assertion 을 해두면 그 자체로 도큐먼트 효과가 생깁니다. 나중에 코드를 볼 때 한결 이해하기 쉽겠지요.</p>
+<h4>보다 튼튼한 코드를 만들려면 assert 한 뒤 에러를 어떻게든 처리하라</h4>
+<p>assertion 이 발생한 경우에 대해서도 될 수 있으면 에러 핸들링 코드를 달아두는 게 좋습니다. 보통 assertion 이 생길 정도라면 어떻게 해볼 수 없는 상황일 때도 많은 데 그런 경우라 하더라도 최소한 애플리케이션이 크래쉬가 된다거나 하는 최악의 상황은 막고 종료할 수 있도록 처리를 해두면 금상첨화입니다.</p>

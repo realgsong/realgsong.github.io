@@ -1,0 +1,79 @@
+---
+layout: post
+title: SICP 연습문제 풀이 2.56
+date: 2008-10-12 09:02:52.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제풀이
+- SICP
+meta:
+  _publicize_pending: '1'
+  _oembed_464a04d8ffdbfc64a52b218663d4df8d: '{{unknown}}'
+  _oembed_9f69eece78fb1ad34c1e570a591a3b7a: '{{unknown}}'
+  _oembed_3022c0c296f9988586d16ca06eca9159: '{{unknown}}'
+  _oembed_004df80b10545a4b70086b84bb3fb504: '{{unknown}}'
+  original_post_id: '2885'
+  _wp_old_slug: '2885'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<div class="wlWriterSmartContent" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E7:08bc5167-2f45-47c2-a05e-af37020e3c7f" style="display:inline;float:none;margin:0;padding:0;">
+<pre style="overflow:auto;background-color:white;" />
+<div><span style="color:#000000;">(define (deriv exp var)<br />
+  (cond ((number</span><span style="color:#000000;">?</span><span style="color:#000000;"> exp) </span><span style="color:#800080;">0</span><span style="color:#000000;">)<br />
+        ((variable</span><span style="color:#000000;">?</span><span style="color:#000000;"> exp)<br />
+         (</span><span style="color:#0000ff;">if</span><span style="color:#000000;"> (same</span><span style="color:#000000;">-</span><span style="color:#000000;">variable</span><span style="color:#000000;">?</span><span style="color:#000000;"> exp var) </span><span style="color:#800080;">1</span><span style="color:#000000;"> </span><span style="color:#800080;">0</span><span style="color:#000000;">))<br />
+        ((sum</span><span style="color:#000000;">?</span><span style="color:#000000;"> exp)<br />
+         (make</span><span style="color:#000000;">-</span><span style="color:#000000;">sum (deriv (addend exp) var)<br />
+                   (deriv (augend exp) var)))<br />
+        ((product</span><span style="color:#000000;">?</span><span style="color:#000000;"> exp)<br />
+         (make</span><span style="color:#000000;">-</span><span style="color:#000000;">sum<br />
+          (make</span><span style="color:#000000;">-</span><span style="color:#000000;">product (multiplier exp)<br />
+                        (deriv (multiplicand exp) var))<br />
+          (make</span><span style="color:#000000;">-</span><span style="color:#000000;">product (deriv (multiplier exp) var)<br />
+                        (multiplicand exp))))<br />
+        ((exponentiation</span><span style="color:#000000;">?</span><span style="color:#000000;"> exp)<br />
+         (make</span><span style="color:#000000;">-</span><span style="color:#000000;">product (exponent exp)<br />
+                       (make</span><span style="color:#000000;">-</span><span style="color:#000000;">product (deriv (</span><span style="color:#0000ff;">base</span><span style="color:#000000;"> exp) var)<br />
+                                     (make</span><span style="color:#000000;">-</span><span style="color:#000000;">exponentiation (</span><span style="color:#0000ff;">base</span><span style="color:#000000;"> exp) (</span><span style="color:#000000;">-</span><span style="color:#000000;"> (exponent exp) </span><span style="color:#800080;">1</span><span style="color:#000000;">)))))<br />
+        (</span><span style="color:#0000ff;">else</span><span style="color:#000000;"><br />
+         (error </span><span style="color:#800000;">"</span><span style="color:#800000;">unknown expression type -- DERIV</span><span style="color:#800000;">"</span><span style="color:#000000;"> exp))))</p>
+<p>(define (variable</span><span style="color:#000000;">?</span><span style="color:#000000;"> x) (symbol</span><span style="color:#000000;">?</span><span style="color:#000000;"> x))<br />
+(define (same</span><span style="color:#000000;">-</span><span style="color:#000000;">variable</span><span style="color:#000000;">?</span><span style="color:#000000;"> v1 v2)<br />
+  (and (variable</span><span style="color:#000000;">?</span><span style="color:#000000;"> v1) (variable</span><span style="color:#000000;">?</span><span style="color:#000000;"> v2) (eq</span><span style="color:#000000;">?</span><span style="color:#000000;"> v1 v2)))<br />
+(define (make</span><span style="color:#000000;">-</span><span style="color:#000000;">sum a1 a2) (list </span><span style="color:#800000;">'</span><span style="color:#800000;">+ a1 a2))</span><span style="color:#800000;"><br />
+</span><span style="color:#000000;">(define (make</span><span style="color:#000000;">-</span><span style="color:#000000;">product m1 m2) (list </span><span style="color:#800000;">'</span><span style="color:#800000;">* m1 m2))</span><span style="color:#800000;"><br />
+</span><span style="color:#000000;">(define (sum</span><span style="color:#000000;">?</span><span style="color:#000000;"> x)<br />
+  (and (pair</span><span style="color:#000000;">?</span><span style="color:#000000;"> x) (eq</span><span style="color:#000000;">?</span><span style="color:#000000;"> (car x) </span><span style="color:#800000;">'</span><span style="color:#800000;">+)))</span><span style="color:#800000;"><br />
+</span><span style="color:#000000;">(define (addend s) (cadr s))<br />
+(define (augend s) (caddr s))<br />
+(define (product</span><span style="color:#000000;">?</span><span style="color:#000000;"> x)<br />
+  (and (pair</span><span style="color:#000000;">?</span><span style="color:#000000;"> x) (eq</span><span style="color:#000000;">?</span><span style="color:#000000;"> (car x) </span><span style="color:#800000;">'</span><span style="color:#800000;">*)))</span><span style="color:#800000;"><br />
+</span><span style="color:#000000;">(define (multiplier p) (cadr p))<br />
+(define (multiplicand p) (caddr p))<br />
+(define (</span><span style="color:#000000;">=</span><span style="color:#000000;">number</span><span style="color:#000000;">?</span><span style="color:#000000;"> exp num)<br />
+  (and (number</span><span style="color:#000000;">?</span><span style="color:#000000;"> exp) (</span><span style="color:#000000;">=</span><span style="color:#000000;"> exp num)))</p>
+<p>;Solution<br />
+(define (exponentiation</span><span style="color:#000000;">?</span><span style="color:#000000;"> x)<br />
+  (and (pair</span><span style="color:#000000;">?</span><span style="color:#000000;"> x) (eq</span><span style="color:#000000;">?</span><span style="color:#000000;"> (car x) </span><span style="color:#800000;">'</span><span style="color:#800000;">**)))</span><span style="color:#800000;"><br />
+</span><span style="color:#000000;">(define (</span><span style="color:#0000ff;">base</span><span style="color:#000000;"> x) (cadr x))<br />
+(define (exponent x) (caddr x))<br />
+(define (make</span><span style="color:#000000;">-</span><span style="color:#000000;">exponentiation </span><span style="color:#0000ff;">base</span><span style="color:#000000;"> exponent)<br />
+  (cond ((</span><span style="color:#000000;">=</span><span style="color:#000000;">number</span><span style="color:#000000;">?</span><span style="color:#000000;"> exponent </span><span style="color:#800080;">0</span><span style="color:#000000;">) </span><span style="color:#800080;">1</span><span style="color:#000000;">)<br />
+        ((</span><span style="color:#000000;">=</span><span style="color:#000000;">number</span><span style="color:#000000;">?</span><span style="color:#000000;"> exponent </span><span style="color:#800080;">1</span><span style="color:#000000;">) </span><span style="color:#0000ff;">base</span><span style="color:#000000;">)<br />
+        ((and (number</span><span style="color:#000000;">?</span><span style="color:#000000;"> exponent) (number</span><span style="color:#000000;">?</span><span style="color:#000000;"> </span><span style="color:#0000ff;">base</span><span style="color:#000000;">)) (fast</span><span style="color:#000000;">-</span><span style="color:#000000;">exp </span><span style="color:#0000ff;">base</span><span style="color:#000000;"> exponent))<br />
+        (</span><span style="color:#0000ff;">else</span><span style="color:#000000;"> (list </span><span style="color:#800000;">'</span><span style="color:#800000;">** base exponent))))</span><span style="color:#800000;"><br />
+</span><span style="color:#000000;">(define (fast</span><span style="color:#000000;">-</span><span style="color:#000000;">expt b n)<br />
+  (cond ((</span><span style="color:#000000;">=</span><span style="color:#000000;"> n </span><span style="color:#800080;">0</span><span style="color:#000000;">) </span><span style="color:#800080;">1</span><span style="color:#000000;">)<br />
+        ((even</span><span style="color:#000000;">?</span><span style="color:#000000;"> n) (square (fast</span><span style="color:#000000;">-</span><span style="color:#000000;">expt b (</span><span style="color:#000000;">/</span><span style="color:#000000;"> n </span><span style="color:#800080;">2</span><span style="color:#000000;">))))<br />
+        (</span><span style="color:#0000ff;">else</span><span style="color:#000000;"> (</span><span style="color:#000000;">*</span><span style="color:#000000;"> b (fast</span><span style="color:#000000;">-</span><span style="color:#000000;">expt b (</span><span style="color:#000000;">-</span><span style="color:#000000;"> n </span><span style="color:#800080;">1</span><span style="color:#000000;">))))))<br />
+(define (square x) (</span><span style="color:#000000;">*</span><span style="color:#000000;"> x x))</span></div>
+<p><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>

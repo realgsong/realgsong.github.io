@@ -1,0 +1,120 @@
+---
+layout: post
+title: 자바스크립트 variable scope
+date: 2013-07-23 18:43:07.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 변수
+- 스코프
+- 자바스크립트
+- javascript
+- scope
+- variable
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  original_post_id: '9585'
+  _wp_old_slug: '9585'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>자바스크립트 변수 스코프는 다른 언어들하고 조금 달라서, 코딩상의 버그를 최소화하려면 이것에 대해 이해하하고, 거기에 맞게 코딩하는 습관을 들어야 될 것 같다.</p>
+<blockquote>
+<p>JavaScript has two scopes: global and local. A variable that is declared outside of a function definition is a global variable, and its value is accessible and modifiable throughout your program. A variable that is declared inside a function definition is local. It is created and destroyed every time the function is executed, and it cannot be accessed by any code outside the function. JavaScript does not support block scope (in which a set of curly braces {. . .} defines a new scope).</p>
+</blockquote>
+<p>그러니까 자바스크립트는 지역(함수 안) 아니면 전역(함수 밖) 두가지 종류의 스코프만 있고, 블록 스코프는 지원하지 않는다. 그럼 블록 스코프로 코드를 써두면 무슨 일이 일어나는가? 예를 들어 아래와 같은 코드가 있다고 하자.</p>
+<pre><code>var aNumber = 100;
+tweak();
+
+function tweak(){
+    document.write(aNumber);
+
+    if (false)
+    {
+        var aNumber = 123;  
+    }
+}
+</code></pre>
+<p>위 코드에서 document.write() 한 결과는 무엇이 나올까? 답은 undefined 가 나온다. 왜 이런 게 나오냐 하면,<br />
+1. 우선 전역 변수로 aNumber 선언되고 그 값은 100 이 할당된다.<br />
+1. tweak() 함수 실행<br />
+1. 함수내의 변수들을 검사한다. aNumber 라는 전역변수와 이름은 같으나 사실상 다른 지역변수가 하나 생성된다. 이때 aNumber 의 값은 undefined 이다.<br />
+1. 함수 내 첫라인이 실행된다. aNumber 의 값을 찍는다. 지역변수의 값 undefined 가 찍힌다.</p>
+<p>더 자세한 이야기는 <a href="http://msdn.microsoft.com/en-us/library/ie/bzt2dkta(v=vs.94).aspx">여기</a> 참고.</p>
+<p>위의 것들을 알고 나면, <a href="http://stackoverflow.com/a/500459">스택오버플로우에서</a> 가져온 아래 코드도 이해할 수 있다. closure 나 prototype 관련된거는 조금 더 봐야 되겠지만...</p>
+<pre><code>// a globally-scoped variable
+var a=1;
+
+// global scope
+function one(){
+    alert(a); 
+}
+
+// local scope
+function two(a){
+    alert(a);
+}
+
+// local scope again
+function three(){
+  var a = 3;
+  alert(a);
+}
+
+// Intermediate: no such thing as block scope in javascript
+function four(){
+    if(true){
+        var a=4;
+    }
+
+    alert(a); // alerts '4', not the global value of '1'
+}
+
+
+// Intermediate: object properties
+function Five(){
+    this.a = 5;
+}
+
+
+// Advanced: closure
+var six = function(){
+    var foo = 6;
+
+    return function(){
+        // javascript "closure" means I have access to foo in here, 
+        // because it is defined in the function in which I was defined.
+        alert(foo);
+    }
+}()
+
+
+// Advanced: prototype-based scope resolution
+function Seven(){
+  this.a = 7;
+}
+
+// [object].prototype.property loses to [object].property in the scope chain
+Seven.prototype.a = -1; // won't get reached, because 'a' is set in the constructor above.
+Seven.prototype.b = 8; // Will get reached, even though 'b' is NOT set in the constructor.
+
+
+
+// These will print 1-8
+one();
+two(2);
+three();
+four();
+alert(new Five().a);
+six();
+alert(new Seven().a);
+alert(new Seven().b);
+</code></pre>

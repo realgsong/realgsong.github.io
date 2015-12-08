@@ -1,0 +1,72 @@
+---
+layout: post
+title: This Handler class should be static or leaks might occur
+date: 2013-02-04 19:19:32.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- android
+- anonymous
+- class
+- handler
+- 안드로이드
+- 핸들러
+- 주의사항
+- leak
+- memory
+- static
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _wpas_skip_2551853: '1'
+  original_post_id: '7903'
+  _wp_old_slug: '7903'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>출처 : <a href="http://www.androiddesignpatterns.com/2013/01/inner-class-handler-memory-leak.html">How to Leak a Context: Handlers &amp; Inner Classes</a></p>
+<p>안드로이드에서 Handler 를 non-static anonymous 클래스로 만들면 위와 같은 경고 문구를 만날 수 있다. 메세지 내용은 메모리 릭이 날 수 있다는 이야기인데. 무슨 릭이 날까 검색해보니 그럴수도 있을 만한 이야기다. 우선 아래의 코드를 한 번 보자.(자세한 사항은 출처 참고)</p>
+<pre><code>public class SampleActivity extends Activity {
+
+  private final Handler mLeakyHandler = new Handler() {
+    @Override
+    public void handleMessage(Message msg) {
+      /* ... */
+    }
+  }
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // Post a message and delay its execution for 10 minutes.
+    mLeakyHandler.postDelayed(new Runnable() {
+      public void run() { }
+    }, 600000);
+
+    // Go back to the previous Activity.
+    finish();
+  }
+}
+</code></pre>
+<p>이 코드는 10 분 후에 핸들러로 메세지를 보내게 하고, 액티비티를 바로 종료시키는 코드다. 여기서 발생하는 메모리릭이란 10분 동안 SampleActivity 가 garbage collecting 되지 않는 것을 말한다. 그 이유는 다음과 같다.</p>
+<ul>
+<li>안드로이드 애플리케이션에는 Looper 라는 객체가 있다. 이 객체는 Application 과 lifecycle 을 같이함.</li>
+<li>Handler 인스턴스가 생기면, Looper 의 메세지큐와 엮이게 됨.</li>
+<li>자바에서 non static inner class 와 anonymous class 는 outer class 에 대한 레퍼런스를 몰래 가지고 있음.</li>
+</ul>
+<p>이거 때문에 위의 예제 코드에서 finish(); 가 콜이 된 후의 상황은 다음과 같다.</p>
+<ul>
+<li>메세지 큐에 10 분 뒤 실행될 메세지가 들어 있음</li>
+<li>이 메세지는 핸들러에 대한 레퍼런스를 가지고 있음</li>
+<li>핸들러는 outer class 인 SampleActivity 에 대한 레퍼런스를 가지고 있음</li>
+<li>finish() 가 되어 액티비티 객체는 종료되었지만, 레퍼런스가 존재하기 때문에 garbage collecting 되지 않음.</li>
+</ul>
+<p>이를 해결하는 방법은 핸들러 클래스를 static inner class 로 선언하던가 아니면 별도의 클래스 파일로 분리시키던가 해야 되고, Activity 의 메소드에 접근하고 싶다면 weakreference 등을 활용해야 한다는 거.</p>

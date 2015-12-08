@@ -1,0 +1,69 @@
+---
+layout: post
+title: 코딩에 도움되는 Vim plugin
+date: 2011-11-08 18:16:24.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 코딩
+- plugin
+- vi
+- vim
+- vimrc
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_notify: '0'
+  original_post_id: '4901'
+  _wp_old_slug: '4901'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>vi 의 장점이 빠르고 간편하다는 데 있다보니, 플러그인 잔뜩 까는 걸 좋아하진 않지만, 아래의 몇 개는 코딩할 때 요긴하게 쓰이는 녀석들이다.</p>
+<ul>
+<li><a href="http://www.vim.org/scripts/script.php?script_id=31">a.vim : Alternate Files quickly</a> : *.cpp 파일을 수정하다가 간편하게 같은 이름의 .h / .hpp 파일을 열 수 있다. 주로 쓰는 건 :A 또는 :AS</li>
+<li><a href="http://www.vim.org/scripts/script.php?script_id=273">taglist.vim : Source code browser</a> : 화면 왼쪽에 tag 관련 창을 열어주어, 태그 목록을 살펴보거나, 태그 위치로 이동할 수 있다.</li>
+<li><a href="http://www.vim.org/scripts/script.php?script_id=1764">code_complete : function parameter complete, code snippets, and much more.</a> : 함수이름 과 여는 괄호를 치고 &lt;tab&gt; 키를 누르면 파라메터 목록을 읽어온다. 그 외에도 if 구문 같은 경우 템플릿을 읽어 온다. 그리 자주 사용하진 않는다.</li>
+</ul>
+<p>여기에 더해서 tags 파일을 쉽게 읽어오기 위한 간단한 설정들도 .vimrc 에 넣어 쓰고 있다.</p>
+<pre class="brush: bash; gutter: true">function SetTags()
+    let curdir = getcwd()
+
+    while !filereadable("tags") &amp;&amp; getcwd() != "/"
+        cd ..
+    endwhile
+
+    if filereadable("tags")
+        execute "set tags=" . getcwd() . "/tags"
+    endif
+
+    execute "cd " . curdir
+endfunction
+
+call SetTags()
+
+set tabstop=4
+set sw=4
+set nocp
+set ic
+set ai
+set autochdir
+map &lt;F2&gt; :TlistToggle^M
+map &lt;F5&gt; :make^M
+map &lt;C-F5&gt; :make clean^M:make^M
+map &lt;F6&gt; :make install^M
+autocmd BufWritePost *.cpp,*.h,*.c :TlistUpdate
+let Tlist_Show_One_File = 1</pre>
+<p>SetTags() 펑션은 현재 위치 부터 시작해서 루트까지 올라가며 tags 파일을 찾는다. 만약 해당 파일을 찾게 되면 set tags= 명령으로 설정하고 그렇지 않으면 그냥 종료.</p>
+<p>그 아래 설정들은 그냥 잡다한 것들이나,</p>
+<pre>set autochdir</pre>
+<p>이 설정은 현재 수정중인 파일로 디렉토리 위치를 옮기는 것으로 유용하다. 그리고,</p>
+<pre>let Tlist_Show_One_File = 1</pre>
+<p>이 옵션의 경우 TagList 플러그인에서 사용되는 것인데, 왼쪽 창에 현재 파일의 태그들만 나오게 한다. 이 옵션이 없으면 버퍼에 열려 있는 모든 파일들의 태그가 다 나온다. 취향에 맞춰 쓰면 된다.</p>

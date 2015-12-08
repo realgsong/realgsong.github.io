@@ -1,0 +1,39 @@
+---
+layout: post
+title: Refactoring and Testing ... and Patterns
+date: 2011-07-12 11:37:30.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 개발
+- 소프트웨어
+- 코드리뷰
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  original_post_id: '4030'
+  _wp_old_slug: '4030'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>비는 주룩주룩 쏟아지고, 집중은 잘 안되던 월요일. 우연히 보게 된 김창준님의 트위터 글을 보고, Refactoring 에 대한 <a href="http://onoffmix.com/event/3297">번개 세미나</a>를 참석했다. 발표자는 Joseph Yoder 라는 분으로 refactory.com 이라는 회사를 운영하고 계시고, Pattern 에 대한 연구를 아주 예전부터 해오신 분이다.</p>
+<p>제한된 시간에 다양한 주제를 두루 훑어 보려고 했던 탓인지, 발표문에서 다루는 내용이 제법 많았다. 한 시간 안되는 발표를 마치고, 한시간 반 정도에 걸쳐 QnA 세션이 이어졌는데, 나도 몇가지 질문을 했고, 인상깊은 대답들을 받았다.</p>
+<p>Refactoring 자체에 대한 이야기는 여러 유명한 분들의 책을 봐도 좋으니 넘어가고, QnA 에서 내가 했던 질문은 이거였다.</p>
+<p>"Refactoring 을 통해, 누군가의 지저분한 코드를 내가 정리해주면 서로가 좋은 것이라고 말씀하셨는데, 어떤 이들은 자아를 심하게 코드에 주입한 나머지 남들이 해주는 Refactoring 을 거부하는 경우도 있다. 이런 경우를 어떻게 대처하면 좋을까?"</p>
+<p>위 질문은 사실 내가 지금 회사에서 처한 상황이다. 거기에 대한 Joseph 의 대답은. (의역하면)</p>
+<ul>
+<li>'나의' 코드가 아니라 '우리의' 코드라고 여길 수 있게 해줘야 한다.</li>
+<li>마찬가지로 '나의' 버그가 아니라 '우리의' 버그라고 여길 수 있게 해줘야 한다.</li>
+<li>Pair Programming 등이 좋은 해법일 수 있다.</li>
+<li>Code Review 를 통한 공개적 망신을 주면 상황이 더욱 악화될 수 있다.</li>
+</ul>
+<p>정도 였다. Pair Programming 은 예상했던 대답이었는데, Code Review 가 상황을 악화 시킬 수 있다는 의견은 수긍이 되는 것과는 별개로 조금 놀라운 의견이었다. 관점에 변화를 불러일으켰다고 해야 하나.</p>
+<p><a href="http://www.gsong.pe.kr/wp/?p=4014">몇 번의 문제</a>를 일으켰던 동료가 힘들어하는 것 중 하나가 코드리뷰에 아직 적응되지 않았다는 점이 아닐까 하고 추측하고 있는데. 어제 조셉의 답변을 듣고나니, 코드리뷰 이 외의 코드 퀄리티를 높이기 위한 다른 무언가를 고민해 봐야 하는 시점이 아닌가 하는 생각이 든다.</p>
+<p>한편으론, Pair Programming 을 code review 를 수행하는 다양한 스펙트럼 중 하나에 속해 있는 활동으로 이해하고 있기에, code  review 를 제대로 해내지 못하는 팀이 Pair Programming 은 할 수 있을지 의심스럽기도 하다.</p>

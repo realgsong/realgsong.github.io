@@ -1,0 +1,29 @@
+---
+layout: post
+title: Linking static library into a shared library
+date: 2011-10-12 21:12:21.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- shared library
+- static library
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_notify: '0'
+  original_post_id: '4719'
+  _wp_old_slug: '4719'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>static library 를 하나 빌드해 놓고, 이걸 포함해서 shared library 를 빌드하려고 했다. 그러나 결과로 나온 shared 라이브러리에 코드가 포함되지 않는 게 아닌가. 이리 저리 좀 살펴보다 웹 서핑을 해보니 아래와 같은 옵션을 줘야만 했던 것이다.</p>
+<blockquote><p>http://entrenchant.blogspot.com/2009/03/linking-static-libraries-into-shared.html<br />
+gcc -shared -o libstuff.so -Wl,-whole-archive lib1.a lib2.a lib3.a -Wl,-no-whole-archive</p></blockquote>
+<p>위 옵션이 없으면, required objects 들만 찾아서 링크시에 포함하게 되는데, 위의 turn on/off 옵션 사이에 기술된 라이브러리들은 무조건 링크시에 포함시켜 버리게 되는 것이더라.</p>

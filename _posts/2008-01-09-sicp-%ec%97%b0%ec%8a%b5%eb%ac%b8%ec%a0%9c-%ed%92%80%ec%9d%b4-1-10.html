@@ -1,0 +1,31 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.10
+date: 2008-01-09 16:02:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2615'
+  _wp_old_slug: '2615'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>실행 결과<br />&gt; (A 1 10) <br />1024 <br />&gt; (A 2 4) <br />65536 <br />&gt; (A 3 3) <br />65536 <br />&gt; </p>
+<p>Obviously, (f n) = <strong>2n</strong></p>
+<p>(g n) = (A 1 n)<br />=&gt;<br />(A 0 (A 0 (A 0 ...(A 0 1)))...)</p>
+<p>이 된다. (A 0 n) = 2n 이므로 위 식은 결국<br />2 * 2 * 2 * ... * 2 = <strong>2^n</strong></p>
+<p>(h n) = (A 2 n)<br />=&gt;<br />(A 1 (A 1 (A 1 ...(A 1 1)))...)</p>
+<p>이 된다. (A 1 n) = 2^n 이므로 이 식은 2^(2^(2^(...2))) 이 된다. 수학식으로 쓰자면 </p>
+<p><strong>A(1) = 2<br />A(n) = 2^A(n-1)</strong></p>
+<p>라 할 때 (h n) = A(n) 이 된다.</p>

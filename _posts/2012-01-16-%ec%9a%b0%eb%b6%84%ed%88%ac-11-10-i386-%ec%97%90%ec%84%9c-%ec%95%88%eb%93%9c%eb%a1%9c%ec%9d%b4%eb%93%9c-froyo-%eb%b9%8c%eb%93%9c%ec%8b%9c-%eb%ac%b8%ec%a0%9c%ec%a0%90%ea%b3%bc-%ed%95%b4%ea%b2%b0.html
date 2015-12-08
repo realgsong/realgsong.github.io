@@ -1,0 +1,97 @@
+---
+layout: post
+title: 우분투 11.10 i386 에서 안드로이드 Froyo 빌드시 문제점과 해결책
+date: 2012-01-16 19:50:19.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- '11.10'
+- 빌드
+- froyo
+- 프로요
+- 안드로이드
+- 우분투
+- ubuntu
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_notify: '1'
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _social_aggregation_log: a:10:{i:1326714473;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326716305;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326719763;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326723366;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326730577;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326745824;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326774652;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326818723;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326905319;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1327078834;O:8:"stdClass":1:{s:6:"manual";s:0:"";}}
+  original_post_id: '5343'
+  _wp_old_slug: '5343'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>안드로이드 froyo 를 우분투 11.10 에서 빌드하다 보면 에러가 나는 것을 볼 수 있다. 각 에러별 해결책을 모아봤다.</p>
+<h1>Discards qualifiers [-fpermissive]</h1>
+<h2>Error</h2>
+<pre class="brush: bash; gutter: true">frameworks/base/libs/utils/RefBase.cpp: In member function ‘void android::RefBase::weakref_type::trackMe(bool, bool)’:
+frameworks/base/libs/utils/RefBase.cpp:483:67: error: passing ‘const android::RefBase::weakref_impl’ as ‘this’ argument of ‘void android::RefBase::weakref_impl::trackMe(bool, bool)’ discards qualifiers [-fpermissive]
+make: *** [out/host/linux-x86/obj/STATIC_LIBRARIES/libutils_intermediates/RefBase.o] Error 1</pre>
+<h2>Solution</h2>
+<p>frameworks/base 에 아래 patch 적용</p>
+<pre class="brush: bash; gutter: true">diff --git a/libs/utils/Android.mk b/libs/utils/Android.mk
+index 7b51897..da0b9f1 100644
+--- a/libs/utils/Android.mk
++++ b/libs/utils/Android.mk
+@@ -54,7 +54,7 @@ LOCAL_SRC_FILES:= $(commonSources)
+
+ LOCAL_MODULE:= libutils
+
+-LOCAL_CFLAGS += -DLIBUTILS_NATIVE=1 $(TOOL_CFLAGS)
++LOCAL_CFLAGS += -DLIBUTILS_NATIVE=1 $(TOOL_CFLAGS) -fpermissive
+ LOCAL_C_INCLUDES += external/zlib
+
+ ifeq ($(HOST_OS),windows)</pre>
+<h1>undefined reference ‘pthread_getspecific’</h1>
+<h2>Error</h2>
+<pre class="brush: bash; gutter: true">out/host/linux-x86/obj/STATIC_LIBRARIES/libcutils_intermediates/libcutils.a(threads.o): In function `thread_store_get&#039;:
+
+/home/ksbae/mipsandroid/system/core/libcutils/threads.c:27: undefined reference to `pthread_getspecific&#039;
+
+out/host/linux-x86/obj/STATIC_LIBRARIES/libcutils_intermediates/libcutils.a(threads.o): In function `thread_store_set&#039;:
+
+/home/ksbae/mipsandroid/system/core/libcutils/threads.c:36: undefined reference to `pthread_key_create&#039;
+
+/home/ksbae/mipsandroid/system/core/libcutils/threads.c:44: undefined reference to `pthread_setspecific&#039;
+
+collect2: ld returned 1 exit status</pre>
+<h2>Solution</h2>
+<p>frameworks/base 에 아래 patch 적용.</p>
+<pre class="brush: bash; gutter: true">diff --git a/tools/aapt/Android.mk b/tools/aapt/Android.mk
+index 2737438..961c76c 100644
+--- a/tools/aapt/Android.mk
++++ b/tools/aapt/Android.mk
+@@ -45,7 +45,7 @@ LOCAL_STATIC_LIBRARIES := 
+ 	libpng
+
+ ifeq ($(HOST_OS),linux)
+-LOCAL_LDLIBS += -lrt
++LOCAL_LDLIBS += -lrt -lpthread
+ endif
+
+ # Statically link libz for MinGW (Win SDK under Linux),
+diff --git a/tools/localize/Android.mk b/tools/localize/Android.mk
+index ab79f8d..f284e86 100644
+--- a/tools/localize/Android.mk
++++ b/tools/localize/Android.mk
+@@ -34,7 +34,7 @@ LOCAL_STATIC_LIBRARIES := 
+ 	libcutils
+
+ ifeq ($(HOST_OS),linux)
+-LOCAL_LDLIBS += -lrt
++LOCAL_LDLIBS += -lrt -lpthread
+ endif</pre>
+<h1>libgmp.so.3 Cannot open shared object file</h1>
+<h2>Error</h2>
+<pre class="brush: bash; gutter: true">/home/ksbae/mipsandroid/prebuilt/linux-x86/toolchain/mips-4.4.3/bin/../libexec/gcc/mips-linux-gnu/4.4.3/cc1: error while loading shared libraries: libgmp.so.3: cannot open shared object file: No such file or directory</pre>
+<h2>Solution</h2>
+<p>sudo apt-get install libgmp3c2</p>

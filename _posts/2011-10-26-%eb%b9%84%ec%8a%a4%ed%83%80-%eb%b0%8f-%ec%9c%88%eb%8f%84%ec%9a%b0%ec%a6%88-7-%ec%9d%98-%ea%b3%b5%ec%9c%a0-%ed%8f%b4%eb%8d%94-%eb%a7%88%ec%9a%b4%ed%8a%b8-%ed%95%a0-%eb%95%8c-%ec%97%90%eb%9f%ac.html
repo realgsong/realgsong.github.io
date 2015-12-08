@@ -1,0 +1,38 @@
+---
+layout: post
+title: 비스타 및 윈도우즈 7 의 공유 폴더 마운트 할 때 에러
+date: 2011-10-26 15:13:28.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 마운트
+- 공유 폴더
+- 에러
+- 윈도우즈
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_notify: '0'
+  original_post_id: '4836'
+  _wp_old_slug: '4836'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>윈도우즈에서 공유해 놓은 폴더를 리눅스등에서 마운트하려고 할 때 아래와 같은 에러 메세지를 낸다면,</p>
+<blockquote><p>CIFS VFS: Send error in SessSetup =  "-12"</p></blockquote>
+<p>윈도우즈 머신에서 event log viewer 에서 Event ID 2017 로 에러가 났다면 아래 방법을 쓰면 고칠 수 있다.</p>
+<ol>
+<li>regedit 를 관리자 권한으로 열어,</li>
+<li>HKEY_LOCAL_MACHINE -&gt;SYSTEM -&gt;CurrentControlSet -&gt;Services -&gt;LanmanServer -&gt; Parameters 로 가서</li>
+<li>New 를 통해 DWORD 키를 추가하고 키 이름을 SMB2 로 설정한다. 값은 0으로 한다.</li>
+<li>그 후 리부팅.</li>
+</ol>
+<p>해당 에러의 원인은 비스타 이후 버전에서 사용하는 SMB2 때문인데, 여기에 버그가 꽤 있다고 한다. 강제로 disable 시켜서 SMB1 을 쓰도록 하면 문제가 재발하지 않음.</p>
+<p>참고 : <a href="http://hardforum.com/showthread.php?p=1032714322">Vista : unable to allocate from nonpaged pool = No network shares - [H]ard|Forum</a></p>

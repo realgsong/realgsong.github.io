@@ -1,0 +1,72 @@
+---
+layout: post
+title: Javascript strict mode
+date: 2013-08-04 20:26:21.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 모드
+- 자바스크립트
+- strict
+- use strict
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  original_post_id: '9593'
+  _wp_old_slug: '9593'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>자바스크립트에 strict mode 라는 게 있다. 고 한다. 그게 무엇인고 하니, 자바스크립트 코드가 너무 말랑해서 조금 더 단단하게 코딩할 수 있도록 하는 일종의 인터프리팅 옵션이다. strict 모드가 켜지면, 특정 액션이 못 일어나게 막고, 더 많은 익셉션이 발생한다. 이걸 켜려면 함수 제일 상단이나 스크립트 파일 상단에 다음 코드를 써주면 된다.</p>
+<pre><code>"use strict";
+</code></pre>
+<p>스트릭트 모드를 켜면 무엇이 바뀌는가? 어떤 사항들을 잡아주는 지 한번 살펴보자.</p>
+<h2>Variable and Property</h2>
+<p>먼저 아래 코드를 보자.</p>
+<pre><code>foo = "bar";
+</code></pre>
+<p>foo 변수가 선언되지 않았을 때, 이 코드가 실행되면 예전에는 글로벌 객체에 foo 라는 프로퍼티를 만들고 그 값을 "bar" 로 설정했지만, strict 모드에서는 익셉션이 발생한다. 그러니 foo 변수를 선언하도록 강제하는 셈이다. 또 쓰기 금지되어 있는 프로퍼티에 값을 쓴다든가 하는 프로퍼티 속성에 위배되는 액션을 취했을 때, 에러를 발생시킨다. strict 모드가 아닐 때는 따로 에러를 뱉진 않고, 그냥 해당 명령이 실패했다.</p>
+<p>이 외에 변수를 delete 하거나, 함수나 함수 인자에 대해 delete 하는 것도 에러가 되고, 중복된 프로퍼티를 선언해도 에러가 난다.</p>
+<h2>eval</h2>
+<p>eval 이라는 이름을 변수나 프로퍼티에 쓸 수 없다.</p>
+<pre><code>// All generate errors...
+obj.eval = ...
+obj.foo = eval;
+var eval = ...;
+for ( var eval in ... ) {}
+function eval(){}
+function test(eval){}
+function(eval){}
+new Function("eval")
+</code></pre>
+<p>또한 변수 선언을 eval 을 통해 할 수 없다.</p>
+<pre><code>eval("var a = false;");
+print( typeof a ); // undefined
+</code></pre>
+<h2>Functions</h2>
+<p>함수의 인자로 넘어온 객체를 덮어쓸 수 없게 되고, 함수의 argument 이름이 같아도 에러 발생.</p>
+<pre><code>arguments = [...]; // not allowed
+function( foo, foo ) {}.
+</code></pre>
+<p>arguments.caller, arguments.callee 에 접근할 수 없다. anonymous function 내에서 스스로를 다시 부르려면 함수에 이름을 정해야 된다. 다음 코드를 보면,</p>
+<pre><code>setTimeout(function (){
+  // do stuff...
+  setTimeout( arguments.callee, 1000 );
+}, 1000 );
+
+setTimeout(function later(){
+  // do stuff...
+  setTimeout( later, 1000 );
+}, 1000 );
+</code></pre>
+<p>두 함수 중 윗쪽의 스타일로 만들 수 없다. 그래서 아래쪽 처럼 함수에 명시적인 이름을 줘야 한다. 더불어 arguments 와 caller 라는 프로퍼티는 임의로 만들 수 없다.</p>
+<h2>with() {}</h2>
+<p>with statement 를 쓸 수 없다.</p>
+<p>더 자세한 사항은 <a href="http://ejohn.org/blog/ecmascript-5-strict-mode-json-and-more/">여기 원문</a> 참고.</p>

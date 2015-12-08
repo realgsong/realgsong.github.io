@@ -1,0 +1,33 @@
+---
+layout: post
+title: 젠킨스를 이용해서 데일리 빌드 셋업 완료
+date: 2012-01-30 22:50:10.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- daily build
+- 일일빌드
+- 젠킨스
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _social_aggregation_log: a:10:{i:1327932941;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1327934836;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1327938620;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1327942853;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1327950107;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1327965340;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1327994152;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1328038248;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1328125556;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1328298416;O:8:"stdClass":1:{s:6:"manual";s:0:"";}}
+  original_post_id: '5450'
+  _wp_old_slug: '5450'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>젠킨스를 이용해서 데일리 빌드를 내도록 설정 완료 했다. 현재 개발 환경이 빌드하기가 무척 복잡하고 까다로운 편인데, 젠킨스는 이런 것도 그리 어렵지 않게 설정할 수 있게 충분히 유연했다.</p>
+<p>현재 환경은 펌웨어 등을 만들기 위한 소스코드들이 서브버전으로 관리되는 저장소에 들어가 있고, 안드로이드 프레임웍 코드들이 repo 라는 git 기반 툴의 저장소에 관리되고 있다.</p>
+<p>펌웨어를 빌드하기 위해서는 이 둘을 오가며 빌드를 해줘야 하는데, 그때 마다 환경 셋업을 위한 스크립트를 따로 돌려줘야 한다.</p>
+<p>그래서 적절히 안드로이드 빌드 하는 부분과, 빌드 전 필요한 pre-build, 빌드 후 작업을 위한 post-build 의 세단계로 나누어 데일리 빌드를 구축했다.</p>
+<p>지금은 한시간 오십분정도 걸리는데, 병렬화와 재컴파일할 필요없는 것들을 바이너리로 처리하는 개선을 하고 나면 시간은 훨씬 줄어들 것 같다.</p>
+<p>&nbsp;</p>

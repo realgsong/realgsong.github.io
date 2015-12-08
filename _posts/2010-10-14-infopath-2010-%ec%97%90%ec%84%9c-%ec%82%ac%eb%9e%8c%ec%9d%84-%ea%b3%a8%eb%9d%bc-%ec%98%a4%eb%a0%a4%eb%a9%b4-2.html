@@ -1,0 +1,48 @@
+---
+layout: post
+title: Office 2010 에서 내가 한 일
+date: 2010-10-14 23:04:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- Office 2010
+- People Picker
+meta:
+  _publicize_pending: '1'
+  original_post_id: '3142'
+  _wp_old_slug: '3142'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>지난 오피스 개발에서 내가 어떤 일을 했는지 정리를 해두는 것이 나름 포트폴리오도 될 터이니 좋을 것 같다. 시간이 지나면 기억도 바래져서, 그냥 Office 14 개발에 약간 일조했음 정도로 요약될 수도 있을 테니.</p>
+<p>내가 맡았던 프로그램은 하나의 ActiveX 컨트롤이었는데, InfoPath 위에 올라가는 것이다. 일단 그걸 구경해보려면, SharePoint 서버가 있어야 한다. 그러니 일반 개인 유저들은 써볼 일이 없다. 나중에 먼가 다른 제품이 나온다면 가능할지도 모르겠다만 아무튼 지금은 SharePoint 없으면 아무 것도 할 수 없다.</p>
+<p>InfoPath Designer 2010 을 실행하고</p>
+<p><a href="http://realgsong.files.wordpress.com/2010/09/1002871864.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/1180686660.png" width="456" height="221" /></a></p>
+<p>새 양식을 열자.</p>
+<p><a href="http://realgsong.files.wordpress.com/2010/09/1393774690.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/1313448336.png" width="486" height="291" /></a></p>
+<p>그 후 상단 컨트롤 리스트에서 ‘개인/그룹 선택’ 컨트롤을 추가하면</p>
+<p><a href="http://realgsong.files.wordpress.com/2010/09/1088823446.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/1338812334.png" width="378" height="105" /></a></p>
+<p>이렇게 생긴 컨트롤이 추가된다. 내가 작업을 한 코드가 여기서부터다. 나 혼자서 한 건 아니고 그 back end 단에서 돌아가는 것들도 꽤 있어서 코드 라인 수는 대략 2만 라인 정도 될 것 같다.</p>
+<p>아무튼 실제 다이얼로그가 돌아가는 모습을 보려면 남은 단계를 마저 진행해야 한다. 오른쪽 클릭을 하여 속성을 선택하자. 그리고 두 번째 SharePoint Server 탭을 고르고 적절한 서버 주소를 입력한다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2010/09/1178918707.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/1103032608.png" width="331" height="212" /></a></p>
+<p>확인 버튼을 누르고, InfoPath 리본 메뉴에 있는 미리 보기를 눌러, 이 컨트롤은 어떻게 쓰는 건지 알아보자. 아래와 같이 컨트롤 옆에 2개의 버튼이 붙어 있는 걸 볼 수 있다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2010/09/1360824402.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/1167736716.png" width="329" height="72" /></a></p>
+<p>그러니까 이 컨트롤은 정확히 유저의 입력 값을 그것에 매칭되는 사람으로 바꿔주는 기능을 한다. </p>
+<p>첫 번째 버튼은 사람 이름을 직접 입력했을 때, 입력 값을 서버에 있는 사용자로 정확히 매칭시켜 주는 버튼이다. 만약 해당 이름과 매칭되는 유저가 여러 명인 경우 선택할 수 있는 창이 아래와 같이 뜬다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2010/09/1212698592.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/1382902957.png" width="416" height="238" /></a></p>
+<p>사람을 선택하게 되면 아래와 같이 밑줄이 그인 상태가 된다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2010/09/1394403745.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/1260839651.png" width="327" height="56" /></a></p>
+<p>두 번째 버튼은 주소록 검색을 통해 사람을 뽑아오는 것이다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2010/09/1001824121.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/1016482170.png" width="428" height="297" /></a></p>
+<p>왼쪽 부분의 Tree 을 클릭하여 사람을 선택할 수도 있고, 상단 검색 창을 이용할 수도 있다. 원래는 왼쪽 트리 부분이 조금 더 세밀하게 짜여져서 굳이 검색을 하지 않고 네비게이션 만으로도 사람을 찾게 만드는 것이 목표였으나, 안타깝게도 지금 나온 버전에서는 그 정도를 설정해볼 만한 곳이 많지 않다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2010/09/1008159629.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/1302606171.png" width="420" height="290" /></a></p>
+<p>user 라는 검색 어를 입력하여 검색한 화면이다. 뽑아 온 사람에 대해 속성 창도 볼 수 있다. 이 속성 값들은 서버에서 설정하기 나름이다.</p>
+<p><a href="http://realgsong.files.wordpress.com/2010/09/1256212173.png"><img style="background-image:none;padding-left:0;padding-right:0;display:inline;padding-top:0;border-width:0;" title="image" border="0" alt="image" src="{{ site.baseurl }}/assets/wp/1404197802.png" width="336" height="216" /></a></p>
+<p>블로그 포스팅 하나로 지난 몇 년이 요약되어 버리니까 조금 허탈한 감도 있네. 저 간단한 걸 조금 더 빨리 잘 못 만든 듯한 느낌도 있으니, 나도 아직 갈 길이 멀구나 하는 생각도 든다. 굳이 핑계를 대라면, 마이크로소프트에서 전구 하나 갈아 끼우는 데도 30명 넘게 필요하다는 “<a href="http://blogs.msdn.com/b/ericlippert/archive/2003/10/28/53298.aspx">How many Microsoft employees does it take to change a lightbulb?</a>” 이 글로 얘기를 대신하련다.</p>

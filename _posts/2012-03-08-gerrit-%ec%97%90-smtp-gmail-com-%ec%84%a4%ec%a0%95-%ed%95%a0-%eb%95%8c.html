@@ -1,0 +1,37 @@
+---
+layout: post
+title: Gerrit 에 smtp.gmail.com 설정 할 때
+date: 2012-03-08 17:08:20.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- Gerrit
+- gmail
+- gmail.smtp
+- ssl
+- stmp
+- tls
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_notify: '1'
+  original_post_id: '5686'
+  _wp_old_slug: '5686'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>Gerrit 을 세팅할 때, gmail 을 smtp 로 쓰려면 SSL 로 설정해야 한다. encryption 을 TLS 로 설정하면 왜인지 메일이 가지 않는다.</p>
+<pre class="brush: bash; gutter: true">        from = BlahBlah &lt;blah@blah.com&gt;
+        smtpServer = smtp.gmail.com
+        smtpServerPort = 465
+        smtpEncryption = SSL
+        smtpUser = blah@blah.com
+        smtpPass = BlahBlah
+        sslVerify = false</pre>

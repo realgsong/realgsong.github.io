@@ -1,0 +1,165 @@
+---
+layout: post
+title: State pattern
+date: 2008-08-10 04:41:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- design pattern
+- 디자인 패턴
+- State pattern
+meta:
+  _publicize_pending: '1'
+  _oembed_bf6260420b887912928eefa5120e70e3: '{{unknown}}'
+  _oembed_4af2a464f95fe93c02362b2e6c96c346: '{{unknown}}'
+  _oembed_464a04d8ffdbfc64a52b218663d4df8d: '{{unknown}}'
+  _oembed_9f69eece78fb1ad34c1e570a591a3b7a: '{{unknown}}'
+  _oembed_3022c0c296f9988586d16ca06eca9159: '{{unknown}}'
+  _oembed_004df80b10545a4b70086b84bb3fb504: '{{unknown}}'
+  original_post_id: '2789'
+  _wp_old_slug: '2789'
+  _oembed_6edf9e57b97223710979456a7501d853: '{{unknown}}'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>프로그램의 상태에 따라 처리할 게 다르다면 어떻게 처리해야 될까요? 제일 먼저 생각나는 방법은 분기문이네요. if, else 를 써서 각 state 에 따라 수행할 코드들을 쓰는 겁니다. 그런데 이렇게 하게 되면 시간이 지나면서 분기문이 소스코드 곳곳에 생기게 됩니다.</p>
+<p>하나 하나 살펴보도록 하지요. 먼저 Context.Request() 라는 함수에서 콜되는 부분을 따라가면 아래처럼 분기문이 있었을 겁니다.</p>
+<p><div class="wlWriterSmartContent" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:0b3a2256-f942-447a-ba06-90713352da1b" style="display:inline;float:none;margin:0;padding:0;">
+<pre style="overflow:auto;background-color:white;" />
+<div><span style="color:#0000ff;">class</span><span style="color:#000000;"> Context<br />
+{<br />
+    STATECODE State;<br />
+    Request()<br />
+    {<br />
+        Handle();<br />
+    }</p>
+<p>    Handle()<br />
+    {<br />
+        </span><span style="color:#0000ff;">if</span><span style="color:#000000;"> (State </span><span style="color:#000000;">==</span><span style="color:#000000;"> Initiating)<br />
+        {<br />
+            </span><span style="color:#008000;">//</span><span style="color:#008000;"> Do some initialization works</span><span style="color:#008000;"><br />
+</span><span style="color:#000000;">        }<br />
+        </span><span style="color:#0000ff;">else</span><span style="color:#000000;"> </span><span style="color:#0000ff;">if</span><span style="color:#000000;"> (State </span><span style="color:#000000;">==</span><span style="color:#000000;"> Running)<br />
+        {<br />
+            </span><span style="color:#008000;">//</span><span style="color:#008000;"> Do some works for Running mode</span><span style="color:#008000;"><br />
+</span><span style="color:#000000;">        }<br />
+        </span><span style="color:#0000ff;">else</span><span style="color:#000000;"> </span><span style="color:#0000ff;">if</span><span style="color:#000000;"> (State </span><span style="color:#000000;">==</span><span style="color:#000000;"> Idling)<br />
+        {<br />
+            </span><span style="color:#008000;">//</span><span style="color:#008000;"> Do some works for Idling mode</span><span style="color:#008000;"><br />
+</span><span style="color:#000000;">        }<br />
+    }<br />
+}</span></div>
+<p><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+<p>분기문을 쓰는 함수가 Request() 하나 였다면 크게 문제가 없을 겁니다만, 보통은 코딩하다 보면 아래처럼 여러개가 생기곤 합니다.</p>
+<p><div class="wlWriterSmartContent" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:14441dd6-4117-47c4-ac5e-1761d2c42233" style="display:inline;float:none;margin:0;padding:0;">
+<pre style="overflow:auto;background-color:white;" />
+<div><span style="color:#0000ff;">class</span><span style="color:#000000;"> Context<br />
+{<br />
+    STATECODE State;<br />
+    Request()<br />
+    {<br />
+        Handle();<br />
+    }</p>
+<p>    Handle()<br />
+    {<br />
+        </span><span style="color:#0000ff;">if</span><span style="color:#000000;"> (State </span><span style="color:#000000;">==</span><span style="color:#000000;"> Initiating)<br />
+        {<br />
+            </span><span style="color:#008000;">//</span><span style="color:#008000;"> Do some initialization works</span><span style="color:#008000;"><br />
+</span><span style="color:#000000;">        }<br />
+        </span><span style="color:#0000ff;">else</span><span style="color:#000000;"> </span><span style="color:#0000ff;">if</span><span style="color:#000000;"> (State </span><span style="color:#000000;">==</span><span style="color:#000000;"> Running)<br />
+        {<br />
+            </span><span style="color:#008000;">//</span><span style="color:#008000;"> Do some works for Running mode</span><span style="color:#008000;"><br />
+</span><span style="color:#000000;">        }<br />
+        </span><span style="color:#0000ff;">else</span><span style="color:#000000;"> </span><span style="color:#0000ff;">if</span><span style="color:#000000;"> (State </span><span style="color:#000000;">==</span><span style="color:#000000;"> Idling)<br />
+        {<br />
+            </span><span style="color:#008000;">//</span><span style="color:#008000;"> Do some works for Idling mode</span><span style="color:#008000;"><br />
+</span><span style="color:#000000;">        }<br />
+    }</p>
+<p>    GetValue()<br />
+    {<br />
+        </span><span style="color:#0000ff;">if</span><span style="color:#000000;"> (State </span><span style="color:#000000;">==</span><span style="color:#000000;"> Initiating)<br />
+            </span><span style="color:#0000ff;">return</span><span style="color:#000000;"> </span><span style="color:#800080;">0</span><span style="color:#000000;">;<br />
+        </span><span style="color:#0000ff;">else</span><span style="color:#000000;"> </span><span style="color:#0000ff;">if</span><span style="color:#000000;"> (State </span><span style="color:#000000;">==</span><span style="color:#000000;"> Running)<br />
+            </span><span style="color:#0000ff;">return</span><span style="color:#000000;"> </span><span style="color:#800080;">1</span><span style="color:#000000;">;<br />
+        </span><span style="color:#0000ff;">else</span><span style="color:#000000;"> </span><span style="color:#0000ff;">if</span><span style="color:#000000;"> (State </span><span style="color:#000000;">==</span><span style="color:#000000;"> Idling)<br />
+            </span><span style="color:#0000ff;">return</span><span style="color:#000000;"> </span><span style="color:#800080;">2</span><span style="color:#000000;">;<br />
+    }<br />
+}</span></div>
+<p><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+<p>좀 단순하게 표현한 것이지만, 위의 GetValue() 함수 처럼 if-else 구문을 포함하는 게 늘어날 수 있다는 의미입니다. 이걸 없애기 위해서 State pattern 을 도입합니다. State pattern 은 이 if-else 구문을 상속을 통해 애초에 없애는 패턴입니다.<a href="http://realgsong.files.wordpress.com/2008/08/1668790522.png"><img style="border-width:0;" height="242" alt="State_Design_Pattern_UML_Class_Diagram" src="{{ site.baseurl }}/assets/wp/1488684993.png" width="460" border="0" /></a> </p>
+<p>State pattern 을 적용해서 Context 클래스를 바꿔보면 다음처럼 됩니다.</p>
+<p><div class="wlWriterSmartContent" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:8edcce5d-7c20-468a-a21f-2e20e8de51d4" style="display:inline;float:none;margin:0;padding:0;">
+<pre style="overflow:auto;background-color:white;" />
+<div><span style="color:#0000ff;">class</span><span style="color:#000000;"> Context<br />
+{<br />
+    State </span><span style="color:#000000;">*</span><span style="color:#000000;"> pState;<br />
+    Request()<br />
+    {<br />
+        pState</span><span style="color:#000000;">-&gt;</span><span style="color:#000000;">Handle();<br />
+    }</p>
+<p>    GetValue()<br />
+    {<br />
+        </span><span style="color:#0000ff;">return</span><span style="color:#000000;"> pState</span><span style="color:#000000;">-&gt;</span><span style="color:#000000;">GetValue();<br />
+    }<br />
+}</span></div>
+<p><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+<p>분기문이 보이지 않네요. State 클래스들도 추가해 보지요.</p>
+<p><div class="wlWriterSmartContent" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:14a27410-6002-43df-a778-1d92b01e5a42" style="display:inline;float:none;margin:0;padding:0;">
+<pre style="overflow:auto;background-color:white;" />
+<div><span style="color:#0000ff;">class</span><span style="color:#000000;"> State<br />
+{<br />
+    Handle();<br />
+    GetValue();<br />
+};</p>
+<p></span><span style="color:#0000ff;">class</span><span style="color:#000000;"> InitiatingState : State<br />
+{<br />
+    Handle()<br />
+    {<br />
+        </span><span style="color:#008000;">//</span><span style="color:#008000;"> Do some initiating works</span><span style="color:#008000;"><br />
+</span><span style="color:#000000;">    }<br />
+    GetValue()<br />
+    { </span><span style="color:#0000ff;">return</span><span style="color:#000000;"> </span><span style="color:#800080;">0</span><span style="color:#000000;">; }<br />
+};<br />
+</span><span style="color:#0000ff;">class</span><span style="color:#000000;"> RunningState : State<br />
+{<br />
+    Handle()<br />
+    {<br />
+        </span><span style="color:#008000;">//</span><span style="color:#008000;"> Do some works for running mode</span><span style="color:#008000;"><br />
+</span><span style="color:#000000;">    }<br />
+    GetValue()<br />
+    { </span><span style="color:#0000ff;">return</span><span style="color:#000000;"> </span><span style="color:#800080;">1</span><span style="color:#000000;">; }<br />
+};<br />
+</span><span style="color:#0000ff;">class</span><span style="color:#000000;"> IdlingState : State<br />
+{<br />
+    Handle()<br />
+    {<br />
+        </span><span style="color:#008000;">//</span><span style="color:#008000;"> Do some works for Idling mode</span><span style="color:#008000;"><br />
+</span><span style="color:#000000;">    }<br />
+    GetValue()<br />
+    { </span><span style="color:#0000ff;">return</span><span style="color:#000000;"> </span><span style="color:#800080;">2</span><span style="color:#000000;">; }<br />
+};</span></div>
+<p><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+<p>이로써 if-else 구문은 없어지고 if else 의 각 분기에 해당하는 코드들은 State 클래스를 상속받아 구현한 ConcreteState Class 들 즉, InitiatingState, RunningState, IdlingState 로 나눠졌습니다. 물론 여기서 Context 에 있는 State 포인터 값을 바꿔주는 코드가 따로 필요 합니다.</p>
+<p><div class="wlWriterSmartContent" id="scid:57F11A72-B0E5-49c7-9094-E3A15BD5B5E6:a13a0ffb-91c3-4897-abb4-6000fc3283b1" style="display:inline;float:none;margin:0;padding:0;">
+<pre style="overflow:auto;background-color:white;" />
+<div><span style="color:#0000ff;">void</span><span style="color:#000000;"> main()<br />
+{<br />
+    Context ct;<br />
+    ct.pState </span><span style="color:#000000;">=</span><span style="color:#000000;"> </span><span style="color:#0000ff;">new</span><span style="color:#000000;"> InitiatingState();<br />
+    ct.Request();</p>
+<p>    ct.pState </span><span style="color:#000000;">=</span><span style="color:#000000;"> </span><span style="color:#0000ff;">new</span><span style="color:#000000;"> RunningState();<br />
+    print ct.GetValue();</p>
+<p>    ct.pState </span><span style="color:#000000;">=</span><span style="color:#000000;"> </span><span style="color:#0000ff;">new</span><span style="color:#000000;"> IdlingState();<br />
+    ct.Request();<br />
+}</span></div>
+<p><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
+<p>Context 를 쓰는 클라이언트 코드는 위처럼 되겠지요. 이렇게 하면 새로운 State 가 추가되거나 기존의 State 에 따른 코드가 바뀌어야 할 때, 소스코드 전체에 퍼져 있는 if-else 를 찾아 바꿔줘야 하는 수고를 덜 수 있습니다. 해당 ConcreteState 코드만 바꿔주거나 추가하면 충분합니다.</p>
+<p>하지만, 위 코드도 약간 개선할 점들이 있습니다. 보시다시피 State 가 바뀔때마다 새로운 ConcreteState 인스턴스를 만들어 할당해줘야 되기 때문에, 불필요한 메모리 할당이 자주 일어날 수 있습니다. 이럴 경우 Singleton pattern 이나 Flyweight pattern 을 활용해 보면 되겠지요.</p>
+<p><a href="http://en.wikipedia.org/wiki/State_pattern">http://en.wikipedia.org/wiki/State_pattern</a></p></p></p></p>

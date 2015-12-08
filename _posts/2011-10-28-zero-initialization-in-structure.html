@@ -1,0 +1,70 @@
+---
+layout: post
+title: zero initialization in structure
+date: 2011-10-28 17:25:28.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 구조체 초기화
+- struct
+- zero initialization
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_notify: '0'
+  original_post_id: '4211'
+  _wp_old_slug: '4211'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>struct 를 0 으로 초기화 하려면 다음과 같이 하면 된다. (from : <a href="http://stackoverflow.com/questions/1069621/are-members-of-a-c-struct-initialized-to-0-by-default">this link</a>)</p>
+<pre class="brush: cpp; gutter: true">struct Snapshot
+    {
+        double x;
+        int   y ;
+
+    };
+
+...
+
+Snapshot s; // receives no initialization
+Snapshot s = {}; // value initializes all members</pre>
+<p>단 구조체에 constructor 가 선언되어 있지 않을 때만 가능하다. constructor 를 선언한 경우에는 컴파일 에러가 난다. 그리고 대괄호를 이용한 초기화는 recursive 하게 적용이 되는데,</p>
+<pre class="brush: cpp; gutter: true">struct Parent { Snapshot s; };
+Parent p; // receives no initialization
+Parent p = {}; // value initializes all members</pre>
+<p>위 경우 p.s.x 와 p.s.y 모두 초기화가 된다. 구조체 초기화는 위와 같이 대괄호를 이용하거나 constructor 를 이용하여 초기화 한다.</p>
+<p>이런 식으로 하지 않고, c 에서 코딩하던 버릇대로 c++ 에서 memset 을 이용하여 zero initialization 을 하는 경우가 있다.</p>
+<pre class="brush: cpp; gutter: true">struct Temp
+{
+    int number;
+    char character;
+};
+
+void func()
+{
+    Temp t;
+    memset(&amp;t, 0, sizeof(Temp));
+}</pre>
+<p>결론부터 말하자면 아주 좋지 못한 습관이다. 구조체 관련된 변수들이 메모리상에 연속적으로 존재한다는 가정을하고 있기 때문이다. 만약에 멤버 중에 STL string 이 있다고 한다면,</p>
+<pre class="brush: cpp; gutter: true">struct Temp
+{
+    int number;
+    char character;
+    std::string strvalue;
+};
+
+void func()
+{
+    Temp t;
+    memset(&amp;t, 0, sizeof(Temp));
+}</pre>
+<p>memset 이 불려 질 때 std::string object 가 가지고 있던 모든 정보를 잃어버리게 된다.</p>
+<p>다시 말해, POD type (<a href="http://en.wikipedia.org/wiki/Plain_Old_Data_Structures">Plain Old Data</a>) 로 이뤄진 구조체라면 memset() 을 해도 안전하겠지만, 그 외의 경우에는 문제를 일으키니, memset 을 이용한 초기화는 안 쓰도록 습관을 들이는 것이 좋고, 생성자를 이용한 초기화를 하는 것이 낫다.</p>

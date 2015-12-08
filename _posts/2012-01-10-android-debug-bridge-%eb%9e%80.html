@@ -1,0 +1,38 @@
+---
+layout: post
+title: Android Debug Bridge 란?
+date: 2012-01-10 23:06:17.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- adb
+- android
+- bridge
+- debug
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_notify: '1'
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _social_aggregation_log: a:10:{i:1326205831;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326208532;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326212122;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326215732;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326222929;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326237807;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326267025;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326310518;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326397582;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1326570608;O:8:"stdClass":1:{s:6:"manual";s:0:"";}}
+  original_post_id: '5293'
+  _wp_old_slug: '5293'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>ADB 는 에뮬레이터나 안드로이드가 올라간 장치와 소통할 수 있는 다용도 명령이다. ADB 는 크게 다음 세가지로 구성된다.</p>
+<ul>
+<li>클라이언트 : 개발 머신에서 돌아간다. adb 명령으로 실행한다.</li>
+<li>서버 : 개발 머신에서 백그라운드 프로세스로 실행된다.</li>
+<li>데몬 : 에뮬레이터나 타겟보드에서 에서 백그라운드 프로세스로 실행된다.</li>
+</ul>
+<p>클라이언트를 실행시키면 서버가 실행 중인지 확인하고, 만약 없다면 새로 실행한다. 서버는 5037 번 포트를 사용한다.</p>
+<p>이후 서버는 디바이스들과 연결을 설정하는데, 5555 – 5585 번 사이의 홀수 번호 포트를 스캔하여 찾는다. 스캔 중 adb 데몬을 발견하면, 연결이 세팅된다. 여기에 추가해서, 짝수번 포트는 콘솔 연결에 사용된다. 예를 들어 adb 포트가 5555 번을 사용하면 5554 번은 콘솔 연결에 쓰인다. 이런 식으로 한 쌍의 포트들이 필요하다.</p>
+<p>서버가 adb 데몬과 연결이 되고 나면, adb commands 를 써서 제어를 할 수 있다.</p>

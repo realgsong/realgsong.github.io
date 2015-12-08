@@ -1,0 +1,32 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.19
+date: 2008-01-19 10:52:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2650'
+  _wp_old_slug: '2650'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>SICP 연습문제 풀이 1.19</p>
+<p><a href="http://realgsong.files.wordpress.com/2008/03/1614155912.gif"><img style="border-width:0;" height="17" alt="clip_image002" src="{{ site.baseurl }}/assets/wp/1854177319.gif" width="201" border="0" /></a></p>
+<p>이것을 행렬로 표현하면</p>
+<p><a href="http://realgsong.files.wordpress.com/2008/03/1119742274.gif"><img style="border-width:0;" height="28" alt="clip_image004" src="{{ site.baseurl }}/assets/wp/1108227529.gif" width="101" border="0" /></a></p>
+<p><a href="http://realgsong.files.wordpress.com/2008/03/1733205430.gif"><img style="border-width:0;" height="33" alt="clip_image006" src="{{ site.baseurl }}/assets/wp/1156105287.gif" width="495" border="0" /></a></p>
+<p><a href="http://realgsong.files.wordpress.com/2008/03/1068537438.gif"><img style="border-width:0;" height="16" alt="clip_image008" src="{{ site.baseurl }}/assets/wp/1645455294.gif" width="156" border="0" /></a></p>
+<p>그러므로 답은</p>
+<p>(define (fib n) <br />&nbsp; (fib-iter 1 0 0 1 n)) </p>
+<p>(define (fib-iter a b p q count) <br />&nbsp; (cond ((= count 0) b) <br />&nbsp; &nbsp; &nbsp; &nbsp; ((even? count) <br />&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (fib-iter a <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; b <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (+ (* p p) (* q q)) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (+ (* q q) (* 2 p q)) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (/ count 2))) <br />&nbsp; &nbsp; &nbsp; &nbsp; (else (fib-iter (+ (* b q) (* a q) (* a p)) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (+ (* b p) (* a q)) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; p <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; q <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (- count 1)))))</p>

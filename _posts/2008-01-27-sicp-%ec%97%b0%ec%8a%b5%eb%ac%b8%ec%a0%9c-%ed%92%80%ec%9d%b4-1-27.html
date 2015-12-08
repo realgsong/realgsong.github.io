@@ -1,0 +1,29 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.27
+date: 2008-01-27 12:17:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습 문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2681'
+  _wp_old_slug: '2681'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>(define (square x) (* x x)) </p>
+<p>(define (expmod base exp m) <br />&nbsp; (cond ((= exp 0) 1) <br />&nbsp; &nbsp; &nbsp; &nbsp; ((even? exp) <br />&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (remainder (square (expmod base (/ exp 2) m)) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m)) <br />&nbsp; &nbsp; &nbsp; &nbsp; (else <br />&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (remainder (* base (expmod base (- exp 1) m)) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m)))) </p>
+<p>(define (fermat-test n) <br />&nbsp; (define (try-it a) <br />&nbsp; &nbsp; (= (expmod a n n) a)) <br />&nbsp; (define (fermat-test-iter n aval) <br />&nbsp; &nbsp; (cond ((= aval 0) #t) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ((try-it aval) (fermat-test-iter n (- aval 1))) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (else #f))) <br />&nbsp; (fermat-test-iter n (- n 1)))</p>
+<p>수행결과</p>
+<p>&gt; (fermat-test 561) <br />#t <br />&gt; (fermat-test 1105) <br />#t <br />&gt; (fermat-test 1729) <br />#t <br />&gt; (fermat-test 2465) <br />#t <br />&gt; (fermat-test 2821) <br />#t <br />&gt;</p>
+<p>561 은 알다시피 3 의 배수로 소수가 아니다. 다른 수들도 모두 마찬가지로 소수가 아닌데, fermat test 를 통과한다. fermat test 를 만든 페르마도 대단하지만 위 수들을 찾은 양반들도 대단하다. 정수론은 수학에서도 아주 독특한 분야인 것 같다. </p>

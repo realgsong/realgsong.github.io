@@ -1,0 +1,56 @@
+---
+layout: post
+title: 좋은 버그 리포트를 쓰려면?
+date: 2011-12-07 11:10:27.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- bug
+- 개발
+- 버그
+meta:
+  _publicize_pending: '1'
+  _social_aggregation_log: a:10:{i:1323226834;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323228691;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323232233;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323236721;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323243929;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323258356;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323288110;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323332151;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323418560;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1323591482;O:8:"stdClass":1:{s:6:"manual";s:0:"";}}
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _edit_last: '16961716'
+  _social_notify: '1'
+  original_post_id: '4822'
+  _wp_old_slug: '4822'
+  _oembed_e7966a9a0578076a088487981842a361: '{{unknown}}'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>좋은 버그 리포트를 쓰려면 어떻게 해야 하는가? Issue Tracking System 에 버그를 기록할 때 남겨야하는 최소한의 정보들이 있다. 버그를 정확히 기록하여 남기는 것은 좋은 개발의 출발이다.</p>
+<ul>
+<li><strong>Title</strong> : (필수) 버그를 한 줄에 설명하되, 가능한 정확하게 기술하는 것이 좋다. 'Control doesn't work' 보다는 'TreeView shos blank nodes when binding to hierarchical data' 처럼 상세히 쓰는 것이 좋다.</li>
+<li>Path : (필수) 버그를 분류하기 위해 가능한 적절한 패스를 찾아서 입력한다. 이 필드가 없는 ITS 도 있으나 대부분 가지고 있다.</li>
+<li>Keywords : (선택) 버그를 찾거나 분류할 때 큰 도움이 된다. 꼭 입력할 필요는 없다.</li>
+<li>Priority/Severity : (선택) 보통 이 값들은 버그 담당자들이 결정하지만, 리포터가 입력할 필요가 있으면 적절하게 값을 넣어도 된다. 다만 우선순위를 높이거나, 아주 심각한 버그를 보고할 때는 보다 더 신중해야 한다.</li>
+<li><strong>Build/Branch/Version</strong> : (필수) 버그를 재현해 보거나, 문제점을 찾기 위해서는 버그가 재현된 소프트웨어의 정확한 버전 정보가 필요하다.</li>
+<li>Description : (필수) 타이틀에 썼던 내용을 보다 자세하게 적는다.</li>
+<li><strong>Repro Steps</strong> : (필수) 버그를 재현하기 위한 단계를 나열한다. 이것은 추후에 개발자가 버그를 확인하기 위해 반드시 필요한 정보다.</li>
+</ul>
+<p>위의 사항들 중 (필수) 로 되어 있는 것들은 모두 중요한데 그 중에서 빼먹을 수 없는 것들은 굵은 폰트로 표시했다.</p>
+<p>버그의 내용에는 Description, Repro Steps 와 함께 두가지 항목이 더 들어간다. Repro Steps 대로 했을 때 기대되는 반응(Expected), 실제 일어난 반응 (Actual). 즉 모범적인 버그 기술은 다음과 같다.</p>
+<blockquote>
+<div><strong>Description</strong></div>
+<div>트리뷰가 마우스 우측 클릭을 하고 나면 저절로 collapse 됩니다.</div>
+<div><strong>Repro Steps</strong></div>
+<div>1. XX 프로그램을 실행시킨다.</div>
+<div>2. 고객관리 화면을 연다.</div>
+<div>3. 조직도에서 회계관리 부서를 찾는다.</div>
+<div>4. 마우스 우클릭을 한다.</div>
+<div><strong>Expected</strong></div>
+<div>조직도에 대한 정보를 볼 수 있는 컨텍스트 메뉴가 표시된다.</div>
+<div><strong>Actual</strong></div>
+<div>컨텍스트 메뉴가 표시되지 않는다. 회계관리 부서 아래의 조직도가 collapse 되어 버린다.</div>
+</blockquote>
+<p>버그를 명확히 기술해 놓으면, 픽스를 쓰는 개발자가 일을 하기가 훨씬 수월하다. 업무의 단위를 메겨놓는 것과 같은 효과이기 때문에, 업무를 적절히 잘라서 관리할 수 있게 된다.</p>
+<p>출처 : <a href="http://feeds.timheuer.com/~r/timheuer/~3/LvieKE9ucB0/anatomy-of-a-good-bug-report.aspx">http://feeds.timheuer.com/~r/timheuer/~3/LvieKE9ucB0/anatomy-of-a-good-bug-report.aspx</a></p>

@@ -1,0 +1,33 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.26
+date: 2008-01-26 07:07:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습 문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2671'
+  _wp_old_slug: '2671'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>[CODE] <br />(define (expmod base exp m) <br />&nbsp; (cond ((= exp 0) 1) <br />&nbsp; &nbsp; &nbsp; &nbsp; ((even? exp) <br />&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (remainder (square (expmod base (/ exp 2) m) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m)) <br />&nbsp; &nbsp; &nbsp; &nbsp; (else <br />&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (remainder (* base (expmod base (- exp 1) m)) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m)))) <br />[/CODE] </p>
+<p>T(n) = T(n/2) + c 꼴이고 Master theorem 을 적용해보자. </p>
+<p><a href="http://realgsong.files.wordpress.com/2008/04/1499507180.gif"><img style="border-width:0;" height="16" alt="clip_image002" src="{{ site.baseurl }}/assets/wp/1572711070.gif" width="97" border="0" /></a></p>
+<p>나오므로 수행시간은 <a href="http://realgsong.files.wordpress.com/2008/04/1201371684.gif"><img style="border-width:0;" height="16" alt="clip_image002[5]" src="{{ site.baseurl }}/assets/wp/1869571150.gif" width="240" border="0" /></a></p>
+<p>[CODE] <br />(define (expmod-louise base exp m) <br />&nbsp; (cond ((= exp 0) 1) <br />&nbsp; &nbsp; &nbsp; &nbsp; ((even? exp) <br />&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (remainder (* (expmod-louise base (/ exp 2) m) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (expmod-louise base (/ exp 2) m)) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m)) <br />&nbsp; &nbsp; &nbsp; &nbsp; (else <br />&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (remainder (* base (expmod-louise base (- exp 1) m)) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; m)))) <br />[/CODE]</p>
+<p>Louis 가 만든 코드의 프로시져 수행시간을 보자.</p>
+<p>T(n) = T(n/2) + T(n/2) + c = 2T(n/2) + c</p>
+<p>역시 master theorem 을 적용해보면,</p>
+<p><a href="http://realgsong.files.wordpress.com/2008/04/1651031339.gif"><img style="border-width:0;" height="16" alt="clip_image002[7]" src="{{ site.baseurl }}/assets/wp/1537464311.gif" width="98" border="0" /></a> 이므로 <a href="http://realgsong.files.wordpress.com/2008/04/1017030386.gif"><img style="border-width:0;" height="18" alt="clip_image002[9]" src="{{ site.baseurl }}/assets/wp/2119586773.gif" width="167" border="0" /></a> 이 된다.</p>
+<p>수행시간 증명이 잘 생각나지 않아 오랜만에 책을 뒤적여 <a href="http://en.wikipedia.org/wiki/Master_theorem">Master theorem</a> 을 봤습니다. </p>

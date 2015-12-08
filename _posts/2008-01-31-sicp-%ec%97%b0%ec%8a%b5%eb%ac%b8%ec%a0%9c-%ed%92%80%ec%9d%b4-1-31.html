@@ -1,0 +1,30 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.31
+date: 2008-01-31 03:41:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2685'
+  _wp_old_slug: '2685'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<h3>a.</h3>
+<p>[CODE]<br />; Recursive<br />(define (product-r term a next b)<br />&nbsp; (if (&gt; a b)<br />&nbsp; &nbsp; &nbsp; 1<br />&nbsp; &nbsp; &nbsp; (* (term a) (product-r term (next a) next b)))) </p>
+<p>; Iterative<br />(define (product term a next b)<br />&nbsp; (define (iter a result)<br />&nbsp; &nbsp; (if (&gt; a b)<br />&nbsp; &nbsp; &nbsp; &nbsp; result<br />&nbsp; &nbsp; &nbsp; &nbsp; (iter (next a) (* result (term a)))))<br />&nbsp; (iter a 1))</p>
+<p>; Factorial<br />&gt; (product (lambda (x) x) 1 (lambda (x) (+ x 1)) 5)<br />120</p>
+<p>; Approximations to phi<br />(define (phi-term x) (/ <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (* (* 2 x) (* 2 (+ x 1)))<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (square (+ 1 (* 2 x)))))<br />(define (phi-next x) (+ x 1))<br />&gt; (product phi-term 1 phi-next 20)<br />75557863725914323419136/95064880114531295493525<br />[/CODE]<br />4 를 곱해보면 결과가 약 3.1792124971865316373887583652071 로 근사해짐을 알 수 있다.</p>
+<h3>b.</h3>
+<p>위에 풀어놨음.</p>

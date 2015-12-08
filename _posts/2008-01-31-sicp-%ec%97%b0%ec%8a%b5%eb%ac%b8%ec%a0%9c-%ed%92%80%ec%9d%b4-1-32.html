@@ -1,0 +1,26 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.32
+date: 2008-01-31 04:57:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2686'
+  _wp_old_slug: '2686'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>[CODE]<br />; Recursive<br />(define (accumulate combiner null-value term a next b)<br />&nbsp; (if (&gt; a b)<br />&nbsp; &nbsp; &nbsp; null-value<br />&nbsp; &nbsp; &nbsp; (combiner (term a) (accumulate combiner null-value term (next a) next b))))</p>
+<p>; Iterative<br />(define (accumulate combiner null-value term a next b)<br />&nbsp; (define (iter a result)<br />&nbsp; &nbsp; (if (&gt; a b)<br />&nbsp; &nbsp; &nbsp; &nbsp; result<br />&nbsp; &nbsp; &nbsp; &nbsp; (iter (next a) (combiner result (term a)))))<br />&nbsp; (iter a null-value))</p>
+<p>; Sum<br />&gt; (accumulate (lambda (x y) (+ x y)) 0 term 1 next 5)<br />15<br />; Product<br />&gt; (accumulate (lambda (x y) (* x y)) 1 term 1 next 4)<br />24<br />[/CODE]</p>

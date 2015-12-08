@@ -1,0 +1,30 @@
+---
+layout: post
+title: c++ default constructor
+date: 2011-08-20 11:27:08.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- c++
+- constructor
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  original_post_id: '4202'
+  _wp_old_slug: '4202'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p><a href="http://codewrangler.home.comcast.net/~codewrangler/tech_info/ctor_init.html">c++ default constructor</a></p>
+<blockquote><p>Both base class objects and member data objects are initialized in declaration order, regardless of the order in the initialization list in the constructor definition.</p>
+<p>&nbsp;</p>
+<p>Destructors are called in the reverse order (which is the main reason why initialization is dependent on declaration order, rather than on the order in the initialization list).</p>
+<p>&nbsp;</p></blockquote>
+<p>Constructor 나 Initializer 관련된 것은 컴파일러가 적절하게 알려주니, 고쳐가며 코딩하기에는 문제가 없는데, 여기에 대한 이해도가 부족하면 struct 와 class 그리고 더 나아가 c-style 로 struct 를 다루는 것이 왜 문제가 되는지 이해하기 어렵게 된다.</p>

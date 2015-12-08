@@ -1,0 +1,28 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.33
+date: 2008-01-31 05:24:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2687'
+  _wp_old_slug: '2687'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>[CODE]<br />(define (filter-accumulate filter combiner null-value term a next b)<br />&nbsp; (define (iter a result)<br />&nbsp; &nbsp; (if (&gt; a b)<br />&nbsp; &nbsp; &nbsp; &nbsp; result<br />&nbsp; &nbsp; &nbsp; &nbsp; (iter (next a) (combiner result <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (if (filter a)<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (term a)<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; null-value)))))<br />&nbsp; (iter a null-value))</p>
+<p>[/CODE]</p>
+<p>a.<br /><a href="http://www.gsong.pe.kr/tt/262" target="_blank">앞의 연습문제</a>에서 풀었던 prime 넘버 알아보는 프로시져를 가져오자.<br />[CODE]<br />(define (smallest-divisor n) &nbsp; &nbsp;&nbsp; <br />&nbsp; (find-divisor n 2)) &nbsp; &nbsp;&nbsp; <br />&nbsp; &nbsp;&nbsp; <br />(define (find-divisor n test-divisor) &nbsp; &nbsp;&nbsp; <br />&nbsp; (cond ((&gt; (square test-divisor) n) n) &nbsp; &nbsp;&nbsp; <br />&nbsp; &nbsp; &nbsp; &nbsp; ((divides? test-divisor n) test-divisor) &nbsp; &nbsp;&nbsp; <br />&nbsp; &nbsp; &nbsp; &nbsp; (else (find-divisor n (+ test-divisor 1))))) &nbsp; &nbsp;&nbsp; <br />&nbsp; &nbsp;&nbsp; <br />(define (divides? a b) &nbsp; &nbsp;&nbsp; <br />&nbsp; (= (remainder b a) 0)) &nbsp; &nbsp;&nbsp; <br />&nbsp; &nbsp;&nbsp; <br />(define (prime? n) &nbsp; &nbsp;&nbsp; <br />&nbsp; (= n (smallest-divisor n))) &nbsp; &nbsp;&nbsp; <br />&nbsp; &nbsp;&nbsp; <br />(define (square x) (* x x)) &nbsp; <br />(define (timed-prime-test n) &nbsp; <br />&nbsp; (newline) &nbsp; <br />&nbsp; (display n) &nbsp; <br />&nbsp; (start-prime-test n (runtime))) &nbsp; <br />(define (runtime) (current-milliseconds)) &nbsp; <br />(define (start-prime-test n start-time) &nbsp; <br />&nbsp; (if (prime? n) &nbsp; <br />&nbsp; &nbsp; &nbsp; (report-prime (- (runtime) start-time)))) &nbsp; <br />(define (report-prime elapsed-time) &nbsp; <br />&nbsp; (display " *** ") &nbsp; <br />&nbsp; (display elapsed-time)) &nbsp; <br />(define (search-for-primes rangestart) &nbsp; <br />&nbsp; (define (SFP-iter start-time n) &nbsp; <br />&nbsp; &nbsp; (newline) &nbsp; <br />&nbsp; &nbsp; (display n) &nbsp; <br />&nbsp; &nbsp; (if (prime? n) (report-prime (- (runtime) start-time)) &nbsp; <br />&nbsp; &nbsp; &nbsp; &nbsp; (SFP-iter start-time (+ n 2)))) &nbsp; <br />&nbsp; (if (even? rangestart) (SFP-iter (runtime) (+ rangestart 1)) &nbsp; <br />&nbsp; &nbsp; &nbsp; (SFP-iter (runtime) rangestart))) &nbsp; <br />[/CODE]</p>
+<p>위에 정의된 prime? 를 이용하면<br />[CODE]<br />&gt; (filter-accumulate prime?<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (lambda (x y) (+ x y))<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 0<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (lambda (x) (* x x))<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 1<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; (lambda (x) (+ x 1))<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 5)<br />39<br />[/CODE]</p>
+<p>b.<br />[CODE]<br />(define (1_33 n)<br />&nbsp; (filter-accumulate <br />&nbsp;&nbsp; (lambda (x) (= 1 (gcd x n)))<br />&nbsp;&nbsp; (lambda (x y) (* x y))<br />&nbsp;&nbsp; 1<br />&nbsp;&nbsp; (lambda (x) x)<br />&nbsp;&nbsp; 1<br />&nbsp;&nbsp; (lambda (x) (+ x 1))<br />&nbsp;&nbsp; n))<br />[/CODE]</p>

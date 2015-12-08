@@ -1,0 +1,41 @@
+---
+layout: post
+title: shell script 만들 때, 입력을 자동화하려면
+date: 2012-02-29 12:04:39.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- '&lt;&lt;'
+- input
+- redirection
+- shell script
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _social_aggregation_log: a:10:{i:1330515942;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330517802;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330520584;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330524212;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330532177;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330547675;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330577142;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330620493;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330707647;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330880447;O:8:"stdClass":1:{s:6:"manual";s:0:"";}}
+  _wpas_skip_2551853: '1'
+  original_post_id: '5606'
+  _wp_old_slug: '5606'
+  _oembed_e0ac6a3473ab7aa9db1e05bdaab066ad: '{{unknown}}'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>쉘스크립트를 만들때, 정해진 입력값들을 설정해두고 싶을 때가 있다. 예를들어 ftp 명령을 실행하고 나서, a.txt 를 업로드 하는 쉘스크립트를 만든다고 하자.</p>
+<pre><code>#!/bin/bash
+ftp server.address.com -u anonymous -p somepasswd
+</code></pre>
+<p>이렇게 해서 ftp 연결이 됐으면 이번엔 'put a.txt' 라는 명령을 ftp 에다가 전달해야 될 차례이다. 이럴 때 사용할 수 있는 것인 &lt;&lt; redirection 이다. 사용법은 아래와 같다.</p>
+<pre><code>#!/bin/bash
+ftp server.address.com -u anonymous -p somepasswd &lt;&lt; TEST_TAG
+put a.txt
+TEST_TAG
+</code></pre>
+<p>&lt;&lt; redirection 은 그 뒤의 태그만 적힌 줄을 만나기 전까지 source 의 내용을 해당 명령의 stdin 으로 전달한다. 그러니까 ftp 명령을 실행하고, 'put a.txt' 를 수행한다. 그 다음 만나는 줄은 TEST_TAG 니까 redirection 이 종료된다. 출처 : <a href="http://www.daniweb.com/software-development/shell-scripting/threads/50570">http://www.daniweb.com/software-development/shell-scripting/threads/50570</a></p>

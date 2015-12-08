@@ -1,0 +1,25 @@
+---
+layout: post
+title: SICP 연습문제 풀이 1.18
+date: 2008-01-18 09:52:00.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 연습문제 풀이
+- SICP 스터디
+meta:
+  _publicize_pending: '1'
+  original_post_id: '2649'
+  _wp_old_slug: '2649'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>SICP 연습문제 풀이 1.18</p>
+<p>(define (double a) (* a 2)) <br />(define (halve a) (/ a 2)) <br />(define (mult a b) <br />&nbsp; (define (mult-iter a b c) <br />&nbsp; &nbsp; (cond ((= b 0) c) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ((even? b) (mult-iter (double a) (halve b) c)) <br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (else (mult-iter a (- b 1) (+ c a))))) <br />&nbsp; (mult-iter a b 0))</p>

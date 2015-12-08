@@ -1,0 +1,30 @@
+---
+layout: post
+title: 우분투 Checking battery state 에서 부팅이 멈추는 경우
+date: 2013-03-09 10:56:20.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- battery
+- checking
+- 해결책
+- 우분투
+- state
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _wpas_skip_2551853: '1'
+  original_post_id: '8385'
+  _wp_old_slug: '8385'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>우분투 쓰다 보면 checking battery state 라는 에러 메세지를 내면서 부팅이 멈추는 경우가 간혹 있다. 현재 내가 사용하는 버전은 12.10 64비트 이다.</p>
+<p>아마도 특정 하드웨어 드라이버와 관련이 있을 것 같긴한데 자세한 원인은 모르겠다. 임시 해법은 ctrl+alt+f1 을 눌러서 콘솔로 바로 들어간다음, sudo pkill X 명령을 실행해서 X 윈도 관련된 것들을 한번 다 죽여주면, 다시 시작 된다.</p>

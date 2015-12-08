@@ -1,0 +1,67 @@
+---
+layout: post
+title: Deview 2014 day 1 review
+date: 2014-09-29 20:17:25.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- deview
+meta:
+  _wpas_skip_facebook: '1'
+  _wpcom_is_markdown: '1'
+  _oembed_11546195f70fee3e0af23d80d40e8ca8: '{{unknown}}'
+  _rest_api_published: '1'
+  _rest_api_client_id: '-1'
+  _oembed_c6636fcc4ebc8bb6a8d891b833a84ea2: '{{unknown}}'
+  _oembed_42f986a8e28ed94691d4885ba878e2c1: '{{unknown}}'
+  _wpas_skip_google_plus: '1'
+  _wpas_skip_2551853: '1'
+  _wpas_skip_linkedin: '1'
+  _wpas_skip_tumblr: '1'
+  _wpas_skip_path: '1'
+  _oembed_f7d3d677d63bb093357717563438f08c: '{{unknown}}'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<h1>신개념 N-Screen 웹앱 프레임워크 PARS</h1>
+<p>[slideshare id=39615151&amp;w=427&amp;h=356&amp;style=border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&amp;sc=no]</p>
+<div style="margin-bottom:5px;"> <strong> <a href="https://www.slideshare.net/deview/1d1-n-screen-pars" title="[1D1]신개념 N스크린 웹 앱 프레임워크 PARS" target="_blank">[1D1]신개념 N스크린 웹 앱 프레임워크 PARS</a> </strong> from <strong><a href="http://www.slideshare.net/deview" target="_blank">NAVER D2</a></strong> </div>
+<p>첫 세션이다 보니 제일 맑은 정신으로 들었다. 시작은 N-Screen 의 발전과정에 대한 소개 부터..</p>
+<ol>
+<li>Fixed Service</li>
+<li>Cooperating Applications</li>
+<li>Cooperating Apps with Launch</li>
+<li>A Distributed Application</li>
+</ol>
+<p>PARS 는 이 중에서 제일 마지막 distributed application 그 중에서도 web app 을 위한 프레임워크다. 쉽게 이야기하자면, 스마트폰에 실행중인 어플리케이션을 티비에서 동일한 상태로 실행해 볼 수 있다는 개념이다. 어플리케이션의 화면을 스트리밍 하는게 아니라, 실행 컨텍스트에 대한 것도 모두 넘겨줘서, 원격지에 있는 객체가 해당 이벤트들을 처리하도록 하는 것.</p>
+<p>이와 유사한 Presentation API 라는 걸 웹표준으로 추진하고 있다던데, 기대된다. 관련자료를 찾아볼 필요가 있다.</p>
+<h1>WebRTC 개발, 현재 그리고 미래</h1>
+<p>[slideshare id=39609277&amp;w=427&amp;h=356&amp;style=border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&amp;sc=no]</p>
+<div style="margin-bottom:5px;"> <strong> <a href="https://www.slideshare.net/deview/1-c2webrtc" title="[1C2]webrtc 개발, 현재와 미래" target="_blank">[1C2]webrtc 개발, 현재와 미래</a> </strong> from <strong><a href="http://www.slideshare.net/deview" target="_blank">NAVER D2</a></strong> </div>
+<p>아자르 서비스에 대한 소개로 시작하여 WebRTC 를 쓰면, 쉽게 화상 채팅 솔루션 구현이 가능하다. 라고 결론을 내리는 줄 알았으나, 진짜 결론은 제품화하려면 그걸로는 안되지롱으로 끝났음. RTC 쪽이 다양한 아이디어에서 활용가능한 부분이 있을 것 같다. 최적화 부분에서는 운영하면서 조금씩 가다듬어 가는 것 말고 방법이 있겠는가? 어떤 서비스이고 어떤 컨텐츠가 오가느냐에 따라서 실시간 채팅의 퍼포먼스 목적도 달라질테니 말이다.</p>
+<p>코덱에 따라 브라우저의 관련 소스를 보고 작업해야 하는 애로사항들이 있다고 한다.</p>
+<h1>지금까지 상상한 표현의 한계를 넘자, webGL</h1>
+<p>[slideshare id=39609403&amp;w=427&amp;h=356&amp;style=border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&amp;sc=no]</p>
+<div style="margin-bottom:5px;"> <strong> <a href="https://www.slideshare.net/deview/1-a3-webgl" title="[1A3]지금까지 상상한 표현의 한계를 넘자 WebGL" target="_blank">[1A3]지금까지 상상한 표현의 한계를 넘자 WebGL</a> </strong> from <strong><a href="http://www.slideshare.net/deview" target="_blank">NAVER D2</a></strong> </div>
+<p>모바일 브라우저에서 3d 그래픽을 표시해야 한다면, webGL 이 정답이다. GPU 를 활용해서 좋은 퍼포먼스를 보여준다. 안드로이드 4.x 이상 ios 8 이상 기본 탑재된다고 한다. 예전 회사에서 미디어센터 ui 작업했던 게 생각나면서, 그때 이걸 도입해서 진행했으면 input 대비 결과가 조금 더 좋아졌을까? 하는 생각을 잠깐 했다.</p>
+<p>발표가 1,2 부로 나눠지는데, 1부에 쓰인 슬라이드 참 화려하게 잘 만들었음.</p>
+<h1>앱 세상에서 HTML5 생존기</h1>
+<p>http://infect2.github.io/html5WebApp/deview2014/index.html#/cover</p>
+<p>HTML5 기반으로 안드로이드 froyo 버전까지 지원되는 웹 기반 게임을 만들어라 라는 미션을 달성하기 위한 고군분투기.</p>
+<h1>Lessons from developing a Web browser for Raspberry Pi</h1>
+<p>[slideshare id=39609526&amp;w=427&amp;h=356&amp;style=border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&amp;sc=no]</p>
+<div style="margin-bottom:5px;"> <strong> <a href="https://www.slideshare.net/deview/1-c5lessons-from-developing-a-web-browser-for-raspberry-pi" title="[1C5]Lessons from developing a web browser for raspberry pi" target="_blank">[1C5]Lessons from developing a web browser for raspberry pi</a> </strong> from <strong><a href="http://www.slideshare.net/deview" target="_blank">NAVER D2</a></strong> </div>
+<p>발표자가 WebKit commiter 라고 해서, 우와~ 함. 라즈베리파이 같은 제한된 환경에서 브라우저를 만들면서 고생한 경험담. 세부적인 데테일들은 잘 모르니 그러려니하고 넘겼다. 다른 사람이 고생한 이야기를 듣는 건 항상 재밌는 일.</p>
+<h1>오픈소스 하드웨어 플랫폼과 Node.js로 구현하는 IoT 플랫폼</h1>
+<p>[slideshare id=39637830&amp;w=427&amp;h=356&amp;style=border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&amp;sc=no]</p>
+<div style="margin-bottom:5px;"> <strong> <a href="https://www.slideshare.net/deview/1c6-nodejs-iot" title="[1C6]오픈소스 하드웨어 플랫폼과 Node.js로 구현하는 IoT 플랫폼" target="_blank">[1C6]오픈소스 하드웨어 플랫폼과 Node.js로 구현하는 IoT 플랫폼</a> </strong> from <strong><a href="http://www.slideshare.net/deview" target="_blank">NAVER D2</a></strong> </div>
+<p>아두이노나 라즈베리 같은데서 node.js 돌려서 이것저것 만들었다는 이야기. IOT  이야기와 node.js 가 임베디드 쪽에서의 활용도에 대한 것들로 관심이 많았으나, 감기 몸살로 방전 상태에서 들었다. 매직에코에서 만든 루미스마트라는 제품이 재미있었다.</p>
+<hr />
+<p>데뷰 같은 컨퍼런스에 오면, 여러모로 다양한 각도의 자극을 받을 수 있어서 좋다. 생각 중인 아이디어들과 합쳐 지기도 하고, 몰랐던 시장과 기술을 알 수 있게 되어서 좋기도 하다. 몸살만 아니었으면, 마지막 세션까지 듣고 가려고 했는데 안타깝다.</p>

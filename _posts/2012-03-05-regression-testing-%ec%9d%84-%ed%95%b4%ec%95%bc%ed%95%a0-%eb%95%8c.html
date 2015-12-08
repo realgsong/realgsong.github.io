@@ -1,0 +1,39 @@
+---
+layout: post
+title: Regression Testing 을 해야할 때
+date: 2012-03-05 21:37:51.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 개발
+- 프로젝트 퇴보
+- 회귀버그
+- 회귀테스트
+- 자동화 테스트
+- 코드 품질
+- Regression test
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  _social_aggregated_ids: a:2:{s:7:"twitter";a:0:{}s:8:"facebook";a:0:{}}
+  _social_aggregation_log: a:10:{i:1330952446;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330954330;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330957844;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330961602;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330969806;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1330984869;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331014748;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331058749;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331145972;O:8:"stdClass":1:{s:6:"manual";s:0:"";}i:1331318828;O:8:"stdClass":1:{s:6:"manual";s:0:"";}}
+  original_post_id: '5668'
+  _wp_old_slug: '5668'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>소프트웨어 업데이트를 통해 기능을 붙여가려면 매번 릴리즈하는 패치의 품질을 어느 정도 보장받을 수 있어야 한다. 새로운 기능 추가나 버그 픽스도 중요하지만, 그것보다 중요한 것은 기존의 기능을 의도치 않게 깨먹는 것을 막는 것이다.</p>
+<p>소프트웨어 변경 후에 의도치 않게 기존의 기능을 깨먹는 것을 regression bug 라고 한다. 이 regression bug 를 줄이는 것이 아주 중요한데, 이걸 막음으로써 프로덕트 개발이 뒤로 퇴보 하지 않는다는 확신을 할 수 있기 때문이다.</p>
+<p>논외로 regression 을 보통 ‘회귀’ 라고 번역을 많이 하는데, 그것보다는 ‘퇴행’ 이나 ‘퇴보’ 가 더 적절한 번역이 아닌가 하는 생각이 든다.</p>
+<p>아무튼 현재 우리 팀 상황에서 regression 버그를 줄이려면, 두 가지 측면에서 노력해 볼 수 있다.</p>
+<p>첫째는, 버그픽스를 좀 더 정성들여 쓰도록 코드 퀄러티를 높이도록 하는 것이고,</p>
+<p>둘째는, 자동화된 테스트를 최대한 활용하여 고쳤던 버그가 다시 재현되는 일이 없도록 하는 것이다.</p>
+<p>코드 품질을 높이는 활동은 여러 가지를 동반해서 진행할 수 있을 것 같다. 무엇보다 좋은 코드란 무엇인가에 대한 공감대를 형성할 수 있어야 될 것 같은데, 이것은 <a href="http://www.gsong.pe.kr/wp/?p=5658">코드 품질에 대한 책들</a>을 함께 공부하는 식으로 성취할 수 있을 것 같다.</p>
+<p>자동화된 테스팅은 안드로이드에서 다양한 레벨의 자동화 테스팅을 지원하니 이것을 정리해서 세미나를 한번 하고 같이 코딩해보는 걸로 시작해봄직 하다.</p>

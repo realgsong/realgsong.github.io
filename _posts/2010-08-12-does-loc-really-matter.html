@@ -1,0 +1,57 @@
+---
+layout: post
+title: Does LOC really matter?
+date: 2010-08-12 15:40:16.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- 개발
+- 버그
+- 소프트웨어
+- 픽스
+meta:
+  _publicize_pending: '1'
+  original_post_id: '3124'
+  _wp_old_slug: '3124'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<h1>문제</h1>
+<p>어떤 버그에 대한 픽스를 두 명이서 동시에 썼다고 하자. A 의 것은 약 50 줄 정도를 수정했다. 반면 B 의 것은 약 200 줄 정도를 수정했다. LOC (Line Of Change)에 근거해서 볼 때, <u>누구의 픽스가 더 좋은 픽스일까?</u></p>
+<p> </p>
+<h1>생각</h1>
+<p>질문을 정제하기 위해 몇가지 기준들을 정해보자. 더 좋은 픽스란 무엇일까? 픽스에 포함되 bug 가 더 적은 것이 좋은 픽스라고 할 수 있겠다. 그럼 위 질문은 다시 말해</p>
+<p><u>누구의 픽스가 더 적은 Defects(=bug) 를 가지고 있을까?</u></p>
+<p>이걸 판단하려면, <u>LOC 사이즈와 Change 안에 있는 defect 의 수에는 상관 관계가 있을까?</u> 라는 질문을 먼저 해야 될 것 같다. 여기에 대해서는 예전에 읽은  <a href="http://www.gsong.pe.kr/tc/677">Best Kept Secrest of Peer code review</a>에서 그 영향력이 매우 적거나 증명된 바가 없다고 했다.</p>
+<p>잠깐, 너무 빨리 답으로 뛰어들었다. 질문을 좀 더 정제해보자. LOC 를 어떻게 측정할 것인가? 단순한 Diff 의 크기로 비교할 것인가? 아니면 그 복잡도의 weight 를 고려한 값으로 계산할 것인가? 아니면 기계어로 바꾸어 놓고 그 차이를 비교해 볼 것인가? (LOC 를 셈하는 근원은 Assembly language 로 프로그래밍하던 시대에 기원하긴 한다.)</p>
+<p>글쎄다. 이건 모르겠다. LOC 를 규정하는 방법은 너무 다양할 것 같다. 그럼 동일한 조건 하에서 비교한 실험등은 없을까? LOC metrics 로 인한 영향력을 없애려면, 동일한 프로젝트에서 측정된 연구 결과가 있으면 딱 좋을 것 같은데…</p>
+<p>아 모르겠다. 논문을 쓸 것도 아니고 그냥 웹 검색을 하자. (라기 보다 논문을 써본적도 없고, 어떻게 쓰는 건지도 모른다.) 잽싸게 검색을 해보니 어쨋든 아주 재밌는 연구 결과가 하나 있다. 아니 있었나 보다.</p>
+<blockquote><p>…. Recent studies show a curvilinear relationship between defect rate and executable LOC. Defect density, or defects per KLOC, appears to decrease with program size and then increase again as program modules become very large (see Figure 3.1). Curiously, this result suggests that there may be an optimum program size leading to a lowest defect rate—depending, of course, on programming language, project size, product type, and computing environment …</p>
+<p>(출처 : <a title="http://www.developer.com/design/article.php/10925_3644656_2/Software-Quality-Metrics.htm" href="http://www.developer.com/design/article.php/10925_3644656_2/Software-Quality-Metrics.htm">http://www.developer.com/design/article.php/10925_3644656_2/Software-Quality-Metrics.htm</a>)</p>
+<p><img src="{{ site.baseurl }}/assets/wp/Fig01.gif" width="500" /></p>
+</blockquote>
+<p>그러니까, <u>Defect density 가 최소가 되는 최적의 LOC 값이 존재한다는 이야기다.</u> 물론 이 말을 곧이 곧대로 믿기에는 한계가 있다. 왜냐하면 LOC 와 # Defects 의 영향력을 무의미한 것으로 만들어버릴 정도로 이 결과는 외부 요소에 의해 크게 좌지우지 되기 때문이다. 어쨋거나 여기서 얻을 수 있는 것은 <u>LOC 와 Defects Density 사이에는 선형적인 상관관계가 없다</u> 정도 되겠다.</p>
+<p>원점으로 돌아와서 다시 생각해보자. 방금 봤던 내용들은 머릿속 한 켠에 정리해두고 잊어버리자. 최초의 질문으로 돌아가서, 만약 A 와 B 의 픽스 둘 다 훌륭히 버그를 고쳤다면 우리는 둘 중 누구 것을 골라야 될까?</p>
+<p><a href="http://en.wikipedia.org/wiki/Occam%27s_razor">Occam’s razor</a> 원칙에 따르자면, 일반적으로 <u>더 단순한 것이 정답일</u> 경우가 많단다. 그럼 다시 이렇게 물어보자. A 의 50 줄 짜리 fix 가 더 단순한 것일까? B 의 200 줄짜리 fix 가 더 단순한 것일까?</p>
+<p>이렇게 질문을 바꾸고 나니, 내가 왜 이렇게 혼란스러워 했는지 알 것 같다. <u>LOC 만으로는 Fix 의 단순함 또는 복잡함 정도를 나타낼 수 없기 때문이다.</u> 만약 LOC 가 작은 픽스가 더 단순하다 라는 명제를 지지하려면, 다음과 같은 가설이 있어야 한다.</p>
+<blockquote><p><strong>Reducing the code involved in a task will only help reduce the bug count IF THE PROCESS MAKES THE CODE MORE READABLE</strong></p>
+<p><strong>(출처 : <a title="http://www.callingshotgun.net/geekery/lines-of-code-dispelling-the-myths/" href="http://www.callingshotgun.net/geekery/lines-of-code-dispelling-the-myths/">http://www.callingshotgun.net/geekery/lines-of-code-dispelling-the-myths/</a>)</strong></p>
+</blockquote>
+<p>역시 검색으로 나왔던 블로그인데, 참으로 내가 하고 싶은 말을 그대로 해주었다. code size 를 줄여서 얻고자 하는 이득이 # of defects 를 줄이고자 하는 것이라면, (즉 정답에 가까운 답으로 만들고자 하는 것이라면) 그 과정이 code 의 readability 를 높이는 방향이어야 된다는 이야기다.</p>
+<p> </p>
+<h1>결론</h1>
+<ul>
+<li>애시당초 코드를 고치지 않는다면, 버그가 더 생길 가능성도 없다. (줄지도 않겠지만) 그럼에도 우리는 버그를 고쳐야 하는 운명이다. </li>
+<li><u>LOC 와 Defect density 는 선형적 상관관계가 아니다. </u></li>
+<li><u>LOC 보다 # of defects 에 영향을 주는 것은 Readability 이다. </u></li>
+<li><u>Readibility 가 좋은 코드가 # of defects 도 적은 코드일 가능성이 높다. </u></li>
+<li><u><strong>LOC 를 줄여서 Fix 의 Quality 를 높이고자 한다면, 그 과정이 Readability 를 높이는 방향이어야 한다.</strong></u> </li>
+</ul>
+<p><em>왜 혼자서 질문던지고 답변하는 놀이를 하고 있느냐? 라는 질문을 할 만한데, 그것은 최근에 겪은 일 때문이다. 회사 업무와 관련이 있어서 블로그에 자세히 쓰지는 못할 것 같은데, 공개해도 괜찮은 내용들로 가다듬어서 글 한 자락 더 써보려고 한다. 언제가 될지는 모르겠지만.</em></p>

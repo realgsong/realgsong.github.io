@@ -1,0 +1,53 @@
+---
+layout: post
+title: 자바 import 문에 클래스 나열하기?
+date: 2012-08-18 23:30:25.000000000 +09:00
+type: post
+published: true
+status: publish
+categories:
+- Dev
+tags:
+- '*'
+- class name
+- import
+- 클래스
+- 자바
+- Java
+- wild card
+meta:
+  _publicize_pending: '1'
+  _edit_last: '16961716'
+  original_post_id: '6484'
+  _wp_old_slug: '6484'
+author:
+  login: realgsong
+  email: realgsong@hotmail.com
+  display_name: realgsong
+  first_name: Ki-Sung
+  last_name: Bae
+---
+<p>자바로 코딩하다 보면 소스가 수정될 수록 import 구문들이 점점 길어지는 경우가 있다. import 를 할 때 클래스 이름까지 명시하는 습관에서 생긴 문제이다.</p>
+<pre class="brush: java; gutter: true">import java.awt.Event</pre>
+<p>위와 같이 클래스까지 명시하는 경우 생기는 장점은 다른 패키지의 같은 클래스, 예를 들어 com.mycompany.calendar.Event 와 혼용될 가능성이 적어진다는 것이다. 하지만, 컴파일러가 좋아져서 요즘은 이런 경우가 잘 없다.</p>
+<p><a href="http://stackoverflow.com/a/1992695">Clean code 에서 엉클밥 언급했다는 대목이</a> 있어서 아래에 가져왔다.</p>
+<blockquote><p>J1: Avoid Long Import Lists by Using Wildcards</p>
+<p>If you use two or more classes from a package, then import the whole package with</p>
+<p>import package.*;</p>
+<p>Long lists of imports are daunting to the reader. We don’t want to clutter up the tops of our modules with 80 lines of imports. Rather we want the imports to be a concise statement about which packages we collaborate with.</p>
+<p><span style="text-decoration:underline;"><strong>Specific imports are hard dependencies, whereas wildcard imports are not. If you specifically import a class, then that class must exist. But if you import a package with a wildcard, no particular classes need to exist.</strong> </span>The import statement simply adds the package to the search path when hunting for names. So no true dependency is created by such imports, and they therefore serve to keep our modules less coupled.</p>
+<p>There are times when the long list of specific imports can be useful. For example, if you are dealing with legacy code and you want to find out what classes you need to build mocks and stubs for, you can walk down the list of specific imports to find out the true qualified names of all those classes and then put the appropriate stubs in place. However, this use for specific imports is very rare. <strong>Furthermore, most modern IDEs will allow you to convert the wildcarded imports to a list of specific imports with a single command</strong>. So even in the legacy case it’s better to import wildcards.</p>
+<p><span style="text-decoration:underline;"><strong>Wildcard imports can sometimes cause name conflicts and ambiguities. Two classes with the same name, but in different packages, will need to be specifically imported, or at least specifically qualified when used. This can be a nuisance but is rare enough that using wildcard imports is still generally better than specific imports.</strong></span></p></blockquote>
+<p>요약하자면, 클래스 이름을 쓰는 경우는 그로 인한 디펜던시만 증가한다는 것과 클래스 이름을 쓸 때 얻을 수 있는 유일한 이점(두 패키지 안에 같은 이름의 클래스가 있는 경우)이 현실에서는 잘 발생하지 않는다는 것이다.</p>
+<p>결론을 내려 보자면 스트라이크-아웃 룰이 어떨까 한다. 같은 패키지의 클래스들이 2개 정도까지는 봐주고 3개가 되기 시작하면 wild card 를 쓰는 것이다. 예를 들면</p>
+<pre class="brush: java; gutter: true">import my.pkg.com.BigClass;
+import my.pkg.com.SmallClass;
+// 두줄까지는 ok
+
+import my.pkg.com.BigClass;
+import my.pkg.com.SmallClass;
+import my.pkg.com.TinyClass;
+// 세 줄부터는 안됨. 아래와 같이 변경
+
+import my.pkg.com.*;</pre>
+<p>이런 식의 컨벤션을 팀 내에 정해서 쓰면, import 구문들이 한결 깔끔해지지 않을까 한다.</p>
