@@ -4,7 +4,7 @@ title:  "생각 하수 처리 시스템 개비 상황 보고"
 date:   2016-01-28 19:00:00
 categories: Life
 tags: 
-image: /assets/article_images/Life.jpg
+image: 
 comments: true
 ---
 
