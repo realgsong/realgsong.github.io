@@ -1,7 +1,5 @@
 # Build settings
-markdown: redcarpet
-redcarpet:
-    extensions: ["fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+markdown: kramdown
 highlighter: pygments
 gems:
   - jemoji
