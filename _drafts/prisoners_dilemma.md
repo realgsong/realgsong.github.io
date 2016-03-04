@@ -2,7 +2,7 @@
 layout: post
 title:  "죄수의 딜레마"
 date:   2016-03-04 19:00:00
-categories: Life
+categories: Business
 image: /assets/article_images/strategy.jpg
 comments: true
 ---
