@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "변화"
-date:   2015-06-16 14:00:00
+date:   2015-06-16 14:00:00 +0900
 categories: Life
 image: /assets/article_images/2014-11-30-mediator_features/night-track.JPG
 comments: true

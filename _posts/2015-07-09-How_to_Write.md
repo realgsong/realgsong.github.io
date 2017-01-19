@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "글 쓰기가 어려울 때"
-date:   2015-07-09 16:00:00
+date:   2015-07-09 16:00:00 +0900
 categories: Life
 tags: 
 image: /assets/article_images/library.jpg

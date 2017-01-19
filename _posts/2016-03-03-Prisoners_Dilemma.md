@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "죄수의 딜레마"
-date:   2016-03-03 19:00:00
+date:   2016-03-03 19:00:00 +0900
 categories: Business
 image: /assets/article_images/strategy.jpg
 comments: true

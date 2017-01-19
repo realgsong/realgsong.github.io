@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "데브플랜 쓰기"
-date:   2016-09-04 14:00:00
+date:   2016-09-04 14:00:00 +0900
 categories: dev
 image: /assets/article_images/computer.jpg
 comments: true

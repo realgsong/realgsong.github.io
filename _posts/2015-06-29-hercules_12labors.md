@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "헤라클레스의 속죄 의식"
-date:   2015-06-29 18:00:00
+date:   2015-06-29 18:00:00 +0900
 categories: Life
 tags: 
 image: /assets/article_images/hercules.jpg

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "하드씽(The Hard Thing About Hard Things)"
-date:   2015-06-20 14:00:00
+date:   2015-06-20 14:00:00 +0900
 categories: book
 image: /assets/article_images/library.jpg
 comments: true

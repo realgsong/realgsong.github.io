@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "소프트웨어와 재고"
-date:   2016-06-08 19:30:00
+date:   2016-06-08 19:30:00 +0900
 categories: Dev
 image: /assets/article_images/computer.jpg
 comments: true

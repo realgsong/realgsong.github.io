@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "좋은 기업을 넘어 위대한 기업으로"
-date:   2016-05-13 19:30:00
+date:   2016-05-13 19:30:00 +0900
 categories: Book
 image: /assets/article_images/library.jpg
 comments: true

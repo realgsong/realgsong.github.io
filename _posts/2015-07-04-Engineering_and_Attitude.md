@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "공학적 삶의 태도란 무엇인가"
-date:   2015-07-04 14:34:25
+date:   2015-07-04 14:34:25 +0900
 categories: Life
 tags: 
 image: /assets/article_images/engine.jpg

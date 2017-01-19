@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "품질을 높이는 버그 선별, 그리고 직관"
-date:   2015-07-21 23:00:00
+date:   2015-07-21 23:00:00 +0900
 categories: Dev
 tags: 
 image: /assets/article_images/computer.jpg

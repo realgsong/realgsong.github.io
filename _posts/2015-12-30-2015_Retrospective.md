@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "2015년을 돌아보며"
-date:   2015-12-30 18:00:00
+date:   2015-12-30 18:00:00 +0900
 categories: Life
 image: /assets/article_images/life.jpg
 comments: true
