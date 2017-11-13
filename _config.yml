@@ -20,7 +20,7 @@ name: 'Ki Sung Bae'
 author: 'Ki Sung Bae'
 author_image: "/assets/images/author.png"
 
-paginate:	5
+paginate:	10
 
 url: "http://gsong.pe.kr" # the base hostname & protocol for your site
 feedurl: "http://feeds.feedburner.com/GsongsBlog"
