@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "페이스북 이펙트"
-date: 2017-11-l20 16:00:00 +0009
+date: 2017-11-20 16:00:00 +0009
 categories: book
 tags: []
 image: /assets/article_images/library.jpg
