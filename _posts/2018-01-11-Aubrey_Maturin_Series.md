@@ -2,7 +2,7 @@
 layout: post
 title:  "오브리 머투린 시리즈 마스터 앤드 커맨더, 포스트 캡틴 by 패트릭 오브라이언"
 date:   2018-01-11 16:00:00 +0900
-categories: life
+categories: book
 image: /assets/article_images/library.jpg
 comments: true
 ---
