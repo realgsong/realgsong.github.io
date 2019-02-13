@@ -4,3 +4,5 @@
 _site
 *.orig
 .jekyll-metadata
+vendor
+.bundle
