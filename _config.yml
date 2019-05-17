@@ -35,6 +35,13 @@ social:
     share_title: ?text=
     share_link: "&amp;url="
 
+  - icon:	linkedin
+    url:	https://www.linkedin.com/in/ksbae
+    desc: LinkedIn 
+    share_url: http://twitter.com/share
+    share_title: ?text=
+    share_link: "&amp;url="
+
 #  - icon:	facebook
 #    url:	https://facebook.com/realgsong
 #    desc: Connect with me facebook
