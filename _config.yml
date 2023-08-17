@@ -29,8 +29,8 @@ baseurl: ""
 # social icons and sharing options
 social:
   - icon:	twitter
-    url:	https://twitter.com/realgsong
-    desc: Follow me on twitter
+    url:	https://social.silicon.moe/@realgsong
+    desc: Follow me on Mastodon
     share_url: http://twitter.com/share
     share_title: ?text=
     share_link: "&amp;url="
