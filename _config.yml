@@ -31,7 +31,7 @@ social:
   - icon:	twitter
     url:	https://social.silicon.moe/@realgsong
     desc: Follow me on Mastodon
-    share_url: http://twitter.com/share
+    share_url: https://mastodonshare.com/
     share_title: ?text=
     share_link: "&amp;url="
 
