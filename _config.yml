@@ -28,8 +28,8 @@ baseurl: ""
 
 # social icons and sharing options
 social:
-  - icon:	twitter
-    url:	https://social.silicon.moe/@realgsong
+  - icon:	mastodon
+    url:	https://planet.moe/@realgsong
     desc: Follow me on Mastodon
     share_url: https://mastodonshare.com/
     share_title: ?text=
@@ -41,27 +41,6 @@ social:
     share_url: https://www.linkedin.com/cws/share
     share_title: ?text=
     share_link: "&amp;url="
-
-#  - icon:	facebook
-#    url:	https://facebook.com/realgsong
-#    desc: Connect with me facebook
-#    share_url: https://www.facebook.com/sharer.php
-#    share_title: ?t=
-#    share_link: "&amp;u="
-#
-#  - icon:	github
-#    url:	https://github.com/realgsong
-#    desc:	Fork me on github
-#    share_url:
-#    share_title:
-#    share_link:
-
-#  - icon:	google-plus
-#    url:	https://google.com/???
-#    desc:	Add me on google+
-#    share_url:
-#    share_title:
-#    share_link:
 
 # Social meta tags
 timezone:       "Asia/Seoul"
